@@ -1,0 +1,10 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/09%20-%20UI/Style.uss?fileID=7433441132597879392&amp;guid=a5ddd88d4ee62284286cba5298daf885&amp;type=3#Style"/>
+    <ui:VisualElement name="root" style="flex-grow: 0; padding-top: 5px; padding-right: 5px; padding-bottom: 5px; padding-left: 5px; flex-shrink: 0; width: 100px; height: 100px;">
+        <ui:VisualElement name="item-content" style="flex-grow: 1; border-left-color: rgb(255, 255, 255); border-right-color: rgb(255, 255, 255); border-top-color: rgb(255, 255, 255); border-bottom-color: rgb(255, 255, 255); border-top-width: 2px; border-right-width: 2px; border-bottom-width: 2px; border-left-width: 2px; border-top-left-radius: 5px; border-top-right-radius: 5px; border-bottom-right-radius: 5px; border-bottom-left-radius: 5px; background-color: rgb(223, 167, 22); padding-top: 8px; padding-right: 8px; padding-bottom: 8px; padding-left: 8px;">
+            <ui:Label text="Label" name="label-name" class="basic-text-prompt"/>
+            <ui:VisualElement name="icon" style="flex-grow: 1; position: relative; margin-top: 5px; margin-right: 5px; margin-bottom: 5px; margin-left: 5px; left: auto; right: auto; bottom: auto; top: auto; align-self: center; align-content: center; align-items: center; width: 90%; height: 90px; flex-shrink: 1; overflow: visible; border-top-width: 2px; border-right-width: 2px; border-bottom-width: 2px; border-left-width: 2px; border-top-left-radius: 5px; border-top-right-radius: 5px; border-bottom-right-radius: 5px; border-bottom-left-radius: 5px; border-left-color: rgb(230, 137, 38); border-right-color: rgb(230, 137, 38); border-top-color: rgb(230, 137, 38); border-bottom-color: rgb(230, 137, 38); background-color: rgba(255, 255, 255, 0.3);"/>
+            <ui:Label text="Label" name="label-value" class="basic-text-prompt"/>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

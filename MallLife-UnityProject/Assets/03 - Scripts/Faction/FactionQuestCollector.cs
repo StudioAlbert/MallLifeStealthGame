@@ -4,7 +4,7 @@ using UnityEngine.Events;
 public class FactionQuestCollector :  MonoBehaviour
 {
     
-    [SerializeField] private Inventory _inventory;
+    [SerializeField] private InventorySO _inventory;
     [SerializeField] private QuestContent _questContent;
     
     [SerializeField] private Quest _quest;

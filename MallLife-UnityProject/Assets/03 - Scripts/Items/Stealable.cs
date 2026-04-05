@@ -4,7 +4,7 @@ using UnityEngine;
 public class Stealable : MonoBehaviour
 {
     [SerializeField] private StealableItem _item;
-    [SerializeField] private Inventory _inventory;
+    [SerializeField] private InventorySO _inventory;
     [SerializeField] private ActionDescriptor _descriptor;
 
     public StealableItem Item => _item;
@@ -15,7 +15,7 @@ public class Stealable : MonoBehaviour
         _inventory.AddItem(_item);
         //Destroy(gameObject);
         gameObject.SetActive(false);
-        StartCoroutine(Relive());
+        //StartCoroutine(Relive());
     }
     
     private IEnumerator Relive()

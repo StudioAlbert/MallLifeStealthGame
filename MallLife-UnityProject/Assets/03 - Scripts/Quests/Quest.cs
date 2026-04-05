@@ -19,11 +19,11 @@ public class Quest
         ItemsToSteal = new List<StealableItem>(content._itemsToSteal);
     }
 
-    public bool Collect(Inventory inventory)
+    public bool Collect(InventorySO inventorySo)
     {
         foreach (StealableItem stealableItem in ItemsToSteal)
         {
-            var goodItem = inventory.StolenItems.First(si => si.GetType() == stealableItem.GetType());
+            var goodItem = inventorySo.StolenItems.First(si => si.GetType() == stealableItem.GetType());
             if (goodItem)
             {
                 ItemsToSteal.Remove(stealableItem);
