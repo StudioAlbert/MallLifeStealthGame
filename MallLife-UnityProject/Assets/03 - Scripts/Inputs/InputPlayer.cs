@@ -26,9 +26,6 @@ namespace Inputs
         public bool Interact;
         public bool ChangeVehicle;
         public bool ChangeObject;
-        public bool MenuEquipment;
-        public bool MenuObjectives;
-        public bool MenuStealthView;
 
         public bool UseObjectUp => Utils.OneUseValue(ref _useObjectUp);
         public bool UseObjectDown => Utils.OneUseValue(ref _useObjectDown);
@@ -57,15 +54,15 @@ namespace Inputs
 
             _controls.Player.UseObject.started += _ =>
             {
-                _useObjectDown = true;
+                _useObjectUp = true;
                 UseObject = true;
-                _useObjectUp = false;
+                _useObjectDown = false;
             };
             _controls.Player.UseObject.canceled += _ =>
             {
-                _useObjectDown = false;
+                _useObjectUp = false;
                 UseObject = false;
-                _useObjectUp = true;
+                _useObjectDown = true;
             };
 
             _controls.Player.Interact.started += _ => Interact = true;
@@ -77,14 +74,6 @@ namespace Inputs
             _controls.Player.ChangeObject.started += _ => ChangeObject = true;
             _controls.Player.ChangeObject.canceled += _ => ChangeObject = false;
 
-            _controls.Player.MenuEquipment.started += _ => MenuEquipment = true;
-            _controls.Player.MenuEquipment.canceled += _ => MenuEquipment = false;
-
-            _controls.Player.MenuObjectives.started += _ => MenuObjectives = true;
-            _controls.Player.MenuObjectives.canceled += _ => MenuObjectives = false;
-
-            _controls.Player.MenuStealthView.started += _ => MenuStealthView = true;
-            _controls.Player.MenuStealthView.canceled += _ => MenuStealthView = false;
         }
 
         private void OnEnable() => _controls.Player.Enable();

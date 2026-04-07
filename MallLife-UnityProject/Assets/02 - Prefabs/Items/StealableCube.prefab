@@ -127,7 +127,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc2e4ee2d58a63e40b438edce190e0a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Activable
-  _actionManager: {fileID: 0}
   _onHoverIn:
     m_PersistentCalls:
       m_Calls:
@@ -202,3 +201,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Stealable
   _item: {fileID: 0}
   _inventory: {fileID: 11400000, guid: 87365f924763c784b83835b48ef74495, type: 2}
+  _descriptor: {fileID: 0}
+  _lockableComponents:
+  - {fileID: 6174880183550289533}
+  - {fileID: 5667047245226106934}

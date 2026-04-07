@@ -147,33 +147,6 @@ public partial class @GameControls: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""MenuEquipment"",
-                    ""type"": ""Button"",
-                    ""id"": ""a1b2c3d4-0001-0008-0001-000000000001"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": ""Press(behavior=2)"",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""MenuObjectives"",
-                    ""type"": ""Button"",
-                    ""id"": ""a1b2c3d4-0001-0009-0001-000000000001"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": ""Press(behavior=2)"",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""MenuStealthView"",
-                    ""type"": ""Button"",
-                    ""id"": ""a1b2c3d4-0001-0010-0001-000000000001"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": ""Press(behavior=2)"",
-                    ""initialStateCheck"": false
-                },
-                {
                     ""name"": ""CameraZoom"",
                     ""type"": ""Value"",
                     ""id"": ""5e840e5c-8b0c-49d7-81ca-0b98d63e4e49"",
@@ -362,72 +335,6 @@ public partial class @GameControls: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""b1b2c3d4-0001-0017-0001-000000000001"",
-                    ""path"": ""<Gamepad>/dpad/up"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Gamepad"",
-                    ""action"": ""MenuEquipment"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""b1b2c3d4-0001-0018-0001-000000000001"",
-                    ""path"": ""<Keyboard>/i"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""MenuEquipment"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""b1b2c3d4-0001-0019-0001-000000000001"",
-                    ""path"": ""<Gamepad>/dpad/down"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Gamepad"",
-                    ""action"": ""MenuObjectives"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""b1b2c3d4-0001-0020-0001-000000000001"",
-                    ""path"": ""<Keyboard>/j"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""MenuObjectives"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""b1b2c3d4-0001-0021-0001-000000000001"",
-                    ""path"": ""<Gamepad>/dpad/right"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Gamepad"",
-                    ""action"": ""MenuStealthView"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""b1b2c3d4-0001-0022-0001-000000000001"",
-                    ""path"": ""<Keyboard>/m"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""MenuStealthView"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""3c40098a-0b70-4d56-bdb9-318d32370786"",
                     ""path"": ""<Gamepad>/dpad"",
                     ""interactions"": """",
@@ -577,6 +484,107 @@ public partial class @GameControls: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Menus"",
+            ""id"": ""39338191-b4b8-4b44-af6e-decf38de4975"",
+            ""actions"": [
+                {
+                    ""name"": ""MenuEquipment"",
+                    ""type"": ""Button"",
+                    ""id"": ""f31336fd-e6fd-4d30-85fc-a26451c7f439"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": ""Press(behavior=2)"",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""MenuObjectives"",
+                    ""type"": ""Button"",
+                    ""id"": ""ffa8ecde-a62f-46bd-a848-ba8d096f9274"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": ""Press(behavior=2)"",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""MenuStealthView"",
+                    ""type"": ""Button"",
+                    ""id"": ""b41d6ec6-1ca5-469c-8042-fa05ab6a1c8d"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": ""Press(behavior=2)"",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""72da6cf3-ca38-4951-8911-9c32a1a888ca"",
+                    ""path"": ""<Gamepad>/dpad/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""MenuEquipment"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""287dcc55-adb1-48b9-bc18-ac0903734b19"",
+                    ""path"": ""<Keyboard>/i"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""MenuEquipment"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""612a1d43-ed9a-44af-9d98-a3fb921ec877"",
+                    ""path"": ""<Gamepad>/dpad/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""MenuObjectives"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e5fb93d0-7d62-40c0-b80b-7255f66c7392"",
+                    ""path"": ""<Keyboard>/j"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""MenuObjectives"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""eea3158d-e719-4ba1-9c8d-0e4ae3e602fe"",
+                    ""path"": ""<Gamepad>/dpad/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""MenuStealthView"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f3f675cb-7059-4005-b8fa-b220be7e6191"",
+                    ""path"": ""<Keyboard>/m"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""MenuStealthView"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": [
@@ -617,9 +625,6 @@ public partial class @GameControls: IInputActionCollection2, IDisposable
         m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
         m_Player_ChangeVehicle = m_Player.FindAction("ChangeVehicle", throwIfNotFound: true);
         m_Player_ChangeObject = m_Player.FindAction("ChangeObject", throwIfNotFound: true);
-        m_Player_MenuEquipment = m_Player.FindAction("MenuEquipment", throwIfNotFound: true);
-        m_Player_MenuObjectives = m_Player.FindAction("MenuObjectives", throwIfNotFound: true);
-        m_Player_MenuStealthView = m_Player.FindAction("MenuStealthView", throwIfNotFound: true);
         m_Player_CameraZoom = m_Player.FindAction("CameraZoom", throwIfNotFound: true);
         // QuickTimeEvents
         m_QuickTimeEvents = asset.FindActionMap("QuickTimeEvents", throwIfNotFound: true);
@@ -629,12 +634,18 @@ public partial class @GameControls: IInputActionCollection2, IDisposable
         m_QuickTimeEvents_West = m_QuickTimeEvents.FindAction("West", throwIfNotFound: true);
         m_QuickTimeEvents_Validate = m_QuickTimeEvents.FindAction("Validate", throwIfNotFound: true);
         m_QuickTimeEvents_Cancel = m_QuickTimeEvents.FindAction("Cancel", throwIfNotFound: true);
+        // Menus
+        m_Menus = asset.FindActionMap("Menus", throwIfNotFound: true);
+        m_Menus_MenuEquipment = m_Menus.FindAction("MenuEquipment", throwIfNotFound: true);
+        m_Menus_MenuObjectives = m_Menus.FindAction("MenuObjectives", throwIfNotFound: true);
+        m_Menus_MenuStealthView = m_Menus.FindAction("MenuStealthView", throwIfNotFound: true);
     }
 
     ~@GameControls()
     {
         UnityEngine.Debug.Assert(!m_Player.enabled, "This will cause a leak and performance issues, GameControls.Player.Disable() has not been called.");
         UnityEngine.Debug.Assert(!m_QuickTimeEvents.enabled, "This will cause a leak and performance issues, GameControls.QuickTimeEvents.Disable() has not been called.");
+        UnityEngine.Debug.Assert(!m_Menus.enabled, "This will cause a leak and performance issues, GameControls.Menus.Disable() has not been called.");
     }
 
     /// <summary>
@@ -716,9 +727,6 @@ public partial class @GameControls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Interact;
     private readonly InputAction m_Player_ChangeVehicle;
     private readonly InputAction m_Player_ChangeObject;
-    private readonly InputAction m_Player_MenuEquipment;
-    private readonly InputAction m_Player_MenuObjectives;
-    private readonly InputAction m_Player_MenuStealthView;
     private readonly InputAction m_Player_CameraZoom;
     /// <summary>
     /// Provides access to input actions defined in input action map "Player".
@@ -755,18 +763,6 @@ public partial class @GameControls: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Player/ChangeObject".
         /// </summary>
         public InputAction @ChangeObject => m_Wrapper.m_Player_ChangeObject;
-        /// <summary>
-        /// Provides access to the underlying input action "Player/MenuEquipment".
-        /// </summary>
-        public InputAction @MenuEquipment => m_Wrapper.m_Player_MenuEquipment;
-        /// <summary>
-        /// Provides access to the underlying input action "Player/MenuObjectives".
-        /// </summary>
-        public InputAction @MenuObjectives => m_Wrapper.m_Player_MenuObjectives;
-        /// <summary>
-        /// Provides access to the underlying input action "Player/MenuStealthView".
-        /// </summary>
-        public InputAction @MenuStealthView => m_Wrapper.m_Player_MenuStealthView;
         /// <summary>
         /// Provides access to the underlying input action "Player/CameraZoom".
         /// </summary>
@@ -815,15 +811,6 @@ public partial class @GameControls: IInputActionCollection2, IDisposable
             @ChangeObject.started += instance.OnChangeObject;
             @ChangeObject.performed += instance.OnChangeObject;
             @ChangeObject.canceled += instance.OnChangeObject;
-            @MenuEquipment.started += instance.OnMenuEquipment;
-            @MenuEquipment.performed += instance.OnMenuEquipment;
-            @MenuEquipment.canceled += instance.OnMenuEquipment;
-            @MenuObjectives.started += instance.OnMenuObjectives;
-            @MenuObjectives.performed += instance.OnMenuObjectives;
-            @MenuObjectives.canceled += instance.OnMenuObjectives;
-            @MenuStealthView.started += instance.OnMenuStealthView;
-            @MenuStealthView.performed += instance.OnMenuStealthView;
-            @MenuStealthView.canceled += instance.OnMenuStealthView;
             @CameraZoom.started += instance.OnCameraZoom;
             @CameraZoom.performed += instance.OnCameraZoom;
             @CameraZoom.canceled += instance.OnCameraZoom;
@@ -856,15 +843,6 @@ public partial class @GameControls: IInputActionCollection2, IDisposable
             @ChangeObject.started -= instance.OnChangeObject;
             @ChangeObject.performed -= instance.OnChangeObject;
             @ChangeObject.canceled -= instance.OnChangeObject;
-            @MenuEquipment.started -= instance.OnMenuEquipment;
-            @MenuEquipment.performed -= instance.OnMenuEquipment;
-            @MenuEquipment.canceled -= instance.OnMenuEquipment;
-            @MenuObjectives.started -= instance.OnMenuObjectives;
-            @MenuObjectives.performed -= instance.OnMenuObjectives;
-            @MenuObjectives.canceled -= instance.OnMenuObjectives;
-            @MenuStealthView.started -= instance.OnMenuStealthView;
-            @MenuStealthView.performed -= instance.OnMenuStealthView;
-            @MenuStealthView.canceled -= instance.OnMenuStealthView;
             @CameraZoom.started -= instance.OnCameraZoom;
             @CameraZoom.performed -= instance.OnCameraZoom;
             @CameraZoom.canceled -= instance.OnCameraZoom;
@@ -1052,6 +1030,124 @@ public partial class @GameControls: IInputActionCollection2, IDisposable
     /// Provides a new <see cref="QuickTimeEventsActions" /> instance referencing this action map.
     /// </summary>
     public QuickTimeEventsActions @QuickTimeEvents => new QuickTimeEventsActions(this);
+
+    // Menus
+    private readonly InputActionMap m_Menus;
+    private List<IMenusActions> m_MenusActionsCallbackInterfaces = new List<IMenusActions>();
+    private readonly InputAction m_Menus_MenuEquipment;
+    private readonly InputAction m_Menus_MenuObjectives;
+    private readonly InputAction m_Menus_MenuStealthView;
+    /// <summary>
+    /// Provides access to input actions defined in input action map "Menus".
+    /// </summary>
+    public struct MenusActions
+    {
+        private @GameControls m_Wrapper;
+
+        /// <summary>
+        /// Construct a new instance of the input action map wrapper class.
+        /// </summary>
+        public MenusActions(@GameControls wrapper) { m_Wrapper = wrapper; }
+        /// <summary>
+        /// Provides access to the underlying input action "Menus/MenuEquipment".
+        /// </summary>
+        public InputAction @MenuEquipment => m_Wrapper.m_Menus_MenuEquipment;
+        /// <summary>
+        /// Provides access to the underlying input action "Menus/MenuObjectives".
+        /// </summary>
+        public InputAction @MenuObjectives => m_Wrapper.m_Menus_MenuObjectives;
+        /// <summary>
+        /// Provides access to the underlying input action "Menus/MenuStealthView".
+        /// </summary>
+        public InputAction @MenuStealthView => m_Wrapper.m_Menus_MenuStealthView;
+        /// <summary>
+        /// Provides access to the underlying input action map instance.
+        /// </summary>
+        public InputActionMap Get() { return m_Wrapper.m_Menus; }
+        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Enable()" />
+        public void Enable() { Get().Enable(); }
+        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Disable()" />
+        public void Disable() { Get().Disable(); }
+        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.enabled" />
+        public bool enabled => Get().enabled;
+        /// <summary>
+        /// Implicitly converts an <see ref="MenusActions" /> to an <see ref="InputActionMap" /> instance.
+        /// </summary>
+        public static implicit operator InputActionMap(MenusActions set) { return set.Get(); }
+        /// <summary>
+        /// Adds <see cref="InputAction.started"/>, <see cref="InputAction.performed"/> and <see cref="InputAction.canceled"/> callbacks provided via <param cref="instance" /> on all input actions contained in this map.
+        /// </summary>
+        /// <param name="instance">Callback instance.</param>
+        /// <remarks>
+        /// If <paramref name="instance" /> is <c>null</c> or <paramref name="instance"/> have already been added this method does nothing.
+        /// </remarks>
+        /// <seealso cref="MenusActions" />
+        public void AddCallbacks(IMenusActions instance)
+        {
+            if (instance == null || m_Wrapper.m_MenusActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_MenusActionsCallbackInterfaces.Add(instance);
+            @MenuEquipment.started += instance.OnMenuEquipment;
+            @MenuEquipment.performed += instance.OnMenuEquipment;
+            @MenuEquipment.canceled += instance.OnMenuEquipment;
+            @MenuObjectives.started += instance.OnMenuObjectives;
+            @MenuObjectives.performed += instance.OnMenuObjectives;
+            @MenuObjectives.canceled += instance.OnMenuObjectives;
+            @MenuStealthView.started += instance.OnMenuStealthView;
+            @MenuStealthView.performed += instance.OnMenuStealthView;
+            @MenuStealthView.canceled += instance.OnMenuStealthView;
+        }
+
+        /// <summary>
+        /// Removes <see cref="InputAction.started"/>, <see cref="InputAction.performed"/> and <see cref="InputAction.canceled"/> callbacks provided via <param cref="instance" /> on all input actions contained in this map.
+        /// </summary>
+        /// <remarks>
+        /// Calling this method when <paramref name="instance" /> have not previously been registered has no side-effects.
+        /// </remarks>
+        /// <seealso cref="MenusActions" />
+        private void UnregisterCallbacks(IMenusActions instance)
+        {
+            @MenuEquipment.started -= instance.OnMenuEquipment;
+            @MenuEquipment.performed -= instance.OnMenuEquipment;
+            @MenuEquipment.canceled -= instance.OnMenuEquipment;
+            @MenuObjectives.started -= instance.OnMenuObjectives;
+            @MenuObjectives.performed -= instance.OnMenuObjectives;
+            @MenuObjectives.canceled -= instance.OnMenuObjectives;
+            @MenuStealthView.started -= instance.OnMenuStealthView;
+            @MenuStealthView.performed -= instance.OnMenuStealthView;
+            @MenuStealthView.canceled -= instance.OnMenuStealthView;
+        }
+
+        /// <summary>
+        /// Unregisters <param cref="instance" /> and unregisters all input action callbacks via <see cref="MenusActions.UnregisterCallbacks(IMenusActions)" />.
+        /// </summary>
+        /// <seealso cref="MenusActions.UnregisterCallbacks(IMenusActions)" />
+        public void RemoveCallbacks(IMenusActions instance)
+        {
+            if (m_Wrapper.m_MenusActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        /// <summary>
+        /// Replaces all existing callback instances and previously registered input action callbacks associated with them with callbacks provided via <param cref="instance" />.
+        /// </summary>
+        /// <remarks>
+        /// If <paramref name="instance" /> is <c>null</c>, calling this method will only unregister all existing callbacks but not register any new callbacks.
+        /// </remarks>
+        /// <seealso cref="MenusActions.AddCallbacks(IMenusActions)" />
+        /// <seealso cref="MenusActions.RemoveCallbacks(IMenusActions)" />
+        /// <seealso cref="MenusActions.UnregisterCallbacks(IMenusActions)" />
+        public void SetCallbacks(IMenusActions instance)
+        {
+            foreach (var item in m_Wrapper.m_MenusActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_MenusActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    /// <summary>
+    /// Provides a new <see cref="MenusActions" /> instance referencing this action map.
+    /// </summary>
+    public MenusActions @Menus => new MenusActions(this);
     private int m_KeyboardMouseSchemeIndex = -1;
     /// <summary>
     /// Provides access to the input control scheme.
@@ -1128,27 +1224,6 @@ public partial class @GameControls: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnChangeObject(InputAction.CallbackContext context);
         /// <summary>
-        /// Method invoked when associated input action "MenuEquipment" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
-        /// </summary>
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnMenuEquipment(InputAction.CallbackContext context);
-        /// <summary>
-        /// Method invoked when associated input action "MenuObjectives" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
-        /// </summary>
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnMenuObjectives(InputAction.CallbackContext context);
-        /// <summary>
-        /// Method invoked when associated input action "MenuStealthView" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
-        /// </summary>
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnMenuStealthView(InputAction.CallbackContext context);
-        /// <summary>
         /// Method invoked when associated input action "CameraZoom" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>
         /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
@@ -1205,5 +1280,34 @@ public partial class @GameControls: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnCancel(InputAction.CallbackContext context);
+    }
+    /// <summary>
+    /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "Menus" which allows adding and removing callbacks.
+    /// </summary>
+    /// <seealso cref="MenusActions.AddCallbacks(IMenusActions)" />
+    /// <seealso cref="MenusActions.RemoveCallbacks(IMenusActions)" />
+    public interface IMenusActions
+    {
+        /// <summary>
+        /// Method invoked when associated input action "MenuEquipment" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnMenuEquipment(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "MenuObjectives" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnMenuObjectives(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "MenuStealthView" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnMenuStealthView(InputAction.CallbackContext context);
     }
 }

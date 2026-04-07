@@ -9,7 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: e85b45b766b84882b66436b5a366b908, type: 3}
   m_Name: SlowPush
   m_EditorClassIdentifier: Assembly-CSharp::SimplePushDescriptor
-  FailTime: 5
+  FailTime: 25
+  ReliveTime: 5

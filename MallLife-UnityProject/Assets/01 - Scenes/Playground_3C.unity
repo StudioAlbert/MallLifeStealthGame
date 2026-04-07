@@ -513,6 +513,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4814248907893870101, guid: bac4a5d98632ee946a5f60ffb8051b99, type: 3}
+      propertyPath: _descriptor
+      value: 
+      objectReference: {fileID: 11400000, guid: b73cd887f60d22b44a0a2e588fe82b00, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1042,6 +1046,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4814248907893870101, guid: 57b7b7180c1f4d947926a2e982679e3a, type: 3}
+      propertyPath: _descriptor
+      value: 
+      objectReference: {fileID: 11400000, guid: 28b03f512d9ee724e861a28a1026b12b, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1612,6 +1620,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4814248907893870101, guid: bac4a5d98632ee946a5f60ffb8051b99, type: 3}
+      propertyPath: _descriptor
+      value: 
+      objectReference: {fileID: 11400000, guid: b73cd887f60d22b44a0a2e588fe82b00, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1756,7 +1768,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::UIViewInventory
   _inventoryDocument: {fileID: 1224444658}
   _inventoryDatas: {fileID: 11400000, guid: 87365f924763c784b83835b48ef74495, type: 2}
-  _slotTemplate: {fileID: 9197481963319205126, guid: 6c523da50d60a9942b2a4647f1db59fa, type: 3}
+  _slotTemplate: {fileID: 9197481963319205126, guid: dee95de0ab8dddd4cabc2777467bc10a, type: 3}
+  _emptySlotTemplate: {fileID: 9197481963319205126, guid: 209c724dad217f3448e8c3b0d1d196ba, type: 3}
+  _gridSize: {x: 8, y: 2}
 --- !u!114 &1224444658
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2129,6 +2143,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1470216040}
+  - component: {fileID: 1470216041}
+  - component: {fileID: 1470216042}
   m_Layer: 0
   m_Name: Menus
   m_TagString: Untagged
@@ -2152,6 +2168,35 @@ Transform:
   - {fileID: 1224444656}
   m_Father: {fileID: 1837139254}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1470216041
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1470216039}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ecd8e0e44160a994c892dd1e9d8346f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InputMenus
+  Inventory: 0
+  Objectives: 0
+  StealthView: 0
+--- !u!114 &1470216042
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1470216039}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9685ae20ea3f5040ab5d87387fdabf7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MenusController
+  _inputMenus: {fileID: 1470216041}
+  _inventoryView: {fileID: 1224444655}
 --- !u!1 &1539160877
 GameObject:
   m_ObjectHideFlags: 0
@@ -2367,6 +2412,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4814248907893870101, guid: 57b7b7180c1f4d947926a2e982679e3a, type: 3}
+      propertyPath: _descriptor
+      value: 
+      objectReference: {fileID: 11400000, guid: 28b03f512d9ee724e861a28a1026b12b, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2408,6 +2457,7 @@ Transform:
   m_Children:
   - {fileID: 814620848}
   - {fileID: 1470216040}
+  - {fileID: 2018589070}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1850190508
@@ -2503,6 +2553,51 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 417308589199544183, guid: 1974f6ec9aba33e45b2ec9985960d36b, type: 3}
   m_PrefabInstance: {fileID: 45804073}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2018589069
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2018589070}
+  - component: {fileID: 2018589071}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2018589070
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2018589069}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1837139254}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2018589071
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2018589069}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0621343f5c5443cc86928a1bede68946, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameManager
+  _playerInventory: {fileID: 11400000, guid: 87365f924763c784b83835b48ef74495, type: 2}
 --- !u!4 &2023520431 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 417308589199544183, guid: bac4a5d98632ee946a5f60ffb8051b99, type: 3}
@@ -2928,6 +3023,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4814248907893870101, guid: 57b7b7180c1f4d947926a2e982679e3a, type: 3}
+      propertyPath: _descriptor
+      value: 
+      objectReference: {fileID: 11400000, guid: 28b03f512d9ee724e861a28a1026b12b, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

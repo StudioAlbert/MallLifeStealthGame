@@ -61,33 +61,6 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "MenuEquipment",
-                    "type": "Button",
-                    "id": "a1b2c3d4-0001-0008-0001-000000000001",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "Press(behavior=2)",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "MenuObjectives",
-                    "type": "Button",
-                    "id": "a1b2c3d4-0001-0009-0001-000000000001",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "Press(behavior=2)",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "MenuStealthView",
-                    "type": "Button",
-                    "id": "a1b2c3d4-0001-0010-0001-000000000001",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "Press(behavior=2)",
-                    "initialStateCheck": false
-                },
-                {
                     "name": "CameraZoom",
                     "type": "Value",
                     "id": "5e840e5c-8b0c-49d7-81ca-0b98d63e4e49",
@@ -276,72 +249,6 @@
                 },
                 {
                     "name": "",
-                    "id": "b1b2c3d4-0001-0017-0001-000000000001",
-                    "path": "<Gamepad>/dpad/up",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Gamepad",
-                    "action": "MenuEquipment",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "b1b2c3d4-0001-0018-0001-000000000001",
-                    "path": "<Keyboard>/i",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard&Mouse",
-                    "action": "MenuEquipment",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "b1b2c3d4-0001-0019-0001-000000000001",
-                    "path": "<Gamepad>/dpad/down",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Gamepad",
-                    "action": "MenuObjectives",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "b1b2c3d4-0001-0020-0001-000000000001",
-                    "path": "<Keyboard>/j",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard&Mouse",
-                    "action": "MenuObjectives",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "b1b2c3d4-0001-0021-0001-000000000001",
-                    "path": "<Gamepad>/dpad/right",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Gamepad",
-                    "action": "MenuStealthView",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "b1b2c3d4-0001-0022-0001-000000000001",
-                    "path": "<Keyboard>/m",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard&Mouse",
-                    "action": "MenuStealthView",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "3c40098a-0b70-4d56-bdb9-318d32370786",
                     "path": "<Gamepad>/dpad",
                     "interactions": "",
@@ -487,6 +394,107 @@
                     "processors": "",
                     "groups": "",
                     "action": "Cancel",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "Menus",
+            "id": "39338191-b4b8-4b44-af6e-decf38de4975",
+            "actions": [
+                {
+                    "name": "MenuEquipment",
+                    "type": "Button",
+                    "id": "f31336fd-e6fd-4d30-85fc-a26451c7f439",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "Press(behavior=2)",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "MenuObjectives",
+                    "type": "Button",
+                    "id": "ffa8ecde-a62f-46bd-a848-ba8d096f9274",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "Press(behavior=2)",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "MenuStealthView",
+                    "type": "Button",
+                    "id": "b41d6ec6-1ca5-469c-8042-fa05ab6a1c8d",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "Press(behavior=2)",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "72da6cf3-ca38-4951-8911-9c32a1a888ca",
+                    "path": "<Gamepad>/dpad/up",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "MenuEquipment",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "287dcc55-adb1-48b9-bc18-ac0903734b19",
+                    "path": "<Keyboard>/i",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "MenuEquipment",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "612a1d43-ed9a-44af-9d98-a3fb921ec877",
+                    "path": "<Gamepad>/dpad/down",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "MenuObjectives",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e5fb93d0-7d62-40c0-b80b-7255f66c7392",
+                    "path": "<Keyboard>/j",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "MenuObjectives",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "eea3158d-e719-4ba1-9c8d-0e4ae3e602fe",
+                    "path": "<Gamepad>/dpad/right",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "MenuStealthView",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f3f675cb-7059-4005-b8fa-b220be7e6191",
+                    "path": "<Keyboard>/m",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "MenuStealthView",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

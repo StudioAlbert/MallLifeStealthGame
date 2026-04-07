@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Stealable : MonoBehaviour
@@ -7,22 +8,36 @@ public class Stealable : MonoBehaviour
     [SerializeField] private InventorySO _inventory;
     [SerializeField] private ActionDescriptor _descriptor;
 
+    [SerializeField] private List<Component> _lockableComponents;
+
     public StealableItem Item => _item;
     public ActionDescriptor Descriptor => _descriptor;
-    
+
     public void Steal()
     {
         _inventory.AddItem(_item);
-        //Destroy(gameObject);
-        gameObject.SetActive(false);
-        //StartCoroutine(Relive());
+
+        SetLockables(false);
+        StartCoroutine(Unlock());
+
     }
-    
-    private IEnumerator Relive()
+
+    private IEnumerator Unlock()
     {
-        if(gameObject.activeSelf) yield break;
-        
         yield return new WaitForSeconds(_descriptor.ReliveTime);
-        gameObject.SetActive(true);
+        SetLockables(true);
+    }
+
+    private void SetLockables(bool unlockState)
+    {
+        foreach (var component in _lockableComponents)
+        {
+            switch (component)
+            {
+                case Renderer r: r.enabled = unlockState; break;
+                case Collider c: c.enabled = unlockState; break;
+                case Behaviour b: b.enabled = unlockState; break;
+            }
+        }
     }
 }
