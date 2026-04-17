@@ -1,7 +1,7 @@
 ﻿public class QTEStateSuccess : QTEState
 {
 
-    public QTEStateSuccess(Inputs.QuickTimeEvents inputQuickTimeEvents) : base(inputQuickTimeEvents) {}
+    public QTEStateSuccess(CoreInputs.QuickTimeEvents inputQuickTimeEvents) : base(inputQuickTimeEvents) {}
     
     public override void OnEnter()
     {

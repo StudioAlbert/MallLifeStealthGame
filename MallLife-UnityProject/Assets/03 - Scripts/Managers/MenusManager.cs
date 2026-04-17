@@ -21,7 +21,8 @@ public class MenusManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(_inputMenus.InventoryUp) SwitchView(_inventoryView);
+        if(_inputMenus.Inventory.Down) _inventoryView.SetActive(true);
+        if(_inputMenus.Cancel.Up) _inventoryView.SetActive(false);
     }
 
     private void SwitchView(GameObject view)

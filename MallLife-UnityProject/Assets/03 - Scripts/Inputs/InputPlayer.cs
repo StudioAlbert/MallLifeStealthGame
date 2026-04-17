@@ -3,7 +3,7 @@ using Unity.Properties;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace Inputs
+namespace CoreInputs
 {
     /// <summary>
     /// Reads GameControls inputs via callbacks internally and exposes the current values as public properties.

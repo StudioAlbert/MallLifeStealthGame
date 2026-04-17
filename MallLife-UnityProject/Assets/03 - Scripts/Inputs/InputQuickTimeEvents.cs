@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace Inputs
+namespace CoreInputs
 {
     public class QuickTimeEvents : MonoBehaviour
     {

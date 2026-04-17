@@ -2,7 +2,7 @@
 public class QTEStateTick : QTEState
 {
 
-    public QTEStateTick(Inputs.QuickTimeEvents inputQuickTimeEvents) : base(inputQuickTimeEvents) {}
+    public QTEStateTick(CoreInputs.QuickTimeEvents inputQuickTimeEvents) : base(inputQuickTimeEvents) {}
     
     public override void OnEnter()
     {

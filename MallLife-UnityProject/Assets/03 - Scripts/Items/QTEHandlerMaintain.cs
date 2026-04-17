@@ -37,7 +37,7 @@ public class QTEHandlerMaintain : MonoBehaviour, IQTEHandler
         }
     }
     
-    public void Tick(float deltaTime, Inputs.QuickTimeEvents inputs)
+    public void Tick(float deltaTime, CoreInputs.QuickTimeEvents inputs)
     {
         if(_maintainedTime >= _descriptor.SuccessTime)
             _onComplete?.Invoke(true);

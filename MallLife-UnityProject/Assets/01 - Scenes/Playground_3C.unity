@@ -1733,7 +1733,7 @@ GameObject:
   - component: {fileID: 1224444658}
   - component: {fileID: 1224444657}
   m_Layer: 0
-  m_Name: Inventory
+  m_Name: UIInventory
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2180,7 +2180,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ecd8e0e44160a994c892dd1e9d8346f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InputMenus
-  Inventory: 0
+  Inventory:
+    _up: 0
+    _down: 0
+    _maintained: 0
+  Cancel:
+    _up: 0
+    _down: 0
+    _maintained: 0
   Objectives: 0
   StealthView: 0
 --- !u!114 &1470216042

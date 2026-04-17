@@ -6,7 +6,7 @@ using UnityEngine;
 public class QTEManager : MonoBehaviour
 {
 
-    [SerializeField] private Inputs.QuickTimeEvents _inputQuickTimeEvents;
+    [SerializeField] private CoreInputs.QuickTimeEvents _inputQuickTimeEvents;
     [SerializeField] private QTEHandlerMaintain _qteHandlerMaintain;
     [SerializeField] private QTEHandlerPush _qteHandlerPush;
     [SerializeField] private float _timeBeforeClosing = 0.75f;

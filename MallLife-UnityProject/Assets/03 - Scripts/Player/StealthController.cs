@@ -6,7 +6,7 @@ public class StealthController : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] private Sensor _stealthSensor;
-    [SerializeField] private Inputs.Player _inputPlayer;
+    [SerializeField] private CoreInputs.Player _inputPlayer;
     
     private Activable _activable;
     

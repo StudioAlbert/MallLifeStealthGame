@@ -35,7 +35,7 @@ public class QTEHandlerPush
         }
     }
     
-    public void Tick(float deltaTime, Inputs.QuickTimeEvents inputs)
+    public void Tick(float deltaTime, CoreInputs.QuickTimeEvents inputs)
     {
         if(inputs.SouthBtnDown)
             _onComplete?.Invoke(true);

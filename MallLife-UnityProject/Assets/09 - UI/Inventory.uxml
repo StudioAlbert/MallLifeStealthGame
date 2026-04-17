@@ -21,7 +21,9 @@
                 <ui:Instance template="InventoryEmptySlot" class="slot-container"/>
                 <ui:Instance template="InventorySlot" class="slot-container"/>
             </ui:VisualElement>
-            <ui:VisualElement name="BottomBar" style="flex-grow: 0; height: 12%; border-left-color: rgb(255, 255, 255); border-right-color: rgb(255, 255, 255); border-top-color: rgb(255, 255, 255); border-bottom-color: rgb(255, 255, 255); border-top-width: 2px;"/>
+            <ui:VisualElement name="BottomBar" style="flex-grow: 0; height: auto; border-left-color: rgb(255, 255, 255); border-right-color: rgb(255, 255, 255); border-top-color: rgb(255, 255, 255); border-bottom-color: rgb(255, 255, 255); border-top-width: 2px; flex-direction: row; justify-content: flex-end; align-self: auto; align-content: center; align-items: center; padding-top: 20px; padding-right: 0%; padding-bottom: 20px; padding-left: 0%;">
+                <ui:Button text="exit" name="cancel-btn" class="action-buttom" style="height: 25px;"/>
+            </ui:VisualElement>
         </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>

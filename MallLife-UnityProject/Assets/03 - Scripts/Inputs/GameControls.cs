@@ -486,11 +486,11 @@ public partial class @GameControls: IInputActionCollection2, IDisposable
             ]
         },
         {
-            ""name"": ""Menus"",
+            ""name"": ""QuickMenus"",
             ""id"": ""39338191-b4b8-4b44-af6e-decf38de4975"",
             ""actions"": [
                 {
-                    ""name"": ""MenuEquipment"",
+                    ""name"": ""Inventory"",
                     ""type"": ""Button"",
                     ""id"": ""f31336fd-e6fd-4d30-85fc-a26451c7f439"",
                     ""expectedControlType"": """",
@@ -499,7 +499,7 @@ public partial class @GameControls: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""MenuObjectives"",
+                    ""name"": ""Quests"",
                     ""type"": ""Button"",
                     ""id"": ""ffa8ecde-a62f-46bd-a848-ba8d096f9274"",
                     ""expectedControlType"": """",
@@ -508,7 +508,7 @@ public partial class @GameControls: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""MenuStealthView"",
+                    ""name"": ""StealthView"",
                     ""type"": ""Button"",
                     ""id"": ""b41d6ec6-1ca5-469c-8042-fa05ab6a1c8d"",
                     ""expectedControlType"": """",
@@ -525,7 +525,7 @@ public partial class @GameControls: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
-                    ""action"": ""MenuEquipment"",
+                    ""action"": ""Inventory"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -536,7 +536,7 @@ public partial class @GameControls: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""MenuEquipment"",
+                    ""action"": ""Inventory"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -547,7 +547,7 @@ public partial class @GameControls: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
-                    ""action"": ""MenuObjectives"",
+                    ""action"": ""Quests"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -558,7 +558,7 @@ public partial class @GameControls: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""MenuObjectives"",
+                    ""action"": ""Quests"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -569,7 +569,7 @@ public partial class @GameControls: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
-                    ""action"": ""MenuStealthView"",
+                    ""action"": ""StealthView"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -580,7 +580,77 @@ public partial class @GameControls: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""MenuStealthView"",
+                    ""action"": ""StealthView"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""UI"",
+            ""id"": ""1f136942-971d-4ab3-8e75-861918e23bd9"",
+            ""actions"": [
+                {
+                    ""name"": ""Confirm"",
+                    ""type"": ""Button"",
+                    ""id"": ""8c0304ce-c466-4a85-8942-18dab2798302"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": ""Press(behavior=2)"",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Cancel"",
+                    ""type"": ""Button"",
+                    ""id"": ""a41d8379-577b-4af9-b47e-3dc12f9a4a44"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": ""Press(behavior=2)"",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""24da3b2c-05ae-4de1-9b5b-94dc0abf6759"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Confirm"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""29afd8d9-0457-469e-be2b-0c7b936d8a26"",
+                    ""path"": ""<Keyboard>/enter"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Confirm"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5f20d05f-ec89-4042-9e96-0f0e88ef30e4"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Cancel"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4b1c8ae0-969a-41e2-bf09-d5bc2eb4568a"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Cancel"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -634,18 +704,23 @@ public partial class @GameControls: IInputActionCollection2, IDisposable
         m_QuickTimeEvents_West = m_QuickTimeEvents.FindAction("West", throwIfNotFound: true);
         m_QuickTimeEvents_Validate = m_QuickTimeEvents.FindAction("Validate", throwIfNotFound: true);
         m_QuickTimeEvents_Cancel = m_QuickTimeEvents.FindAction("Cancel", throwIfNotFound: true);
-        // Menus
-        m_Menus = asset.FindActionMap("Menus", throwIfNotFound: true);
-        m_Menus_MenuEquipment = m_Menus.FindAction("MenuEquipment", throwIfNotFound: true);
-        m_Menus_MenuObjectives = m_Menus.FindAction("MenuObjectives", throwIfNotFound: true);
-        m_Menus_MenuStealthView = m_Menus.FindAction("MenuStealthView", throwIfNotFound: true);
+        // QuickMenus
+        m_QuickMenus = asset.FindActionMap("QuickMenus", throwIfNotFound: true);
+        m_QuickMenus_Inventory = m_QuickMenus.FindAction("Inventory", throwIfNotFound: true);
+        m_QuickMenus_Quests = m_QuickMenus.FindAction("Quests", throwIfNotFound: true);
+        m_QuickMenus_StealthView = m_QuickMenus.FindAction("StealthView", throwIfNotFound: true);
+        // UI
+        m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
+        m_UI_Confirm = m_UI.FindAction("Confirm", throwIfNotFound: true);
+        m_UI_Cancel = m_UI.FindAction("Cancel", throwIfNotFound: true);
     }
 
     ~@GameControls()
     {
         UnityEngine.Debug.Assert(!m_Player.enabled, "This will cause a leak and performance issues, GameControls.Player.Disable() has not been called.");
         UnityEngine.Debug.Assert(!m_QuickTimeEvents.enabled, "This will cause a leak and performance issues, GameControls.QuickTimeEvents.Disable() has not been called.");
-        UnityEngine.Debug.Assert(!m_Menus.enabled, "This will cause a leak and performance issues, GameControls.Menus.Disable() has not been called.");
+        UnityEngine.Debug.Assert(!m_QuickMenus.enabled, "This will cause a leak and performance issues, GameControls.QuickMenus.Disable() has not been called.");
+        UnityEngine.Debug.Assert(!m_UI.enabled, "This will cause a leak and performance issues, GameControls.UI.Disable() has not been called.");
     }
 
     /// <summary>
@@ -1031,39 +1106,39 @@ public partial class @GameControls: IInputActionCollection2, IDisposable
     /// </summary>
     public QuickTimeEventsActions @QuickTimeEvents => new QuickTimeEventsActions(this);
 
-    // Menus
-    private readonly InputActionMap m_Menus;
-    private List<IMenusActions> m_MenusActionsCallbackInterfaces = new List<IMenusActions>();
-    private readonly InputAction m_Menus_MenuEquipment;
-    private readonly InputAction m_Menus_MenuObjectives;
-    private readonly InputAction m_Menus_MenuStealthView;
+    // QuickMenus
+    private readonly InputActionMap m_QuickMenus;
+    private List<IQuickMenusActions> m_QuickMenusActionsCallbackInterfaces = new List<IQuickMenusActions>();
+    private readonly InputAction m_QuickMenus_Inventory;
+    private readonly InputAction m_QuickMenus_Quests;
+    private readonly InputAction m_QuickMenus_StealthView;
     /// <summary>
-    /// Provides access to input actions defined in input action map "Menus".
+    /// Provides access to input actions defined in input action map "QuickMenus".
     /// </summary>
-    public struct MenusActions
+    public struct QuickMenusActions
     {
         private @GameControls m_Wrapper;
 
         /// <summary>
         /// Construct a new instance of the input action map wrapper class.
         /// </summary>
-        public MenusActions(@GameControls wrapper) { m_Wrapper = wrapper; }
+        public QuickMenusActions(@GameControls wrapper) { m_Wrapper = wrapper; }
         /// <summary>
-        /// Provides access to the underlying input action "Menus/MenuEquipment".
+        /// Provides access to the underlying input action "QuickMenus/Inventory".
         /// </summary>
-        public InputAction @MenuEquipment => m_Wrapper.m_Menus_MenuEquipment;
+        public InputAction @Inventory => m_Wrapper.m_QuickMenus_Inventory;
         /// <summary>
-        /// Provides access to the underlying input action "Menus/MenuObjectives".
+        /// Provides access to the underlying input action "QuickMenus/Quests".
         /// </summary>
-        public InputAction @MenuObjectives => m_Wrapper.m_Menus_MenuObjectives;
+        public InputAction @Quests => m_Wrapper.m_QuickMenus_Quests;
         /// <summary>
-        /// Provides access to the underlying input action "Menus/MenuStealthView".
+        /// Provides access to the underlying input action "QuickMenus/StealthView".
         /// </summary>
-        public InputAction @MenuStealthView => m_Wrapper.m_Menus_MenuStealthView;
+        public InputAction @StealthView => m_Wrapper.m_QuickMenus_StealthView;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
-        public InputActionMap Get() { return m_Wrapper.m_Menus; }
+        public InputActionMap Get() { return m_Wrapper.m_QuickMenus; }
         /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Enable()" />
         public void Enable() { Get().Enable(); }
         /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Disable()" />
@@ -1071,9 +1146,9 @@ public partial class @GameControls: IInputActionCollection2, IDisposable
         /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.enabled" />
         public bool enabled => Get().enabled;
         /// <summary>
-        /// Implicitly converts an <see ref="MenusActions" /> to an <see ref="InputActionMap" /> instance.
+        /// Implicitly converts an <see ref="QuickMenusActions" /> to an <see ref="InputActionMap" /> instance.
         /// </summary>
-        public static implicit operator InputActionMap(MenusActions set) { return set.Get(); }
+        public static implicit operator InputActionMap(QuickMenusActions set) { return set.Get(); }
         /// <summary>
         /// Adds <see cref="InputAction.started"/>, <see cref="InputAction.performed"/> and <see cref="InputAction.canceled"/> callbacks provided via <param cref="instance" /> on all input actions contained in this map.
         /// </summary>
@@ -1081,20 +1156,20 @@ public partial class @GameControls: IInputActionCollection2, IDisposable
         /// <remarks>
         /// If <paramref name="instance" /> is <c>null</c> or <paramref name="instance"/> have already been added this method does nothing.
         /// </remarks>
-        /// <seealso cref="MenusActions" />
-        public void AddCallbacks(IMenusActions instance)
+        /// <seealso cref="QuickMenusActions" />
+        public void AddCallbacks(IQuickMenusActions instance)
         {
-            if (instance == null || m_Wrapper.m_MenusActionsCallbackInterfaces.Contains(instance)) return;
-            m_Wrapper.m_MenusActionsCallbackInterfaces.Add(instance);
-            @MenuEquipment.started += instance.OnMenuEquipment;
-            @MenuEquipment.performed += instance.OnMenuEquipment;
-            @MenuEquipment.canceled += instance.OnMenuEquipment;
-            @MenuObjectives.started += instance.OnMenuObjectives;
-            @MenuObjectives.performed += instance.OnMenuObjectives;
-            @MenuObjectives.canceled += instance.OnMenuObjectives;
-            @MenuStealthView.started += instance.OnMenuStealthView;
-            @MenuStealthView.performed += instance.OnMenuStealthView;
-            @MenuStealthView.canceled += instance.OnMenuStealthView;
+            if (instance == null || m_Wrapper.m_QuickMenusActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_QuickMenusActionsCallbackInterfaces.Add(instance);
+            @Inventory.started += instance.OnInventory;
+            @Inventory.performed += instance.OnInventory;
+            @Inventory.canceled += instance.OnInventory;
+            @Quests.started += instance.OnQuests;
+            @Quests.performed += instance.OnQuests;
+            @Quests.canceled += instance.OnQuests;
+            @StealthView.started += instance.OnStealthView;
+            @StealthView.performed += instance.OnStealthView;
+            @StealthView.canceled += instance.OnStealthView;
         }
 
         /// <summary>
@@ -1103,27 +1178,27 @@ public partial class @GameControls: IInputActionCollection2, IDisposable
         /// <remarks>
         /// Calling this method when <paramref name="instance" /> have not previously been registered has no side-effects.
         /// </remarks>
-        /// <seealso cref="MenusActions" />
-        private void UnregisterCallbacks(IMenusActions instance)
+        /// <seealso cref="QuickMenusActions" />
+        private void UnregisterCallbacks(IQuickMenusActions instance)
         {
-            @MenuEquipment.started -= instance.OnMenuEquipment;
-            @MenuEquipment.performed -= instance.OnMenuEquipment;
-            @MenuEquipment.canceled -= instance.OnMenuEquipment;
-            @MenuObjectives.started -= instance.OnMenuObjectives;
-            @MenuObjectives.performed -= instance.OnMenuObjectives;
-            @MenuObjectives.canceled -= instance.OnMenuObjectives;
-            @MenuStealthView.started -= instance.OnMenuStealthView;
-            @MenuStealthView.performed -= instance.OnMenuStealthView;
-            @MenuStealthView.canceled -= instance.OnMenuStealthView;
+            @Inventory.started -= instance.OnInventory;
+            @Inventory.performed -= instance.OnInventory;
+            @Inventory.canceled -= instance.OnInventory;
+            @Quests.started -= instance.OnQuests;
+            @Quests.performed -= instance.OnQuests;
+            @Quests.canceled -= instance.OnQuests;
+            @StealthView.started -= instance.OnStealthView;
+            @StealthView.performed -= instance.OnStealthView;
+            @StealthView.canceled -= instance.OnStealthView;
         }
 
         /// <summary>
-        /// Unregisters <param cref="instance" /> and unregisters all input action callbacks via <see cref="MenusActions.UnregisterCallbacks(IMenusActions)" />.
+        /// Unregisters <param cref="instance" /> and unregisters all input action callbacks via <see cref="QuickMenusActions.UnregisterCallbacks(IQuickMenusActions)" />.
         /// </summary>
-        /// <seealso cref="MenusActions.UnregisterCallbacks(IMenusActions)" />
-        public void RemoveCallbacks(IMenusActions instance)
+        /// <seealso cref="QuickMenusActions.UnregisterCallbacks(IQuickMenusActions)" />
+        public void RemoveCallbacks(IQuickMenusActions instance)
         {
-            if (m_Wrapper.m_MenusActionsCallbackInterfaces.Remove(instance))
+            if (m_Wrapper.m_QuickMenusActionsCallbackInterfaces.Remove(instance))
                 UnregisterCallbacks(instance);
         }
 
@@ -1133,21 +1208,128 @@ public partial class @GameControls: IInputActionCollection2, IDisposable
         /// <remarks>
         /// If <paramref name="instance" /> is <c>null</c>, calling this method will only unregister all existing callbacks but not register any new callbacks.
         /// </remarks>
-        /// <seealso cref="MenusActions.AddCallbacks(IMenusActions)" />
-        /// <seealso cref="MenusActions.RemoveCallbacks(IMenusActions)" />
-        /// <seealso cref="MenusActions.UnregisterCallbacks(IMenusActions)" />
-        public void SetCallbacks(IMenusActions instance)
+        /// <seealso cref="QuickMenusActions.AddCallbacks(IQuickMenusActions)" />
+        /// <seealso cref="QuickMenusActions.RemoveCallbacks(IQuickMenusActions)" />
+        /// <seealso cref="QuickMenusActions.UnregisterCallbacks(IQuickMenusActions)" />
+        public void SetCallbacks(IQuickMenusActions instance)
         {
-            foreach (var item in m_Wrapper.m_MenusActionsCallbackInterfaces)
+            foreach (var item in m_Wrapper.m_QuickMenusActionsCallbackInterfaces)
                 UnregisterCallbacks(item);
-            m_Wrapper.m_MenusActionsCallbackInterfaces.Clear();
+            m_Wrapper.m_QuickMenusActionsCallbackInterfaces.Clear();
             AddCallbacks(instance);
         }
     }
     /// <summary>
-    /// Provides a new <see cref="MenusActions" /> instance referencing this action map.
+    /// Provides a new <see cref="QuickMenusActions" /> instance referencing this action map.
     /// </summary>
-    public MenusActions @Menus => new MenusActions(this);
+    public QuickMenusActions @QuickMenus => new QuickMenusActions(this);
+
+    // UI
+    private readonly InputActionMap m_UI;
+    private List<IUIActions> m_UIActionsCallbackInterfaces = new List<IUIActions>();
+    private readonly InputAction m_UI_Confirm;
+    private readonly InputAction m_UI_Cancel;
+    /// <summary>
+    /// Provides access to input actions defined in input action map "UI".
+    /// </summary>
+    public struct UIActions
+    {
+        private @GameControls m_Wrapper;
+
+        /// <summary>
+        /// Construct a new instance of the input action map wrapper class.
+        /// </summary>
+        public UIActions(@GameControls wrapper) { m_Wrapper = wrapper; }
+        /// <summary>
+        /// Provides access to the underlying input action "UI/Confirm".
+        /// </summary>
+        public InputAction @Confirm => m_Wrapper.m_UI_Confirm;
+        /// <summary>
+        /// Provides access to the underlying input action "UI/Cancel".
+        /// </summary>
+        public InputAction @Cancel => m_Wrapper.m_UI_Cancel;
+        /// <summary>
+        /// Provides access to the underlying input action map instance.
+        /// </summary>
+        public InputActionMap Get() { return m_Wrapper.m_UI; }
+        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Enable()" />
+        public void Enable() { Get().Enable(); }
+        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Disable()" />
+        public void Disable() { Get().Disable(); }
+        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.enabled" />
+        public bool enabled => Get().enabled;
+        /// <summary>
+        /// Implicitly converts an <see ref="UIActions" /> to an <see ref="InputActionMap" /> instance.
+        /// </summary>
+        public static implicit operator InputActionMap(UIActions set) { return set.Get(); }
+        /// <summary>
+        /// Adds <see cref="InputAction.started"/>, <see cref="InputAction.performed"/> and <see cref="InputAction.canceled"/> callbacks provided via <param cref="instance" /> on all input actions contained in this map.
+        /// </summary>
+        /// <param name="instance">Callback instance.</param>
+        /// <remarks>
+        /// If <paramref name="instance" /> is <c>null</c> or <paramref name="instance"/> have already been added this method does nothing.
+        /// </remarks>
+        /// <seealso cref="UIActions" />
+        public void AddCallbacks(IUIActions instance)
+        {
+            if (instance == null || m_Wrapper.m_UIActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_UIActionsCallbackInterfaces.Add(instance);
+            @Confirm.started += instance.OnConfirm;
+            @Confirm.performed += instance.OnConfirm;
+            @Confirm.canceled += instance.OnConfirm;
+            @Cancel.started += instance.OnCancel;
+            @Cancel.performed += instance.OnCancel;
+            @Cancel.canceled += instance.OnCancel;
+        }
+
+        /// <summary>
+        /// Removes <see cref="InputAction.started"/>, <see cref="InputAction.performed"/> and <see cref="InputAction.canceled"/> callbacks provided via <param cref="instance" /> on all input actions contained in this map.
+        /// </summary>
+        /// <remarks>
+        /// Calling this method when <paramref name="instance" /> have not previously been registered has no side-effects.
+        /// </remarks>
+        /// <seealso cref="UIActions" />
+        private void UnregisterCallbacks(IUIActions instance)
+        {
+            @Confirm.started -= instance.OnConfirm;
+            @Confirm.performed -= instance.OnConfirm;
+            @Confirm.canceled -= instance.OnConfirm;
+            @Cancel.started -= instance.OnCancel;
+            @Cancel.performed -= instance.OnCancel;
+            @Cancel.canceled -= instance.OnCancel;
+        }
+
+        /// <summary>
+        /// Unregisters <param cref="instance" /> and unregisters all input action callbacks via <see cref="UIActions.UnregisterCallbacks(IUIActions)" />.
+        /// </summary>
+        /// <seealso cref="UIActions.UnregisterCallbacks(IUIActions)" />
+        public void RemoveCallbacks(IUIActions instance)
+        {
+            if (m_Wrapper.m_UIActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        /// <summary>
+        /// Replaces all existing callback instances and previously registered input action callbacks associated with them with callbacks provided via <param cref="instance" />.
+        /// </summary>
+        /// <remarks>
+        /// If <paramref name="instance" /> is <c>null</c>, calling this method will only unregister all existing callbacks but not register any new callbacks.
+        /// </remarks>
+        /// <seealso cref="UIActions.AddCallbacks(IUIActions)" />
+        /// <seealso cref="UIActions.RemoveCallbacks(IUIActions)" />
+        /// <seealso cref="UIActions.UnregisterCallbacks(IUIActions)" />
+        public void SetCallbacks(IUIActions instance)
+        {
+            foreach (var item in m_Wrapper.m_UIActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_UIActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    /// <summary>
+    /// Provides a new <see cref="UIActions" /> instance referencing this action map.
+    /// </summary>
+    public UIActions @UI => new UIActions(this);
     private int m_KeyboardMouseSchemeIndex = -1;
     /// <summary>
     /// Provides access to the input control scheme.
@@ -1282,32 +1464,54 @@ public partial class @GameControls: IInputActionCollection2, IDisposable
         void OnCancel(InputAction.CallbackContext context);
     }
     /// <summary>
-    /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "Menus" which allows adding and removing callbacks.
+    /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "QuickMenus" which allows adding and removing callbacks.
     /// </summary>
-    /// <seealso cref="MenusActions.AddCallbacks(IMenusActions)" />
-    /// <seealso cref="MenusActions.RemoveCallbacks(IMenusActions)" />
-    public interface IMenusActions
+    /// <seealso cref="QuickMenusActions.AddCallbacks(IQuickMenusActions)" />
+    /// <seealso cref="QuickMenusActions.RemoveCallbacks(IQuickMenusActions)" />
+    public interface IQuickMenusActions
     {
         /// <summary>
-        /// Method invoked when associated input action "MenuEquipment" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// Method invoked when associated input action "Inventory" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>
         /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnMenuEquipment(InputAction.CallbackContext context);
+        void OnInventory(InputAction.CallbackContext context);
         /// <summary>
-        /// Method invoked when associated input action "MenuObjectives" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// Method invoked when associated input action "Quests" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>
         /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnMenuObjectives(InputAction.CallbackContext context);
+        void OnQuests(InputAction.CallbackContext context);
         /// <summary>
-        /// Method invoked when associated input action "MenuStealthView" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// Method invoked when associated input action "StealthView" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>
         /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnMenuStealthView(InputAction.CallbackContext context);
+        void OnStealthView(InputAction.CallbackContext context);
+    }
+    /// <summary>
+    /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "UI" which allows adding and removing callbacks.
+    /// </summary>
+    /// <seealso cref="UIActions.AddCallbacks(IUIActions)" />
+    /// <seealso cref="UIActions.RemoveCallbacks(IUIActions)" />
+    public interface IUIActions
+    {
+        /// <summary>
+        /// Method invoked when associated input action "Confirm" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnConfirm(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Cancel" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnCancel(InputAction.CallbackContext context);
     }
 }

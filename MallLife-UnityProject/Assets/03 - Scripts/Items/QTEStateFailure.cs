@@ -2,7 +2,7 @@
 using System;
 public class QTEStateFailure : QTEState
 {
-    public QTEStateFailure(Inputs.QuickTimeEvents inputQuickTimeEvents) : base(inputQuickTimeEvents) {}
+    public QTEStateFailure(CoreInputs.QuickTimeEvents inputQuickTimeEvents) : base(inputQuickTimeEvents) {}
     
     public override void OnEnter()
     {

@@ -400,11 +400,11 @@
             ]
         },
         {
-            "name": "Menus",
+            "name": "QuickMenus",
             "id": "39338191-b4b8-4b44-af6e-decf38de4975",
             "actions": [
                 {
-                    "name": "MenuEquipment",
+                    "name": "Inventory",
                     "type": "Button",
                     "id": "f31336fd-e6fd-4d30-85fc-a26451c7f439",
                     "expectedControlType": "",
@@ -413,7 +413,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "MenuObjectives",
+                    "name": "Quests",
                     "type": "Button",
                     "id": "ffa8ecde-a62f-46bd-a848-ba8d096f9274",
                     "expectedControlType": "",
@@ -422,7 +422,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "MenuStealthView",
+                    "name": "StealthView",
                     "type": "Button",
                     "id": "b41d6ec6-1ca5-469c-8042-fa05ab6a1c8d",
                     "expectedControlType": "",
@@ -439,7 +439,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
-                    "action": "MenuEquipment",
+                    "action": "Inventory",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -450,7 +450,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
-                    "action": "MenuEquipment",
+                    "action": "Inventory",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -461,7 +461,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
-                    "action": "MenuObjectives",
+                    "action": "Quests",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -472,7 +472,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
-                    "action": "MenuObjectives",
+                    "action": "Quests",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -483,7 +483,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
-                    "action": "MenuStealthView",
+                    "action": "StealthView",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -494,7 +494,77 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
-                    "action": "MenuStealthView",
+                    "action": "StealthView",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "UI",
+            "id": "1f136942-971d-4ab3-8e75-861918e23bd9",
+            "actions": [
+                {
+                    "name": "Confirm",
+                    "type": "Button",
+                    "id": "8c0304ce-c466-4a85-8942-18dab2798302",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "Press(behavior=2)",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Cancel",
+                    "type": "Button",
+                    "id": "a41d8379-577b-4af9-b47e-3dc12f9a4a44",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "Press(behavior=2)",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "24da3b2c-05ae-4de1-9b5b-94dc0abf6759",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Confirm",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "29afd8d9-0457-469e-be2b-0c7b936d8a26",
+                    "path": "<Keyboard>/enter",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Confirm",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "5f20d05f-ec89-4042-9e96-0f0e88ef30e4",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Cancel",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4b1c8ae0-969a-41e2-bf09-d5bc2eb4568a",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Cancel",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
