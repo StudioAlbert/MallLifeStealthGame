@@ -5,4 +5,5 @@ public class StealableItem : ScriptableObject
 {
     public string Name;
     public int NumericValue;
+    public Sprite Icon;
 }

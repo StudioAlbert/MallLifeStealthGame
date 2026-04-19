@@ -9,6 +9,7 @@ public class QTEManager : MonoBehaviour
     [SerializeField] private CoreInputs.QuickTimeEvents _inputQuickTimeEvents;
     [SerializeField] private QTEHandlerMaintain _qteHandlerMaintain;
     [SerializeField] private QTEHandlerPush _qteHandlerPush;
+    [SerializeField] private QTEHandlerMovingBall _qteHandlerMovingBall;
     [SerializeField] private float _timeBeforeClosing = 0.75f;
 
     private readonly Core.StateMachine _actionStateMachine = new Core.StateMachine();
@@ -106,6 +107,7 @@ public class QTEManager : MonoBehaviour
         {
             MaintainDescriptor => _qteHandlerMaintain,
             SimplePushDescriptor => _qteHandlerPush,
+            MovingBallDescriptor => _qteHandlerMovingBall,
             _ => null
         };
 

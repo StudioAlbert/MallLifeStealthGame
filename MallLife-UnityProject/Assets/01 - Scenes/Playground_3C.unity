@@ -134,7 +134,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 217030942250352970, guid: bac4a5d98632ee946a5f60ffb8051b99, type: 3}
       propertyPath: m_Name
-      value: RedCubeToSteal_Variant.0001
+      value: Red.0002
       objectReference: {fileID: 0}
     - target: {fileID: 417308589199544183, guid: bac4a5d98632ee946a5f60ffb8051b99, type: 3}
       propertyPath: m_LocalPosition.x
@@ -200,7 +200,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 217030942250352970, guid: 1974f6ec9aba33e45b2ec9985960d36b, type: 3}
       propertyPath: m_Name
-      value: StealableCube_YellowVariant.0001
+      value: Gold.0002
       objectReference: {fileID: 0}
     - target: {fileID: 417308589199544183, guid: 1974f6ec9aba33e45b2ec9985960d36b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -242,10 +242,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4814248907893870101, guid: 1974f6ec9aba33e45b2ec9985960d36b, type: 3}
-      propertyPath: _descriptor
-      value: 
-      objectReference: {fileID: 11400000, guid: 5360c72184cccdd44955ba473918d960, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -461,6 +457,74 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
   CustomBlends: {fileID: 0}
+--- !u!1001 &105898998
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 814620848}
+    m_Modifications:
+    - target: {fileID: 3735836734970648313, guid: f5d03b4cdf1c0bd49ba408ec9ae1171b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -7.16928
+      objectReference: {fileID: 0}
+    - target: {fileID: 3735836734970648313, guid: f5d03b4cdf1c0bd49ba408ec9ae1171b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3735836734970648313, guid: f5d03b4cdf1c0bd49ba408ec9ae1171b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -4.30036
+      objectReference: {fileID: 0}
+    - target: {fileID: 3735836734970648313, guid: f5d03b4cdf1c0bd49ba408ec9ae1171b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3735836734970648313, guid: f5d03b4cdf1c0bd49ba408ec9ae1171b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3735836734970648313, guid: f5d03b4cdf1c0bd49ba408ec9ae1171b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3735836734970648313, guid: f5d03b4cdf1c0bd49ba408ec9ae1171b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3735836734970648313, guid: f5d03b4cdf1c0bd49ba408ec9ae1171b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3735836734970648313, guid: f5d03b4cdf1c0bd49ba408ec9ae1171b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3735836734970648313, guid: f5d03b4cdf1c0bd49ba408ec9ae1171b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6061719469836487811, guid: f5d03b4cdf1c0bd49ba408ec9ae1171b, type: 3}
+      propertyPath: m_Name
+      value: MovingBall
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6061719469836487811, guid: f5d03b4cdf1c0bd49ba408ec9ae1171b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1069050696}
+    - targetCorrespondingSourceObject: {fileID: 6061719469836487811, guid: f5d03b4cdf1c0bd49ba408ec9ae1171b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1069050695}
+  m_SourcePrefab: {fileID: 100100000, guid: f5d03b4cdf1c0bd49ba408ec9ae1171b, type: 3}
+--- !u!4 &105898999 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3735836734970648313, guid: f5d03b4cdf1c0bd49ba408ec9ae1171b, type: 3}
+  m_PrefabInstance: {fileID: 105898998}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &133369894
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -471,7 +535,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 217030942250352970, guid: bac4a5d98632ee946a5f60ffb8051b99, type: 3}
       propertyPath: m_Name
-      value: RedCubeToSteal_Variant
+      value: Red.0001
       objectReference: {fileID: 0}
     - target: {fileID: 417308589199544183, guid: bac4a5d98632ee946a5f60ffb8051b99, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1004,7 +1068,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 217030942250352970, guid: 57b7b7180c1f4d947926a2e982679e3a, type: 3}
       propertyPath: m_Name
-      value: BlueCubeToSteal_Variant.0001
+      value: Blue.0003
       objectReference: {fileID: 0}
     - target: {fileID: 417308589199544183, guid: 57b7b7180c1f4d947926a2e982679e3a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1207,6 +1271,7 @@ Transform:
   m_Children:
   - {fileID: 353507441}
   - {fileID: 7713348627236953922}
+  - {fileID: 105898999}
   m_Father: {fileID: 1837139254}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &814620850
@@ -1242,6 +1307,7 @@ MonoBehaviour:
   _inputQuickTimeEvents: {fileID: 814620850}
   _qteHandlerMaintain: {fileID: 353507444}
   _qteHandlerPush: {fileID: 7913807427250077958}
+  _qteHandlerMovingBall: {fileID: 1069050695}
   _timeBeforeClosing: 0.4
 --- !u!1001 &841001973
 PrefabInstance:
@@ -1310,7 +1376,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 217030942250352970, guid: 1974f6ec9aba33e45b2ec9985960d36b, type: 3}
       propertyPath: m_Name
-      value: StealableCube_YellowVariant.0002
+      value: Gold.0003
       objectReference: {fileID: 0}
     - target: {fileID: 417308589199544183, guid: 1974f6ec9aba33e45b2ec9985960d36b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1352,10 +1418,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4814248907893870101, guid: 1974f6ec9aba33e45b2ec9985960d36b, type: 3}
-      propertyPath: _descriptor
-      value: 
-      objectReference: {fileID: 11400000, guid: 5360c72184cccdd44955ba473918d960, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1578,7 +1640,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 217030942250352970, guid: bac4a5d98632ee946a5f60ffb8051b99, type: 3}
       propertyPath: m_Name
-      value: RedCubeToSteal_Variant.0002
+      value: Red.0003
       objectReference: {fileID: 0}
     - target: {fileID: 417308589199544183, guid: bac4a5d98632ee946a5f60ffb8051b99, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1629,6 +1691,49 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bac4a5d98632ee946a5f60ffb8051b99, type: 3}
+--- !u!1 &1069050694 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6061719469836487811, guid: f5d03b4cdf1c0bd49ba408ec9ae1171b, type: 3}
+  m_PrefabInstance: {fileID: 105898998}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1069050695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1069050694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb2cbaa5efa24663bdb45cf53c40af4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::QTEHandlerMovingBall
+  _itemUIView: {fileID: 1069050696}
+  _needToConfirm: 0
+--- !u!114 &1069050696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1069050694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f428f4e1877449edad40026adb7424ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UIViewMovingBall
+  _document: {fileID: 1069050697}
+--- !u!114 &1069050697 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: -5715836641112426855, guid: f5d03b4cdf1c0bd49ba408ec9ae1171b, type: 3}
+  m_PrefabInstance: {fileID: 105898998}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1069050694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 19102, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.dll::UnityEngine.UIElements.UIDocument
 --- !u!4 &1075803196 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4883762814713038, guid: baebdd3b26f756b4c8f1b2d2efe1cf42, type: 3}
@@ -1738,7 +1843,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1224444656
 Transform:
   m_ObjectHideFlags: 0
@@ -1877,7 +1982,7 @@ Light:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1260507274}
   m_Enabled: 1
-  serializedVersion: 12
+  serializedVersion: 13
   m_Type: 1
   m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
   m_Intensity: 1
@@ -1929,7 +2034,7 @@ Light:
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ForceVisible: 0
-  m_ShadowRadius: 0
+  m_ShapeRadius: 0
   m_ShadowAngle: 0
   m_LightUnit: 1
   m_LuxAtDistance: 1
@@ -1988,7 +2093,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 217030942250352970, guid: 1974f6ec9aba33e45b2ec9985960d36b, type: 3}
       propertyPath: m_Name
-      value: StealableCube_YellowVariant
+      value: Gold.0001
       objectReference: {fileID: 0}
     - target: {fileID: 417308589199544183, guid: 1974f6ec9aba33e45b2ec9985960d36b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2030,10 +2135,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4814248907893870101, guid: 1974f6ec9aba33e45b2ec9985960d36b, type: 3}
-      propertyPath: _descriptor
-      value: 
-      objectReference: {fileID: 11400000, guid: 5360c72184cccdd44955ba473918d960, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2107,6 +2208,10 @@ PrefabInstance:
     - target: {fileID: 6786231983329591788, guid: b5c5f30c03ed37c4c983aa7a4e06b58f, type: 3}
       propertyPath: m_Name
       value: Maintain
+      objectReference: {fileID: 0}
+    - target: {fileID: 6786231983329591788, guid: b5c5f30c03ed37c4c983aa7a4e06b58f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2377,7 +2482,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 217030942250352970, guid: 57b7b7180c1f4d947926a2e982679e3a, type: 3}
       propertyPath: m_Name
-      value: BlueCubeToSteal_Variant
+      value: Blue.0002
       objectReference: {fileID: 0}
     - target: {fileID: 417308589199544183, guid: 57b7b7180c1f4d947926a2e982679e3a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2728,6 +2833,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Push
       objectReference: {fileID: 0}
+    - target: {fileID: 6902042220924903264, guid: 7dbde8d17d746af45988b8e0f065a5c7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2988,7 +3097,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 217030942250352970, guid: 57b7b7180c1f4d947926a2e982679e3a, type: 3}
       propertyPath: m_Name
-      value: CubeToSteal.0001
+      value: Blue.0001
       objectReference: {fileID: 0}
     - target: {fileID: 417308589199544183, guid: 57b7b7180c1f4d947926a2e982679e3a, type: 3}
       propertyPath: m_LocalPosition.x

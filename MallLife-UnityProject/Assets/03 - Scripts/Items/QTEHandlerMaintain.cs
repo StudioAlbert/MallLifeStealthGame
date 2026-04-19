@@ -19,8 +19,8 @@ public class QTEHandlerMaintain : MonoBehaviour, IQTEHandler
     public bool NeedToConfirm => _needToConfirm;
     
     // Fix this with UI, here is some range placeholder
-    public float ErrorRatio => _totalTickTime / _descriptor.FailTime;
-    public float MaintainRatio => _maintainedTime / _descriptor.SuccessTime;
+    private float ErrorRatio => _totalTickTime / _descriptor.FailTime;
+    private float MaintainRatio => _maintainedTime / _descriptor.SuccessTime;
     
     public void Init(GameObject actionObject, Action<bool> onComplete)
     {

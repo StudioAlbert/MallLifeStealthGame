@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::StolenValue
   Name: Gold cube
   NumericValue: 100
+  Icon: {fileID: 21300000, guid: 49c3c89a77d74b246858c38845a15d69, type: 3}

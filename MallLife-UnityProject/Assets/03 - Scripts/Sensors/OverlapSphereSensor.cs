@@ -25,7 +25,7 @@ public class OverlapSphereSensor : Sensor
         
         if (nbCollisions > 0)
         {
-            Debug.Log($"{nbCollisions} Collisions detected.");
+            // Debug.Log($"{nbCollisions} Collisions detected.");
             
             float bestScore = float.MinValue;
             int bestColliderIndex = 0;

@@ -15,7 +15,7 @@ PrefabInstance:
     - target: {fileID: 264926323883378977, guid: 2c4be8b6a6a2d2844a047a6347b01e8a, type: 3}
       propertyPath: _descriptor
       value: 
-      objectReference: {fileID: 11400000, guid: 5360c72184cccdd44955ba473918d960, type: 2}
+      objectReference: {fileID: 11400000, guid: d815fa3a3569e184fb75e1bff3f5f056, type: 2}
     - target: {fileID: 264926323883378977, guid: 2c4be8b6a6a2d2844a047a6347b01e8a, type: 3}
       propertyPath: _selectedMat
       value: 

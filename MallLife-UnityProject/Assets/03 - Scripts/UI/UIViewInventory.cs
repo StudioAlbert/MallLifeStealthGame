@@ -69,10 +69,8 @@ public class UIViewInventory : MonoBehaviour
         TemplateContainer slot = _slotTemplate.Instantiate();
 
         // Fill it with your SO data
-        // var icon = slot.Q<VisualElement>("icon");
-        // icon.style.backgroundImage = item != null
-        //     ? new StyleBackground(item.Icon)
-        //     : StyleKeyword.None;
+        var icon = slot.Q<VisualElement>("icon");
+        icon.style.backgroundImage = item != null ? new StyleBackground(item.Icon) : StyleKeyword.None;
 
         var labelName = slot.Q<Label>("label-name");
         labelName.text = item != null ? item.Name : "";
