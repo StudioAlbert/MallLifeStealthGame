@@ -6,15 +6,11 @@ public class QTEHandlerMovingBall : MonoBehaviour, IQTEHandler
     [Header("References")]
     [SerializeField] private UIViewMovingBall _itemUIView;
 
-    [Header("UI Settings")]
-    [SerializeField] private bool _needToConfirm = false;
-
     private float _totalTickTime;
     private Action<bool> _onComplete;
     private MovingBallDescriptor _descriptor;
 
     public IUIView UIView => _itemUIView;
-    public bool NeedToConfirm => _needToConfirm;
 
     // Fix this with UI, here is some range placeholder
     private float ErrorRatio => _totalTickTime / _descriptor.FailTime;

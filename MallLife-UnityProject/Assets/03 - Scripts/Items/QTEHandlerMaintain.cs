@@ -6,9 +6,6 @@ public class QTEHandlerMaintain : MonoBehaviour, IQTEHandler
     [Header("References")]
     [SerializeField] private UIViewMaintain _itemUIView;
     [SerializeField] private UIWorldPlacement _worldPlacement;
-
-    [Header("UI Settings")]
-    [SerializeField] private bool _needToConfirm = false;
     
     private float _totalTickTime;
     private float _maintainedTime;
@@ -16,7 +13,6 @@ public class QTEHandlerMaintain : MonoBehaviour, IQTEHandler
     private MaintainDescriptor _descriptor;
     
     public IUIView UIView => _itemUIView;
-    public bool NeedToConfirm => _needToConfirm;
     
     // Fix this with UI, here is some range placeholder
     private float ErrorRatio => _totalTickTime / _descriptor.FailTime;

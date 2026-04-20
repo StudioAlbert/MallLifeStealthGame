@@ -7,16 +7,13 @@ public class QTEHandlerPush
     [Header("References")]
     [SerializeField] private UIViewPush _itemUIView;
     [SerializeField] private UIWorldPlacement _worldPlacement;
-    
-    [Header("UI Settings")]
-    [SerializeField] private bool _needToConfirm = false;
+
     
     private float _totalTickTime;
     private Action<bool> _onComplete;
     private SimplePushDescriptor _descriptor;
     
     public IUIView UIView => _itemUIView;
-    public bool NeedToConfirm => _needToConfirm;
     
     // Fix this with UI, here is some range placeholder
     public float ErrorRatio => _totalTickTime / _descriptor.FailTime;

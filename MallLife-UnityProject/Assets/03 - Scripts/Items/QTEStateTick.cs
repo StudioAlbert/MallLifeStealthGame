@@ -1,23 +1,29 @@
-
+using Unity.VisualScripting;
 public class QTEStateTick : QTEState
 {
 
-    public QTEStateTick(CoreInputs.QuickTimeEvents inputQuickTimeEvents) : base(inputQuickTimeEvents) {}
-    
+    public QTEStateTick(CoreInputs.QuickTimeEvents inputQuickTimeEvents) : base(inputQuickTimeEvents) { }
+
     public override void OnEnter()
     {
         base.OnEnter();
-        
+
         // Depends on future Action Handler Factory 
         _inputQuickTimeEvents.ResetInputs();
-        
-        if(_actionHandler == null) return;
+
+        if (_actionHandler == null) return;
         _actionHandler.UIView.Show();
         _actionHandler.UIView.SetActivePanel();
     }
+    public override void OnExit()
+    {
+        base.OnExit();
+        
+        _inputQuickTimeEvents.ResetInputs();
+    }
     public override void Tick(float deltaTime)
     {
-        if(_actionHandler == null) return;
+        if (_actionHandler == null) return;
         _actionHandler.Tick(deltaTime, _inputQuickTimeEvents);
     }
 }

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: MovingBall
   m_EditorClassIdentifier: Assembly-CSharp::MovingBallDescriptor
   FailTime: 25
-  ReliveTime: 40
+  ReliveTime: 10
   MovingSpeed: 2
   GreenZoneSize: 0.15
   YellowZoneSize: 0.35

@@ -1308,7 +1308,10 @@ MonoBehaviour:
   _qteHandlerMaintain: {fileID: 353507444}
   _qteHandlerPush: {fileID: 7913807427250077958}
   _qteHandlerMovingBall: {fileID: 1069050695}
-  _timeBeforeClosing: 0.4
+  _timeBeforeClosing: 1
+  _timeBeforeUnlock: 2
+  _needToConfirm: 1
+  _autoClose: 1
 --- !u!1001 &841001973
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1528,6 +1531,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1382719149}
     - target: {fileID: 7413588946821579204, guid: 92b468451b9021345bdb9ab387eacde9, type: 3}
+      propertyPath: _newCatchTime
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7413588946821579204, guid: 92b468451b9021345bdb9ab387eacde9, type: 3}
       propertyPath: _stealthSensor
       value: 
       objectReference: {fileID: 1609172735}
@@ -1709,7 +1716,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::QTEHandlerMovingBall
   _itemUIView: {fileID: 1069050696}
-  _needToConfirm: 0
 --- !u!114 &1069050696
 MonoBehaviour:
   m_ObjectHideFlags: 0

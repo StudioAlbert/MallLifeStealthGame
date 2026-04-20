@@ -12,6 +12,8 @@ namespace Core
         private Dictionary<Type, List<StateTransition>> _transitions = new Dictionary<Type, List<StateTransition>>();
         private List<StateTransition> _anyTransitions = new List<StateTransition>();
 
+        public IState CurrentState => _currentState;
+
         public void Tick(float deltaTime)
         {
             IState newState = CheckTransition(_currentState);
