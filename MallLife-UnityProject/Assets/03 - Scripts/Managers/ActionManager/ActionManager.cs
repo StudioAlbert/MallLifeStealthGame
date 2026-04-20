@@ -3,14 +3,13 @@ using System.Collections;
 using UnityEngine;
 
 // ReSharper disable once InconsistentNaming
-public class QTEManager : MonoBehaviour
+public class ActionManager : MonoBehaviour
 {
 
     [Header("References")]
     [SerializeField] private CoreInputs.QuickTimeEvents _inputQuickTimeEvents;
-    [SerializeField] private QTEHandlerMaintain _qteHandlerMaintain;
-    [SerializeField] private QTEHandlerPush _qteHandlerPush;
-    [SerializeField] private QTEHandlerMovingBall _qteHandlerMovingBall;
+    [SerializeField] private ActionHandlerMaintain _actionHandlerMaintain;
+    [SerializeField] private ActionHandlerPush _actionHandlerPush;
     
     [Header("UI Behavior Settings")]
     [SerializeField] private float _timeBeforeClosing = 0.75f;
@@ -19,21 +18,21 @@ public class QTEManager : MonoBehaviour
     [SerializeField] private bool _autoClose = false;
 
     private readonly Core.StateMachine _actionStateMachine = new Core.StateMachine();
-    private QTEStateInactive _inactiveState;
-    private QTEStateStart _startState;
-    private QTEStateTick _tickState;
-    private QTEStateSuccess _successState;
-    private QTEStateFailure _failureState;
+    private ActionStateInactive _inactiveState;
+    private ActionStateStart _startState;
+    private ActionStateTick _tickState;
+    private ActionStateSuccess _successState;
+    private ActionStateFailure _failureState;
 
     public event Action OnSuccess;
     public event Action OnFailure;
 
-    private IQTEHandler _qteHandler;
+    private IActionHandler _actionHandler;
 
     private float _lastTimeUnlocked;
     private bool _lockStateMachine = false;
 
-    public static QTEManager Instance { get; private set; }
+    public static ActionManager Instance { get; private set; }
 
     private void Awake()
     {
@@ -49,11 +48,11 @@ public class QTEManager : MonoBehaviour
     {
         // Init State machine
         // Init states 
-        _inactiveState = new QTEStateInactive(_inputQuickTimeEvents);
-        _startState = new QTEStateStart(_inputQuickTimeEvents);
-        _tickState = new QTEStateTick(_inputQuickTimeEvents);
-        _successState = new QTEStateSuccess(_inputQuickTimeEvents);
-        _failureState = new QTEStateFailure(_inputQuickTimeEvents);
+        _inactiveState = new ActionStateInactive(_inputQuickTimeEvents);
+        _startState = new ActionStateStart(_inputQuickTimeEvents);
+        _tickState = new ActionStateTick(_inputQuickTimeEvents);
+        _successState = new ActionStateSuccess(_inputQuickTimeEvents);
+        _failureState = new ActionStateFailure(_inputQuickTimeEvents);
 
         // Wiring events
         _inactiveState.Entered += StopAllCoroutines;
@@ -89,23 +88,23 @@ public class QTEManager : MonoBehaviour
         _actionStateMachine.Tick(Time.deltaTime);
     }
 
-    public void StartQTE(GameObject objectToFollow)
+    public void StartAction(GameObject objectToFollow)
     {
         
         if(_lockStateMachine) return;
         
-        _qteHandler = GetQTE(objectToFollow);
+        _actionHandler = GetQTE(objectToFollow);
 
-        if (_qteHandler != null)
+        if (_actionHandler != null)
         {
-            _qteHandler.Init(objectToFollow, r => _actionStateMachine.ChangeState(r ? _successState : _failureState));
+            _actionHandler.Init(objectToFollow, r => _actionStateMachine.ChangeState(r ? _successState : _failureState));
            
             // Set action handlers ----------------------------------------
-            _inactiveState.ActionHandler = _qteHandler;
-            _startState.ActionHandler = _qteHandler;
-            _tickState.ActionHandler = _qteHandler;
-            _successState.ActionHandler = _qteHandler;
-            _failureState.ActionHandler = _qteHandler;
+            _inactiveState.ActionHandler = _actionHandler;
+            _startState.ActionHandler = _actionHandler;
+            _tickState.ActionHandler = _actionHandler;
+            _successState.ActionHandler = _actionHandler;
+            _failureState.ActionHandler = _actionHandler;
 
             _actionStateMachine.ChangeState(_needToConfirm ? _startState : _tickState);
 
@@ -113,9 +112,9 @@ public class QTEManager : MonoBehaviour
     }
 
     // QTE Factory ----------------------------------------------------------------------
-    private IQTEHandler GetQTE(GameObject QTEObject)
+    private IActionHandler GetQTE(GameObject QTEObject)
     {
-        IQTEHandler handlerResult;
+        IActionHandler handlerResult;
 
         if (!QTEObject.TryGetComponent(out Stealable stealable))
             return null;
@@ -125,9 +124,8 @@ public class QTEManager : MonoBehaviour
         // - Activation
         return stealable.Descriptor switch
         {
-            MaintainDescriptor => _qteHandlerMaintain.gameObject.activeSelf ? _qteHandlerMaintain : null,
-            SimplePushDescriptor => _qteHandlerPush.gameObject.activeSelf ? _qteHandlerPush : null,
-            MovingBallDescriptor => _qteHandlerMovingBall.gameObject.activeSelf ? _qteHandlerMovingBall : null,
+            MaintainDescriptor => _actionHandlerMaintain.gameObject.activeSelf ? _actionHandlerMaintain : null,
+            SimplePushDescriptor => _actionHandlerPush.gameObject.activeSelf ? _actionHandlerPush : null,
             _ => null
         };
 

@@ -1,55 +1,52 @@
 ﻿using System;
 using UnityEngine;
 
-public class QTEHandlerMaintain : MonoBehaviour, IQTEHandler 
+public class ActionHandlerPush
+    : MonoBehaviour, IActionHandler 
 {
     [Header("References")]
-    [SerializeField] private UIViewMaintain _itemUIView;
+    [SerializeField] private UIActionViewPush _itemUIActionView;
     [SerializeField] private UIWorldPlacement _worldPlacement;
+
     
     private float _totalTickTime;
-    private float _maintainedTime;
     private Action<bool> _onComplete;
-    private MaintainDescriptor _descriptor;
+    private SimplePushDescriptor _descriptor;
     
-    public IUIView UIView => _itemUIView;
+    public IUIActionView UIActionView => _itemUIActionView;
     
     // Fix this with UI, here is some range placeholder
-    private float ErrorRatio => _totalTickTime / _descriptor.FailTime;
-    private float MaintainRatio => _maintainedTime / _descriptor.SuccessTime;
+    public float ErrorRatio => _totalTickTime / _descriptor.FailTime;
     
     public void Init(GameObject actionObject, Action<bool> onComplete)
     {
         
         _totalTickTime = 0;
-        _maintainedTime = 0;
         _onComplete = onComplete;
         _worldPlacement.ToFollow = actionObject.transform;
         // Name is the name of a maybe stealable object
         if (actionObject.TryGetComponent(out Stealable stealable))
         {
-            _itemUIView.SetTitle($"{stealable.Item.Name} / ${stealable.Item.NumericValue}");
-            _descriptor = stealable.Descriptor as MaintainDescriptor;
+            _itemUIActionView.SetTitle($"{stealable.Item.Name} / ${stealable.Item.NumericValue}");
+            _descriptor = stealable.Descriptor as SimplePushDescriptor;
         }
     }
     
     public void Tick(float deltaTime, CoreInputs.QuickTimeEvents inputs)
     {
-        if(_maintainedTime >= _descriptor.SuccessTime)
+        if(inputs.SouthBtnDown)
             _onComplete?.Invoke(true);
         
         if(_totalTickTime >= _descriptor.FailTime)
             _onComplete?.Invoke(false);
         
         _totalTickTime += deltaTime;
-        if(inputs.SouthBtn) _maintainedTime += deltaTime;
-        if(inputs.SouthBtnUp) _maintainedTime = 0;
         
         // just maintain A, always success, no failure on which button done
-        Debug.Log($"Maintain is ticking : {_totalTickTime}/{ErrorRatio} , {_maintainedTime}/{MaintainRatio}");
+        Debug.Log($"Waiting a push : {_totalTickTime}/{ErrorRatio}");
         
-        _itemUIView.SetErrorRatio(ErrorRatio);
-        _itemUIView.SetMaintainRatio(MaintainRatio);
+        _itemUIActionView.SetErrorRatio(ErrorRatio);
         
     }
+    
 }

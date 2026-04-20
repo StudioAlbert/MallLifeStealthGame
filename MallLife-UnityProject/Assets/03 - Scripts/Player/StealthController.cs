@@ -10,7 +10,7 @@ public class StealthController : MonoBehaviour
     [SerializeField] private CoreInputs.Player _inputPlayer;
 
     
-    private Activable _activable;
+    private Actionnable _actionnable;
 
     
     // Update is called once per frame
@@ -21,9 +21,9 @@ public class StealthController : MonoBehaviour
         if (_stealthSensor.Object)
         {
             // Attrapé, est il un objet à activer ?
-            _stealthSensor.Object.TryGetComponent(out Activable newActivable);
+            _stealthSensor.Object.TryGetComponent(out Actionnable newActivable);
             // oui, je l'active
-            if (newActivable && newActivable != _activable) Activate(newActivable);
+            if (newActivable && newActivable != _actionnable) Activate(newActivable);
             // Non, alors je desactive le précedent objet
             if (!newActivable)
             {
@@ -36,16 +36,16 @@ public class StealthController : MonoBehaviour
         }
 
     }
-    private void Activate(Activable newActivable)
+    private void Activate(Actionnable newActionnable)
     {
-        _activable?.HoverOut();
-        _activable = newActivable;
-        _activable?.HoverIn();
+        _actionnable?.HoverOut();
+        _actionnable = newActionnable;
+        _actionnable?.HoverIn();
     }
     private void Deactivate()
     {
-        _activable?.HoverOut();
-        _activable = null;
+        _actionnable?.HoverOut();
+        _actionnable = null;
     }
 
 }

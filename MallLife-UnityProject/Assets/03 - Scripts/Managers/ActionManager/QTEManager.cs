@@ -1,0 +1,196 @@
+using System;
+using System.Collections;
+using UnityEngine;
+
+// ReSharper disable once InconsistentNaming
+public class QTEManager : MonoBehaviour
+{
+
+    [Header("References")]
+    [SerializeField] private CoreInputs.QuickTimeEvents _inputQuickTimeEvents;
+    [SerializeField] private QTEHandlerMovingBall _qteHandlerMovingBall;
+    
+    [Header("UI Behavior Settings")]
+    [SerializeField] private float _timeBeforeClosing = 0.75f;
+    [SerializeField] private float _timeBeforeUnlock = 2f;
+    [SerializeField] private bool _needToConfirm = false;
+    [SerializeField] private bool _autoClose = false;
+
+    private readonly Core.StateMachine _actionStateMachine = new Core.StateMachine();
+    private ActionStateInactive _inactiveState;
+    private ActionStateStart _startState;
+    private ActionStateTick _tickState;
+    private ActionStateSuccess _successState;
+    private ActionStateYellowSuccess _yellowSuccessState;
+    private ActionStateFailure _failureState;
+
+    public event Action OnSuccess;
+    public event Action OnYellowSuccess;
+    public event Action OnFailure;
+
+    private IQTEHandler _actionHandler;
+
+    private float _lastTimeUnlocked;
+    private bool _lockStateMachine = false;
+
+    public static QTEManager Instance { get; private set; }
+
+    private void Awake()
+    {
+        if (Instance && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        Instance = this;
+    }
+    
+    private void OnEnable()
+    {
+        // Init State machine
+        // Init states 
+        _inactiveState = new ActionStateInactive(_inputQuickTimeEvents);
+        _startState = new ActionStateStart(_inputQuickTimeEvents);
+        _tickState = new ActionStateTick(_inputQuickTimeEvents);
+        _successState = new ActionStateSuccess(_inputQuickTimeEvents);
+        _yellowSuccessState = new ActionStateYellowSuccess(_inputQuickTimeEvents);
+        _failureState = new ActionStateFailure(_inputQuickTimeEvents);
+
+        // Wiring events
+        _inactiveState.Entered += StopAllCoroutines;
+        _successState.Entered += DelayedForceChange;
+        _yellowSuccessState.Entered += DelayedForceChange;
+        _failureState.Entered += DelayedForceChange;
+        
+        _successState.Exited += HandleSuccess;
+        _yellowSuccessState.Exited += HandleYellowSuccess;
+        _failureState.Exited += HandleFailure;
+
+        // Transitions
+        _actionStateMachine.AddTransition(_startState, _tickState, () => _inputQuickTimeEvents.ValidateUp);
+        _actionStateMachine.AddTransition(_startState, _inactiveState, () => _inputQuickTimeEvents.CancelUp);
+        _actionStateMachine.AddTransition(_failureState, _inactiveState, () => _inputQuickTimeEvents.CancelUp || _inputQuickTimeEvents.ValidateUp);
+        _actionStateMachine.AddTransition(_yellowSuccessState, _inactiveState, () => _inputQuickTimeEvents.CancelUp || _inputQuickTimeEvents.ValidateUp);
+        _actionStateMachine.AddTransition(_successState, _inactiveState, () => _inputQuickTimeEvents.CancelUp || _inputQuickTimeEvents.ValidateUp);
+        
+        // Start with inactive
+        _actionStateMachine.ChangeState(_inactiveState);
+    }
+
+    private void OnDisable()
+    {
+        // UnWiring events
+        _inactiveState.Entered -= StopAllCoroutines;
+        _successState.Entered -= DelayedForceChange;
+        _yellowSuccessState.Entered -= DelayedForceChange;
+        _failureState.Entered -= DelayedForceChange;
+
+        _successState.Exited -= HandleSuccess;
+        _yellowSuccessState.Exited += HandleYellowSuccess;
+        _failureState.Exited -= HandleFailure;
+    }
+
+    private void Update()
+    {
+        _lockStateMachine = (Time.time - _lastTimeUnlocked <= _timeBeforeUnlock);
+        _actionStateMachine.Tick(Time.deltaTime);
+    }
+
+    public void StartQTE(GameObject objectToFollow)
+    {
+        
+        //if(_lockStateMachine) return;
+        
+        _actionHandler = GetQTE(objectToFollow);
+
+        if (_actionHandler != null)
+        {
+            // _actionHandler.Init(objectToFollow, r => _actionStateMachine.ChangeState(r ? _successState : _failureState));
+            _actionHandler.Init(objectToFollow, OnComplete);
+           
+            // Set action handlers ----------------------------------------
+            _inactiveState.ActionHandler = _actionHandler;
+            _startState.ActionHandler = _actionHandler;
+            _tickState.ActionHandler = _actionHandler;
+            _successState.ActionHandler = _actionHandler;
+            _yellowSuccessState.ActionHandler = _actionHandler;
+            _failureState.ActionHandler = _actionHandler;
+
+            _actionStateMachine.ChangeState(_needToConfirm ? _startState : _tickState);
+
+        }
+    }
+    private void OnComplete(ActionResult result)
+    { 
+        switch(result)
+        {
+            case ActionResult.Green :
+                _actionStateMachine.ChangeState(_successState); 
+                break;
+            case ActionResult.Yellow:
+                _actionStateMachine.ChangeState(_yellowSuccessState);
+                break;
+            case ActionResult.Red:
+                _actionStateMachine.ChangeState(_failureState);
+                break;
+            default:
+                _actionStateMachine.ChangeState(_inactiveState);
+                break;
+        };
+    }
+
+    // QTE Factory ----------------------------------------------------------------------
+    private IQTEHandler GetQTE(GameObject QTEObject)
+    {
+        IQTEHandler handlerResult;
+
+        if (!QTEObject.TryGetComponent(out Stealable stealable))
+            return null;
+
+        // Return one object depending on
+        // - Type
+        // - Activation
+        return stealable.Descriptor switch
+        {
+            MovingBallDescriptor => _qteHandlerMovingBall.gameObject.activeSelf ? _qteHandlerMovingBall : null,
+            _ => null
+        };
+
+    }
+
+    public void Interrupt()
+    {
+        _actionStateMachine.ChangeState(_inactiveState);
+        _lockStateMachine = true;
+    }
+
+    private void HandleSuccess()
+    {
+        OnSuccess?.Invoke();
+        _lastTimeUnlocked = Time.time;
+    }
+    private void HandleYellowSuccess()
+    {
+        OnYellowSuccess?.Invoke();
+        _lastTimeUnlocked = Time.time;
+    }
+    private void HandleFailure()
+    {
+        OnFailure?.Invoke();
+        _lastTimeUnlocked = Time.time;
+    }
+    private void DelayedForceChange()
+    {
+        if(_autoClose)
+            _actionStateMachine.ChangeState(_inactiveState);
+        else
+            StartCoroutine(ForceChange());   
+    }
+
+    private IEnumerator ForceChange()
+    {
+        yield return new WaitForSeconds(_timeBeforeClosing);
+        _actionStateMachine.ChangeState(_inactiveState);
+    }
+
+}

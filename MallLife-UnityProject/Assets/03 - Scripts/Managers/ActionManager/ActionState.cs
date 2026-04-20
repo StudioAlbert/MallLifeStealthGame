@@ -1,20 +1,20 @@
 ﻿using System;
 
-public abstract class QTEState : Core.IState
+public abstract class ActionState : Core.IState
 {
 
-    protected IQTEHandler _actionHandler;
+    protected IActionHandler _actionHandler;
     protected readonly CoreInputs.QuickTimeEvents _inputQuickTimeEvents;
 
     public event Action Exited;
     public event Action Entered;
 
-    public IQTEHandler ActionHandler
+    public IActionHandler ActionHandler
     {
         set => _actionHandler = value;
     }
 
-    protected QTEState(CoreInputs.QuickTimeEvents inputQuickTimeEvents)
+    protected ActionState(CoreInputs.QuickTimeEvents inputQuickTimeEvents)
     {
         _inputQuickTimeEvents = inputQuickTimeEvents;
     }

@@ -1,12 +1,13 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-public class Activable : MonoBehaviour
+public class Actionnable : MonoBehaviour
 {
 
     [SerializeField] private UnityEvent _onHoverIn;
     [SerializeField] private UnityEvent _onHoverOut;
     [SerializeField] private UnityEvent _onActionSucceed;
+    [SerializeField] private UnityEvent _onActionYellowSucceed;
     [SerializeField] private UnityEvent _onActionFailed;
 
     // Update is called once per frame
@@ -27,6 +28,11 @@ public class Activable : MonoBehaviour
         UnregisterFromActionManager();
         _onActionSucceed?.Invoke();
     }
+    private void YellowSucceed()
+    {
+        UnregisterFromActionManager();
+        _onActionYellowSucceed?.Invoke();
+    }
     private void Failed()
     {
         UnregisterFromActionManager();
@@ -36,11 +42,13 @@ public class Activable : MonoBehaviour
     private void RegisterToActionManager()
     {
         QTEManager.Instance.OnSuccess += Succeed;
+        QTEManager.Instance.OnYellowSuccess += YellowSucceed;
         QTEManager.Instance.OnFailure += Failed;
     }
     private void UnregisterFromActionManager()
     {
         QTEManager.Instance.OnSuccess -= Succeed;
+        QTEManager.Instance.OnYellowSuccess -= YellowSucceed;
         QTEManager.Instance.OnFailure -= Failed;
     }
     

@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
 
-public class UIViewMovingBall : MonoBehaviour, IUIView
+public class IUIActionViewMovingBall : MonoBehaviour, IUIActionView
 {
     [Header("References")]
     [SerializeField] private UIDocument _document;
@@ -13,6 +13,7 @@ public class UIViewMovingBall : MonoBehaviour, IUIView
     private VisualElement _startPanel;
     private VisualElement _activePanel;
     private VisualElement _successPanel;
+    private VisualElement _yellowSuccessPanel;
     private VisualElement _failedPanel;
     private VisualElement _errorBar;
     
@@ -28,7 +29,8 @@ public class UIViewMovingBall : MonoBehaviour, IUIView
 
         _startPanel = _document.rootVisualElement.Q<VisualElement>("StartPanel");
         _activePanel = _document.rootVisualElement.Q<VisualElement>("ActivePanel");
-        _successPanel = _document.rootVisualElement.Q<VisualElement>("SuccesPanel");
+        _successPanel = _document.rootVisualElement.Q<VisualElement>("SuccessPanel");
+        _yellowSuccessPanel = _document.rootVisualElement.Q<VisualElement>("YellowSuccessPanel");
         _failedPanel = _document.rootVisualElement.Q<VisualElement>("FailedPanel");
         
         _errorBar = _document.rootVisualElement.Q<VisualElement>("ErrorBar");
@@ -46,6 +48,7 @@ public class UIViewMovingBall : MonoBehaviour, IUIView
        Hide();
         SetStartPanel();
     }
+    
     public void Show()
     {
         if (_rootUI != null) _rootUI.style.display = DisplayStyle.Flex;
@@ -54,33 +57,37 @@ public class UIViewMovingBall : MonoBehaviour, IUIView
     {
         if (_rootUI != null) _rootUI.style.display = DisplayStyle.None;
     }
-
-    public void SetStartPanel()
+    private void HidePanels()
     {
-        _startPanel.style.display = DisplayStyle.Flex;
+        _startPanel.style.display = DisplayStyle.None;
         _activePanel.style.display = DisplayStyle.None;
         _successPanel.style.display = DisplayStyle.None;
+        _yellowSuccessPanel.style.display = DisplayStyle.None;
         _failedPanel.style.display = DisplayStyle.None;
+    }
+    public void SetStartPanel()
+    {
+        HidePanels();
+        _startPanel.style.display = DisplayStyle.Flex;
     }
     public void SetActivePanel()
     {
-        _startPanel.style.display = DisplayStyle.None;
+        HidePanels();
         _activePanel.style.display = DisplayStyle.Flex;
-        _successPanel.style.display = DisplayStyle.None;
-        _failedPanel.style.display = DisplayStyle.None;
     }
     public void SetSuccessPanel()
     {
-        _startPanel.style.display = DisplayStyle.None;
-        _activePanel.style.display = DisplayStyle.None;
+        HidePanels();
         _successPanel.style.display = DisplayStyle.Flex;
-        _failedPanel.style.display = DisplayStyle.None;
+    }
+    public void SetYellowSuccessPanel()
+    {
+        HidePanels();
+        _yellowSuccessPanel.style.display = DisplayStyle.Flex;
     }
     public void SetFailedPanel()
     {
-        _startPanel.style.display = DisplayStyle.None;
-        _activePanel.style.display = DisplayStyle.None;
-        _successPanel.style.display = DisplayStyle.None;
+        HidePanels();
         _failedPanel.style.display = DisplayStyle.Flex;
     }
 

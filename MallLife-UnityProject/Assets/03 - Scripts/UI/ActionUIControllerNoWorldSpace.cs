@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.UIElements;
 
 [Obsolete("Code for memory use, UI Placement", true)]
-public class ActionUIControllerNoWorldSpace : MonoBehaviour, IUIView
+public class ActionUIControllerNoWorldSpace : MonoBehaviour, IUIActionView
 {
     [Header("References")]
     [SerializeField] private UIDocument _document;
@@ -111,6 +111,10 @@ public class ActionUIControllerNoWorldSpace : MonoBehaviour, IUIView
         _activePanel.style.display = DisplayStyle.None;
         _successPanel.style.display = DisplayStyle.Flex;
         _failedPanel.style.display = DisplayStyle.None;
+    }
+    public void SetYellowSuccessPanel()
+    {
+        throw new System.NotImplementedException();
     }
     public void SetFailedPanel()
     {

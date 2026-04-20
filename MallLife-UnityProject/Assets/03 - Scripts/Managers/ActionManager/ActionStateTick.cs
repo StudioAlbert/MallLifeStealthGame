@@ -1,8 +1,8 @@
 using Unity.VisualScripting;
-public class QTEStateTick : QTEState
+public class ActionStateTick : ActionState
 {
 
-    public QTEStateTick(CoreInputs.QuickTimeEvents inputQuickTimeEvents) : base(inputQuickTimeEvents) { }
+    public ActionStateTick(CoreInputs.QuickTimeEvents inputQuickTimeEvents) : base(inputQuickTimeEvents) { }
 
     public override void OnEnter()
     {
@@ -12,8 +12,8 @@ public class QTEStateTick : QTEState
         _inputQuickTimeEvents.ResetInputs();
 
         if (_actionHandler == null) return;
-        _actionHandler.UIView.Show();
-        _actionHandler.UIView.SetActivePanel();
+        _actionHandler.UIActionView.Show();
+        _actionHandler.UIActionView.SetActivePanel();
     }
     public override void OnExit()
     {
