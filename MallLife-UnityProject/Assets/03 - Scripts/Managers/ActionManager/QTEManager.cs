@@ -22,9 +22,9 @@ public class QTEManager : MonoBehaviour
     private ActionStateInactive _inactiveState;
     private ActionStateStart _startState;
     private ActionStateTick _tickState;
-    private ActionStateSuccess _successState;
-    private ActionStateYellowSuccess _yellowSuccessState;
-    private ActionStateFailure _failureState;
+    private ActionStateShowPanel _successState;
+    private ActionStateShowPanel _yellowSuccessState;
+    private ActionStateShowPanel _failureState;
 
     public event Action OnSuccess;
     public event Action OnYellowSuccess;
@@ -54,9 +54,9 @@ public class QTEManager : MonoBehaviour
         _inactiveState = new ActionStateInactive(_inputQuickTimeEvents);
         _startState = new ActionStateStart(_inputQuickTimeEvents);
         _tickState = new ActionStateTick(_inputQuickTimeEvents);
-        _successState = new ActionStateSuccess(_inputQuickTimeEvents);
-        _yellowSuccessState = new ActionStateYellowSuccess(_inputQuickTimeEvents);
-        _failureState = new ActionStateFailure(_inputQuickTimeEvents);
+        _successState = new ActionStateShowPanel(_inputQuickTimeEvents, "SuccessPanel");
+        _yellowSuccessState = new ActionStateShowPanel(_inputQuickTimeEvents, "YellowSuccessPanel");
+        _failureState = new ActionStateShowPanel(_inputQuickTimeEvents, "FailedPanel");
 
         // Wiring events
         _inactiveState.Entered += StopAllCoroutines;

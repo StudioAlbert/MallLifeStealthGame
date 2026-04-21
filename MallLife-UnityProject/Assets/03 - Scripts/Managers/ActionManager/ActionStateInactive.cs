@@ -6,7 +6,6 @@
     public override void OnEnter()
     {
         base.OnEnter();
-        
         _actionHandler?.UIActionView.Hide();
     }
     
