@@ -1,30 +1,35 @@
 ﻿using System;
 using UnityEngine;
 
-public class ActionHandlerMaintain : MonoBehaviour, IActionHandler 
+public class ActionHandlerMaintain : MonoBehaviour, IQTEHandler 
 {
     [Header("References")]
     [SerializeField] private UIActionViewMaintain _itemUIActionView;
-    [SerializeField] private UIWorldPlacement _worldPlacement;
     
+    [Header("UI Behaviour")]
+    [SerializeField] private bool _needToConfirm;
+    [SerializeField] private bool _autoClose;
+    
+    public IUIQteView UIActionView => _itemUIActionView;
+    public bool NeedToConfirm => _needToConfirm;
+    public bool AutoClose => _autoClose;
+
     private float _totalTickTime;
     private float _maintainedTime;
-    private Action<bool> _onComplete;
     private MaintainDescriptor _descriptor;
-    
-    public IUIActionView UIActionView => _itemUIActionView;
-    
+    private Action<ActionResult> _handlerDone;
+
+
     // Fix this with UI, here is some range placeholder
-    private float ErrorRatio => _totalTickTime / _descriptor.FailTime;
-    private float MaintainRatio => _maintainedTime / _descriptor.SuccessTime;
+    private float ErrorRatio => _totalTickTime / _descriptor.TotalTime;
+    private float MaintainRatio => _maintainedTime / _descriptor.ActionTime;
     
-    public void Init(GameObject actionObject, Action<bool> onComplete)
+    public void Init(GameObject actionObject, Action<ActionResult> handlerDone)
     {
-        
+        _handlerDone = handlerDone;
         _totalTickTime = 0;
         _maintainedTime = 0;
-        _onComplete = onComplete;
-        _worldPlacement.ToFollow = actionObject.transform;
+        // _worldPlacement.ToFollow = actionObject.transform;
         // Name is the name of a maybe stealable object
         if (actionObject.TryGetComponent(out Stealable stealable))
         {
@@ -35,21 +40,21 @@ public class ActionHandlerMaintain : MonoBehaviour, IActionHandler
     
     public void Tick(float deltaTime, CoreInputs.QuickTimeEvents inputs)
     {
-        if(_maintainedTime >= _descriptor.SuccessTime)
-            _onComplete?.Invoke(true);
+        if(_maintainedTime >= _descriptor.ActionTime)
+            _handlerDone?.Invoke(ActionResult.Success);
         
-        if(_totalTickTime >= _descriptor.FailTime)
-            _onComplete?.Invoke(false);
+        if(_totalTickTime >= _descriptor.TotalTime)
+            _handlerDone?.Invoke(ActionResult.Failed);
         
         _totalTickTime += deltaTime;
         if(inputs.SouthBtn) _maintainedTime += deltaTime;
         if(inputs.SouthBtnUp) _maintainedTime = 0;
         
         // just maintain A, always success, no failure on which button done
-        Debug.Log($"Maintain is ticking : {_totalTickTime}/{ErrorRatio} , {_maintainedTime}/{MaintainRatio}");
+        // Debug.Log($"Maintain is ticking : {_totalTickTime}/{ErrorRatio} , {_maintainedTime}/{MaintainRatio}");
         
-        _itemUIActionView.SetErrorRatio(ErrorRatio);
-        _itemUIActionView.SetMaintainRatio(MaintainRatio);
+        _itemUIActionView.SetTotalRatio(ErrorRatio);
+        _itemUIActionView.SetActionRatio(MaintainRatio);
         
     }
 }

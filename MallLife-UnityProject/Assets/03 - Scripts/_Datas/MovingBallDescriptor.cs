@@ -6,6 +6,5 @@ public class MovingBallDescriptor : ActionDescriptor
     public float MovingSpeed = 2f;
     public float GreenZoneSize = 0.15f;
     public float YellowZoneSize = 0.35f;
-
-
+    
 }

@@ -3,13 +3,13 @@
 public abstract class ActionState : Core.IState
 {
 
-    protected IActionHandler _actionHandler;
+    protected IQTEHandler _actionHandler;
     protected readonly CoreInputs.QuickTimeEvents _inputQuickTimeEvents;
 
     public event Action Exited;
     public event Action Entered;
 
-    public IActionHandler ActionHandler
+    public IQTEHandler ActionHandler
     {
         set => _actionHandler = value;
     }

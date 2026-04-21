@@ -3,20 +3,18 @@ using UnityEngine;
 
 public enum ActionResult
 {
-    Green,
-    Yellow,
-    Red
+    Success,
+    MidTierResult,
+    Failed
 }
 
-public interface IActionHandler
+public interface IQTEHandler
 {
-    void Init(GameObject actionObject, Action<bool> onComplete);
+    void Init(GameObject actionObject, Action<ActionResult> handlerDone);
     void Tick(float deltaTime, CoreInputs.QuickTimeEvents inputs);
     
-    IUIActionView UIActionView { get; }
-}
+    IUIQteView UIActionView { get; }
+    public bool NeedToConfirm { get; }
+    public bool AutoClose { get; }
 
-public interface IQTEHandler : IActionHandler
-{
-    void Init(GameObject actionObject, Action<ActionResult> onComplete);
 }
