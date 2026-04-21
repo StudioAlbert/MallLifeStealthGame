@@ -4,21 +4,21 @@ using UnityEngine.UIElements;
 
 public class UIActionViewPush : BasicView
 {
-    private VisualElement _progressBar;
+    private VisualElement _totalTimeBar;
     private Label _title;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Awake()
     {
-        _progressBar = _document.rootVisualElement.Q<VisualElement>("ProgressBar");
+        _totalTimeBar = _document.rootVisualElement.Q<VisualElement>("TotalTimeBar");
         _title = _document.rootVisualElement.Q<Label>("Title");
         
         Hide();
     }
 
-   public void SetErrorRatio(float ratio)
+   public void SetTotalRatio(float ratio)
     {
-        _progressBar.style.width = new Length(100 * (1 - ratio), LengthUnit.Percent);
+        _totalTimeBar.style.width = new Length(100 * (1 - ratio), LengthUnit.Percent);
     }
     public void SetTitle(string title)
     {

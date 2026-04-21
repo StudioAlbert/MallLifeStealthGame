@@ -20,7 +20,6 @@ public class ActionStateStart : ActionState
     public override void OnExit()
     {
         base.OnExit();
-        
         _actionHandler?.UIActionView.HidePanel("StartPanel");
     }
 

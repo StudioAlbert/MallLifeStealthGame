@@ -5,26 +5,21 @@ public class QTEHandlerMovingBall : MonoBehaviour, IQTEHandler
 {
     [Header("References")]
     [SerializeField] private UIActionViewMovingBall _itemUIActionView;
-
-    private float _totalTickTime;
-    private Action<ActionResult> _onComplete;
-    private MovingBallDescriptor _descriptor;
-
+    
     public IUIQteView UIActionView => _itemUIActionView;
+    private Action<ActionResult> _handlerDone;
+    
+    private float _totalTickTime;
+    private MovingBallDescriptor _descriptor;
 
     // Fix this with UI, here is some range placeholder
     private float ErrorRatio => _totalTickTime / _descriptor.FailTime;
     private float MovingRatio => Mathf.Repeat(0.5f + (_totalTickTime / _descriptor.MovingSpeed), 1.0f);
 
-    public void Init(GameObject actionObject, Action<bool> onComplete)
+    public void Init(GameObject actionObject, Action<ActionResult> handlerDone)
     {
-        throw new NotImplementedException();
-    }
-    public void Init(GameObject actionObject, Action<ActionResult> onComplete)
-    {
-
+        _handlerDone = handlerDone;
         _totalTickTime = 0;
-        _onComplete = onComplete;
         
         // Name is the name of a maybe stealable object
         if (actionObject.TryGetComponent(out Stealable stealable))
@@ -38,10 +33,10 @@ public class QTEHandlerMovingBall : MonoBehaviour, IQTEHandler
     public void Tick(float deltaTime, CoreInputs.QuickTimeEvents inputs)
     {
         if (_totalTickTime >= _descriptor.FailTime)
-            _onComplete?.Invoke(ActionResult.Failed);
+            _handlerDone?.Invoke(ActionResult.Failed);
         
         if(inputs.SouthBtnUp)
-            _onComplete?.Invoke(Resolve());
+            _handlerDone?.Invoke(Resolve());
 
         _totalTickTime += deltaTime;
 

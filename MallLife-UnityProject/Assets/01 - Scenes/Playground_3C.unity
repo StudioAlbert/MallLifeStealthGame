@@ -540,13 +540,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 6061719469836487811, guid: f5d03b4cdf1c0bd49ba408ec9ae1171b, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1069050696}
-    - targetCorrespondingSourceObject: {fileID: 6061719469836487811, guid: f5d03b4cdf1c0bd49ba408ec9ae1171b, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1069050695}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f5d03b4cdf1c0bd49ba408ec9ae1171b, type: 3}
 --- !u!4 &105898999 stripped
 Transform:
@@ -618,11 +612,6 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 417308589199544183, guid: bac4a5d98632ee946a5f60ffb8051b99, type: 3}
   m_PrefabInstance: {fileID: 133369894}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &194581810 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6902042220924903264, guid: 7dbde8d17d746af45988b8e0f065a5c7, type: 3}
-  m_PrefabInstance: {fileID: 1072203942}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &342560750
 PrefabInstance:
@@ -1122,10 +1111,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4814248907893870101, guid: 57b7b7180c1f4d947926a2e982679e3a, type: 3}
-      propertyPath: _descriptor
-      value: 
-      objectReference: {fileID: 11400000, guid: 28b03f512d9ee724e861a28a1026b12b, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1648,48 +1633,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bac4a5d98632ee946a5f60ffb8051b99, type: 3}
---- !u!1 &1069050694 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6061719469836487811, guid: f5d03b4cdf1c0bd49ba408ec9ae1171b, type: 3}
+--- !u!114 &1069050695 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6578906494292177509, guid: f5d03b4cdf1c0bd49ba408ec9ae1171b, type: 3}
   m_PrefabInstance: {fileID: 105898998}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1069050695
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1069050694}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fb2cbaa5efa24663bdb45cf53c40af4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::QTEHandlerMovingBall
-  _itemUIActionView: {fileID: 1069050696}
---- !u!114 &1069050696
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1069050694}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f428f4e1877449edad40026adb7424ad, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::UIViewMovingBall
-  _document: {fileID: 1069050697}
---- !u!114 &1069050697 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: -5715836641112426855, guid: f5d03b4cdf1c0bd49ba408ec9ae1171b, type: 3}
-  m_PrefabInstance: {fileID: 105898998}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1069050694}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 19102, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.dll::UnityEngine.UIElements.UIDocument
 --- !u!1001 &1072203942
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1698,14 +1652,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1645137198}
     m_Modifications:
-    - target: {fileID: 3545842876367127830, guid: 7dbde8d17d746af45988b8e0f065a5c7, type: 3}
-      propertyPath: _worldPlacement
-      value: 
-      objectReference: {fileID: 1072203947}
-    - target: {fileID: 3545842876367127830, guid: 7dbde8d17d746af45988b8e0f065a5c7, type: 3}
-      propertyPath: _itemUIActionView
-      value: 
-      objectReference: {fileID: 1072203945}
     - target: {fileID: 6441850349349444839, guid: 7dbde8d17d746af45988b8e0f065a5c7, type: 3}
       propertyPath: m_LocalPosition.x
       value: -10.24951
@@ -1753,10 +1699,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 6902042220924903264, guid: 7dbde8d17d746af45988b8e0f065a5c7, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1072203947}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7dbde8d17d746af45988b8e0f065a5c7, type: 3}
 --- !u!4 &1072203943 stripped
 Transform:
@@ -1768,49 +1711,12 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3545842876367127830, guid: 7dbde8d17d746af45988b8e0f065a5c7, type: 3}
   m_PrefabInstance: {fileID: 1072203942}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 194581810}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 463c067dbcafe1d49b0289a4b96df83b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PushHandler
---- !u!114 &1072203945 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8105998992772542158, guid: 7dbde8d17d746af45988b8e0f065a5c7, type: 3}
-  m_PrefabInstance: {fileID: 1072203942}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 194581810}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dee34a26938140168f53bc550f7e75d9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::UiControllerPush
---- !u!114 &1072203946 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6512019964918672431, guid: 7dbde8d17d746af45988b8e0f065a5c7, type: 3}
-  m_PrefabInstance: {fileID: 1072203942}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 194581810}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 19102, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.dll::UnityEngine.UIElements.UIDocument
---- !u!114 &1072203947
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 194581810}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b18f95433c804c54b73927d2b3491b0c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::UIWorldPlacement
-  _document: {fileID: 1072203946}
-  _centered: 0
-  _toFollow: {fileID: 0}
 --- !u!4 &1075803196 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4883762814713038, guid: baebdd3b26f756b4c8f1b2d2efe1cf42, type: 3}
@@ -2602,10 +2508,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4814248907893870101, guid: 57b7b7180c1f4d947926a2e982679e3a, type: 3}
-      propertyPath: _descriptor
-      value: 
-      objectReference: {fileID: 11400000, guid: 28b03f512d9ee724e861a28a1026b12b, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3233,10 +3135,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4814248907893870101, guid: 57b7b7180c1f4d947926a2e982679e3a, type: 3}
-      propertyPath: _descriptor
-      value: 
-      objectReference: {fileID: 11400000, guid: 28b03f512d9ee724e861a28a1026b12b, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

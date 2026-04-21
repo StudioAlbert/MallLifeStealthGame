@@ -5,26 +5,26 @@ public class ActionHandlerMaintain : MonoBehaviour, IQTEHandler
 {
     [Header("References")]
     [SerializeField] private UIActionViewMaintain _itemUIActionView;
-    [SerializeField] private UIWorldPlacement _worldPlacement;
+    // [SerializeField] private UIWorldPlacement _worldPlacement;
+
+    public IUIQteView UIActionView => _itemUIActionView;
     
     private float _totalTickTime;
     private float _maintainedTime;
-    private Action<ActionResult> _onComplete;
     private MaintainDescriptor _descriptor;
+    private Action<ActionResult> _handlerDone;
     
-    public IUIQteView UIActionView => _itemUIActionView;
     
     // Fix this with UI, here is some range placeholder
     private float ErrorRatio => _totalTickTime / _descriptor.FailTime;
     private float MaintainRatio => _maintainedTime / _descriptor.SuccessTime;
     
-    public void Init(GameObject actionObject, Action<ActionResult> onComplete)
+    public void Init(GameObject actionObject, Action<ActionResult> handlerDone)
     {
-        
+        _handlerDone = handlerDone;
         _totalTickTime = 0;
         _maintainedTime = 0;
-        _onComplete = onComplete;
-        _worldPlacement.ToFollow = actionObject.transform;
+        // _worldPlacement.ToFollow = actionObject.transform;
         // Name is the name of a maybe stealable object
         if (actionObject.TryGetComponent(out Stealable stealable))
         {
@@ -36,10 +36,10 @@ public class ActionHandlerMaintain : MonoBehaviour, IQTEHandler
     public void Tick(float deltaTime, CoreInputs.QuickTimeEvents inputs)
     {
         if(_maintainedTime >= _descriptor.SuccessTime)
-            _onComplete?.Invoke(ActionResult.Success);
+            _handlerDone?.Invoke(ActionResult.Success);
         
         if(_totalTickTime >= _descriptor.FailTime)
-            _onComplete?.Invoke(ActionResult.Failed);
+            _handlerDone?.Invoke(ActionResult.Failed);
         
         _totalTickTime += deltaTime;
         if(inputs.SouthBtn) _maintainedTime += deltaTime;
@@ -48,8 +48,8 @@ public class ActionHandlerMaintain : MonoBehaviour, IQTEHandler
         // just maintain A, always success, no failure on which button done
         Debug.Log($"Maintain is ticking : {_totalTickTime}/{ErrorRatio} , {_maintainedTime}/{MaintainRatio}");
         
-        _itemUIActionView.SetErrorRatio(ErrorRatio);
-        _itemUIActionView.SetMaintainRatio(MaintainRatio);
+        _itemUIActionView.SetTotalRatio(ErrorRatio);
+        _itemUIActionView.SetActionRatio(MaintainRatio);
         
     }
 }

@@ -4,27 +4,27 @@ using UnityEngine.UIElements;
 
 public class UIActionViewMaintain : BasicView
 {
-    private VisualElement _progressBar;
-    private VisualElement _maintainBar;
+    private VisualElement _totalTimeBar;
+    private VisualElement _actionBar;
     private Label _title;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
-        _progressBar = _document.rootVisualElement.Q<VisualElement>("ProgressBar");
-        _maintainBar = _document.rootVisualElement.Q<VisualElement>("MaintainBar");
+        _totalTimeBar = _document.rootVisualElement.Q<VisualElement>("TotalTimeBar");
+        _actionBar = _document.rootVisualElement.Q<VisualElement>("ActionBar");
         _title = _document.rootVisualElement.Q<Label>("Title");
         
         Hide();
     }
     
-    public void SetErrorRatio(float ratio)
+    public void SetTotalRatio(float ratio)
     {
-        _progressBar.style.width = new Length(100 * (1 - ratio), LengthUnit.Percent);
+        _totalTimeBar.style.width = new Length(100 * (1 - ratio), LengthUnit.Percent);
     }
-    public void SetMaintainRatio(float ratio)
+    public void SetActionRatio(float ratio)
     {
-        _maintainBar.style.width = new Length(100 * ratio, LengthUnit.Percent);
+        _actionBar.style.width = new Length(100 * ratio, LengthUnit.Percent);
     }
     public void SetTitle(string title)
     {

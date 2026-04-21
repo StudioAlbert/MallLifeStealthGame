@@ -9,10 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2275620340833136222}
-  - component: {fileID: -5100596058531260515}
   - component: {fileID: 1822986964113125400}
   - component: {fileID: 3449328108189939290}
-  - component: {fileID: 3017530276748744508}
+  - component: {fileID: -5100596058531260515}
   m_Layer: 0
   m_Name: Maintain
   m_TagString: Untagged
@@ -35,20 +34,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-5100596058531260515
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6786231983329591788}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec79ef5e71c24308933966fd725e8101, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MaintainHandler
-  _itemUIActionView: {fileID: 3449328108189939290}
-  _worldPlacement: {fileID: 3017530276748744508}
 --- !u!114 &1822986964113125400
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -85,7 +70,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UiControllerMaintain
   _document: {fileID: 1822986964113125400}
---- !u!114 &3017530276748744508
+--- !u!114 &-5100596058531260515
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -94,9 +79,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6786231983329591788}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b18f95433c804c54b73927d2b3491b0c, type: 3}
+  m_Script: {fileID: 11500000, guid: ec79ef5e71c24308933966fd725e8101, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::UIWorldPlacement
-  _document: {fileID: 1822986964113125400}
-  _centered: 0
-  _toFollow: {fileID: 0}
+  m_EditorClassIdentifier: Assembly-CSharp::MaintainHandler
+  _itemUIActionView: {fileID: 3449328108189939290}

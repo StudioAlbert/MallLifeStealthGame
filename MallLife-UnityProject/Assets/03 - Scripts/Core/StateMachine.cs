@@ -47,7 +47,7 @@ namespace Core
                 if (stateAvailable != null) return stateAvailable;
             }
             // No transitions, so return same state
-            Debug.LogWarning($"no transitions for that state {currenState.GetType()}");
+            // Debug.LogWarning($"no transitions for that state {currenState.GetType()}");
             return currenState;
 
         }

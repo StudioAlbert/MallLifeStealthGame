@@ -26,14 +26,12 @@ public class QTEManager : MonoBehaviour
     private ActionStateShowPanel _yellowSuccessState;
     private ActionStateShowPanel _failureState;
 
-    public event Action OnSuccess;
-    public event Action OnYellowSuccess;
-    public event Action OnFailure;
+    public event Action<ActionResult> OnResult;
 
     private IQTEHandler _actionHandler;
 
     private float _lastTimeUnlocked;
-    private bool _lockStateMachine = false;
+    private bool _lockStateMachine;
 
     public static QTEManager Instance { get; private set; }
 
@@ -103,24 +101,22 @@ public class QTEManager : MonoBehaviour
         
         //if(_lockStateMachine) return;
         
+        // Try to get an actual QTE
         _actionHandler = GetQTE(objectToFollow);
-
-        if (_actionHandler != null)
-        {
-            // _actionHandler.Init(objectToFollow, r => _actionStateMachine.ChangeState(r ? _successState : _failureState));
-            _actionHandler.Init(objectToFollow, OnComplete);
+        if (_actionHandler == null) return;
+        
+        // QTE request succeed
+        _actionHandler.Init(objectToFollow, OnComplete);
            
-            // Set action handlers ----------------------------------------
-            _inactiveState.ActionHandler = _actionHandler;
-            _startState.ActionHandler = _actionHandler;
-            _tickState.ActionHandler = _actionHandler;
-            _successState.ActionHandler = _actionHandler;
-            _yellowSuccessState.ActionHandler = _actionHandler;
-            _failureState.ActionHandler = _actionHandler;
+        // Set action handlers ----------------------------------------
+        _inactiveState.ActionHandler = _actionHandler;
+        _startState.ActionHandler = _actionHandler;
+        _tickState.ActionHandler = _actionHandler;
+        _successState.ActionHandler = _actionHandler;
+        _yellowSuccessState.ActionHandler = _actionHandler;
+        _failureState.ActionHandler = _actionHandler;
 
-            _actionStateMachine.ChangeState(_needToConfirm ? _startState : _tickState);
-
-        }
+        _actionStateMachine.ChangeState(_needToConfirm ? _startState : _tickState);
     }
     private void OnComplete(ActionResult result)
     { 
@@ -138,7 +134,7 @@ public class QTEManager : MonoBehaviour
             default:
                 _actionStateMachine.ChangeState(_inactiveState);
                 break;
-        };
+        }
     }
 
     // QTE Factory ----------------------------------------------------------------------
@@ -166,21 +162,15 @@ public class QTEManager : MonoBehaviour
         _lockStateMachine = true;
     }
 
-    private void HandleSuccess()
+    private void HandleSuccess() => HandleQTEResult(ActionResult.Success);
+    private void HandleYellowSuccess() => HandleQTEResult(ActionResult.MidTierResult);
+    private void HandleFailure() => HandleQTEResult(ActionResult.Failed);
+    private void HandleQTEResult(ActionResult result)
     {
-        OnSuccess?.Invoke();
+        OnResult?.Invoke(result);
         _lastTimeUnlocked = Time.time;
     }
-    private void HandleYellowSuccess()
-    {
-        OnYellowSuccess?.Invoke();
-        _lastTimeUnlocked = Time.time;
-    }
-    private void HandleFailure()
-    {
-        OnFailure?.Invoke();
-        _lastTimeUnlocked = Time.time;
-    }
+    
     private void DelayedForceChange()
     {
         if(_autoClose)

@@ -10,8 +10,9 @@ public enum ActionResult
 
 public interface IQTEHandler
 {
-    void Init(GameObject actionObject, Action<ActionResult> onComplete);
+    void Init(GameObject actionObject, Action<ActionResult> handlerDone);
     void Tick(float deltaTime, CoreInputs.QuickTimeEvents inputs);
     
     IUIQteView UIActionView { get; }
+    
 }

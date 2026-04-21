@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -23,33 +24,26 @@ public class Actionnable : MonoBehaviour
         QTEManager.Instance.Interrupt();
         _onHoverOut?.Invoke();
     }
-    private void Succeed()
+    private void OnResult(ActionResult result)
     {
         UnregisterFromActionManager();
-        _onActionSucceed?.Invoke();
+        
+        switch (result)
+        {
+            case ActionResult.Success:
+                _onActionSucceed?.Invoke();
+                break;
+            case ActionResult.MidTierResult:
+                _onActionYellowSucceed?.Invoke();
+                break;
+            case ActionResult.Failed:
+                _onActionFailed?.Invoke();
+                break;
+            default:
+                throw new ArgumentOutOfRangeException(nameof(result), result, null);
+        }
     }
-    private void YellowSucceed()
-    {
-        UnregisterFromActionManager();
-        _onActionYellowSucceed?.Invoke();
-    }
-    private void Failed()
-    {
-        UnregisterFromActionManager();
-        _onActionFailed?.Invoke();
-    }
-
-    private void RegisterToActionManager()
-    {
-        QTEManager.Instance.OnSuccess += Succeed;
-        QTEManager.Instance.OnYellowSuccess += YellowSucceed;
-        QTEManager.Instance.OnFailure += Failed;
-    }
-    private void UnregisterFromActionManager()
-    {
-        QTEManager.Instance.OnSuccess -= Succeed;
-        QTEManager.Instance.OnYellowSuccess -= YellowSucceed;
-        QTEManager.Instance.OnFailure -= Failed;
-    }
+    private void RegisterToActionManager() => QTEManager.Instance.OnResult += OnResult;
+    private void UnregisterFromActionManager() => QTEManager.Instance.OnResult -= OnResult;
     
 }
