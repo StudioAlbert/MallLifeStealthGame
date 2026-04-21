@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-public class ActionHandlerMaintain : MonoBehaviour, IActionHandler 
+public class ActionHandlerMaintain : MonoBehaviour, IQTEHandler 
 {
     [Header("References")]
     [SerializeField] private UIActionViewMaintain _itemUIActionView;
@@ -9,16 +9,16 @@ public class ActionHandlerMaintain : MonoBehaviour, IActionHandler
     
     private float _totalTickTime;
     private float _maintainedTime;
-    private Action<bool> _onComplete;
+    private Action<ActionResult> _onComplete;
     private MaintainDescriptor _descriptor;
     
-    public IUIActionView UIActionView => _itemUIActionView;
+    public IUIQteView UIActionView => _itemUIActionView;
     
     // Fix this with UI, here is some range placeholder
     private float ErrorRatio => _totalTickTime / _descriptor.FailTime;
     private float MaintainRatio => _maintainedTime / _descriptor.SuccessTime;
     
-    public void Init(GameObject actionObject, Action<bool> onComplete)
+    public void Init(GameObject actionObject, Action<ActionResult> onComplete)
     {
         
         _totalTickTime = 0;
@@ -36,10 +36,10 @@ public class ActionHandlerMaintain : MonoBehaviour, IActionHandler
     public void Tick(float deltaTime, CoreInputs.QuickTimeEvents inputs)
     {
         if(_maintainedTime >= _descriptor.SuccessTime)
-            _onComplete?.Invoke(true);
+            _onComplete?.Invoke(ActionResult.Success);
         
         if(_totalTickTime >= _descriptor.FailTime)
-            _onComplete?.Invoke(false);
+            _onComplete?.Invoke(ActionResult.Failed);
         
         _totalTickTime += deltaTime;
         if(inputs.SouthBtn) _maintainedTime += deltaTime;

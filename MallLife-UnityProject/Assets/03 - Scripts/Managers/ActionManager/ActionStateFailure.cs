@@ -9,7 +9,7 @@ public class ActionStateFailure : ActionState
         base.OnEnter();
         
         if(_actionHandler == null) return;
-        _actionHandler?.UIActionView.SetFailedPanel();
+        _actionHandler?.UIActionView.ShowPanel("FailedPanel");
     }
     public override void OnExit()
     {

@@ -7,12 +7,11 @@
     {
         base.OnEnter();
         
-        if(_actionHandler == null) return;
-        _actionHandler.UIActionView.SetYellowSuccessPanel();
+        _actionHandler?.UIActionView.ShowPanel("YellowSuccessPanel");
     }
     public override void OnExit()
     {
         base.OnExit();
-        _actionHandler.UIActionView.Hide();
+        _actionHandler?.UIActionView.Hide();
     }
 }

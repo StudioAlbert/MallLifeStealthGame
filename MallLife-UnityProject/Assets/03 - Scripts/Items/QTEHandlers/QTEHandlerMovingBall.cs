@@ -4,13 +4,13 @@ using UnityEngine;
 public class QTEHandlerMovingBall : MonoBehaviour, IQTEHandler
 {
     [Header("References")]
-    [SerializeField] private IUIActionViewMovingBall _itemUIActionView;
+    [SerializeField] private UIActionViewMovingBall _itemUIActionView;
 
     private float _totalTickTime;
     private Action<ActionResult> _onComplete;
     private MovingBallDescriptor _descriptor;
 
-    public IUIActionView UIActionView => _itemUIActionView;
+    public IUIQteView UIActionView => _itemUIActionView;
 
     // Fix this with UI, here is some range placeholder
     private float ErrorRatio => _totalTickTime / _descriptor.FailTime;
@@ -38,7 +38,7 @@ public class QTEHandlerMovingBall : MonoBehaviour, IQTEHandler
     public void Tick(float deltaTime, CoreInputs.QuickTimeEvents inputs)
     {
         if (_totalTickTime >= _descriptor.FailTime)
-            _onComplete?.Invoke(ActionResult.Red);
+            _onComplete?.Invoke(ActionResult.Failed);
         
         if(inputs.SouthBtnUp)
             _onComplete?.Invoke(Resolve());
@@ -58,17 +58,17 @@ public class QTEHandlerMovingBall : MonoBehaviour, IQTEHandler
         // Green zone, Success
         if (MovingRatio >= 0.5f * (1 - _descriptor.GreenZoneSize) && MovingRatio <= 0.5f * (1 + _descriptor.GreenZoneSize))
         {
-            return ActionResult.Green;
+            return ActionResult.Success;
         }
         
         // Yellow zone, Success
         if (MovingRatio >= 0.5f * (1 - _descriptor.YellowZoneSize) && MovingRatio <= 0.5f * (1 + _descriptor.YellowZoneSize))
         {
-            return ActionResult.Yellow;
+            return ActionResult.MidTierResult;
         }
         
         // Red Zone, failed
-        return ActionResult.Red;
+        return ActionResult.Failed;
 
     }
 }

@@ -11,19 +11,19 @@ public class ActionStateTick : ActionState
         // Depends on future Action Handler Factory 
         _inputQuickTimeEvents.ResetInputs();
 
-        if (_actionHandler == null) return;
-        _actionHandler.UIActionView.Show();
-        _actionHandler.UIActionView.SetActivePanel();
+        _actionHandler?.UIActionView.Show();
+        _actionHandler?.UIActionView.ShowPanel("ActivePanel");
     }
     public override void OnExit()
     {
         base.OnExit();
         
         _inputQuickTimeEvents.ResetInputs();
+        
+        _actionHandler?.UIActionView.HidePanel("ActivePanel");
     }
     public override void Tick(float deltaTime)
     {
-        if (_actionHandler == null) return;
-        _actionHandler.Tick(deltaTime, _inputQuickTimeEvents);
+        _actionHandler?.Tick(deltaTime, _inputQuickTimeEvents);
     }
 }

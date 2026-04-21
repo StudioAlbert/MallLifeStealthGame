@@ -9,6 +9,8 @@ public class QTEManager : MonoBehaviour
     [Header("References")]
     [SerializeField] private CoreInputs.QuickTimeEvents _inputQuickTimeEvents;
     [SerializeField] private QTEHandlerMovingBall _qteHandlerMovingBall;
+    [SerializeField] private ActionHandlerMaintain _actionHandlerMaintain;
+    [SerializeField] private ActionHandlerPush _actionHandlerPush;
     
     [Header("UI Behavior Settings")]
     [SerializeField] private float _timeBeforeClosing = 0.75f;
@@ -86,7 +88,7 @@ public class QTEManager : MonoBehaviour
         _failureState.Entered -= DelayedForceChange;
 
         _successState.Exited -= HandleSuccess;
-        _yellowSuccessState.Exited += HandleYellowSuccess;
+        _yellowSuccessState.Exited -= HandleYellowSuccess;
         _failureState.Exited -= HandleFailure;
     }
 
@@ -124,13 +126,13 @@ public class QTEManager : MonoBehaviour
     { 
         switch(result)
         {
-            case ActionResult.Green :
+            case ActionResult.Success :
                 _actionStateMachine.ChangeState(_successState); 
                 break;
-            case ActionResult.Yellow:
+            case ActionResult.MidTierResult:
                 _actionStateMachine.ChangeState(_yellowSuccessState);
                 break;
-            case ActionResult.Red:
+            case ActionResult.Failed:
                 _actionStateMachine.ChangeState(_failureState);
                 break;
             default:
@@ -142,8 +144,6 @@ public class QTEManager : MonoBehaviour
     // QTE Factory ----------------------------------------------------------------------
     private IQTEHandler GetQTE(GameObject QTEObject)
     {
-        IQTEHandler handlerResult;
-
         if (!QTEObject.TryGetComponent(out Stealable stealable))
             return null;
 
@@ -153,6 +153,8 @@ public class QTEManager : MonoBehaviour
         return stealable.Descriptor switch
         {
             MovingBallDescriptor => _qteHandlerMovingBall.gameObject.activeSelf ? _qteHandlerMovingBall : null,
+            MaintainDescriptor => _actionHandlerMaintain.gameObject.activeSelf ? _actionHandlerMaintain : null,
+            SimplePushDescriptor => _actionHandlerPush.gameObject.activeSelf ? _actionHandlerPush : null,
             _ => null
         };
 

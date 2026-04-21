@@ -7,7 +7,6 @@
     {
         base.OnEnter();
         
-        if(_actionHandler == null) return;
         _actionHandler?.UIActionView.Hide();
     }
     

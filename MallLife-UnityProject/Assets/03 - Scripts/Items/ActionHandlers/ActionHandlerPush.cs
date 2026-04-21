@@ -1,8 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-public class ActionHandlerPush
-    : MonoBehaviour, IActionHandler 
+public class ActionHandlerPush : MonoBehaviour, IQTEHandler 
 {
     [Header("References")]
     [SerializeField] private UIActionViewPush _itemUIActionView;
@@ -10,15 +9,15 @@ public class ActionHandlerPush
 
     
     private float _totalTickTime;
-    private Action<bool> _onComplete;
+    private Action<ActionResult> _onComplete;
     private SimplePushDescriptor _descriptor;
     
-    public IUIActionView UIActionView => _itemUIActionView;
+    public IUIQteView UIActionView => _itemUIActionView;
     
     // Fix this with UI, here is some range placeholder
     public float ErrorRatio => _totalTickTime / _descriptor.FailTime;
     
-    public void Init(GameObject actionObject, Action<bool> onComplete)
+    public void Init(GameObject actionObject, Action<ActionResult> onComplete)
     {
         
         _totalTickTime = 0;
@@ -35,10 +34,10 @@ public class ActionHandlerPush
     public void Tick(float deltaTime, CoreInputs.QuickTimeEvents inputs)
     {
         if(inputs.SouthBtnDown)
-            _onComplete?.Invoke(true);
+            _onComplete?.Invoke(ActionResult.Success);
         
         if(_totalTickTime >= _descriptor.FailTime)
-            _onComplete?.Invoke(false);
+            _onComplete?.Invoke(ActionResult.Success);
         
         _totalTickTime += deltaTime;
         

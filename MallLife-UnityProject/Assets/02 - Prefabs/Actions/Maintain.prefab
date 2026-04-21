@@ -47,9 +47,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec79ef5e71c24308933966fd725e8101, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MaintainHandler
-  _itemUIView: {fileID: 3449328108189939290}
-  _worldPlacement: {fileID: 0}
-  _needToConfirm: 0
+  _itemUIActionView: {fileID: 3449328108189939290}
+  _worldPlacement: {fileID: 3017530276748744508}
 --- !u!114 &1822986964113125400
 MonoBehaviour:
   m_ObjectHideFlags: 0

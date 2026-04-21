@@ -6,13 +6,11 @@
     public override void OnEnter()
     {
         base.OnEnter();
-        
-        if(_actionHandler == null) return;
-        _actionHandler.UIActionView.SetSuccessPanel();
+        _actionHandler?.UIActionView.ShowPanel("SuccessPanel");
     }
     public override void OnExit()
     {
         base.OnExit();
-        _actionHandler.UIActionView.Hide();
+        _actionHandler?.UIActionView.Hide();
     }
 }
