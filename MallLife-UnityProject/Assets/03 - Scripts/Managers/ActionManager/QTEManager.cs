@@ -15,8 +15,6 @@ public class QTEManager : MonoBehaviour
     [Header("UI Behavior Settings")]
     [SerializeField] private float _timeBeforeClosing = 0.75f;
     [SerializeField] private float _timeBeforeUnlock = 2f;
-    [SerializeField] private bool _needToConfirm = false;
-    [SerializeField] private bool _autoClose = false;
 
     private readonly Core.StateMachine _actionStateMachine = new Core.StateMachine();
     private ActionStateInactive _inactiveState;
@@ -98,7 +96,7 @@ public class QTEManager : MonoBehaviour
 
     public void StartQTE(GameObject objectToFollow)
     {
-        
+        // TODO : Lock sytem ?
         //if(_lockStateMachine) return;
         
         // Try to get an actual QTE
@@ -116,7 +114,7 @@ public class QTEManager : MonoBehaviour
         _yellowSuccessState.ActionHandler = _actionHandler;
         _failureState.ActionHandler = _actionHandler;
 
-        _actionStateMachine.ChangeState(_needToConfirm ? _startState : _tickState);
+        _actionStateMachine.ChangeState(_actionHandler.NeedToConfirm ? _startState : _tickState);
     }
     private void OnComplete(ActionResult result)
     { 
@@ -173,7 +171,7 @@ public class QTEManager : MonoBehaviour
     
     private void DelayedForceChange()
     {
-        if(_autoClose)
+        if(_actionHandler.AutoClose)
             _actionStateMachine.ChangeState(_inactiveState);
         else
             StartCoroutine(ForceChange());   

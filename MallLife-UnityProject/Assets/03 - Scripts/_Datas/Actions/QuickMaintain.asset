@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: QuickMaintain
   m_EditorClassIdentifier: Assembly-CSharp::MaintainDescriptor
   FailTime: 5
+  ReliveTime: 30
   SuccessTime: 1

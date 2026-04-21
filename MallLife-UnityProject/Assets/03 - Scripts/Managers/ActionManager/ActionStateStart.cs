@@ -12,9 +12,8 @@ public class ActionStateStart : ActionState
         _actionHandler?.UIActionView.ShowPanel("StartPanel");
         _actionHandler?.UIActionView.HidePanel("SuccessPanel");
         _actionHandler?.UIActionView.HidePanel("FailedPanel");
-        _actionHandler?.UIActionView.HidePanel("SuccessPanel");
-        _actionHandler?.UIActionView.HidePanel("ActivePanel");
         _actionHandler?.UIActionView.HidePanel("YellowSuccessPanel");
+        _actionHandler?.UIActionView.HidePanel("ActivePanel");
     }
     // ReSharper disable Unity.PerformanceAnalysis
     public override void OnExit()

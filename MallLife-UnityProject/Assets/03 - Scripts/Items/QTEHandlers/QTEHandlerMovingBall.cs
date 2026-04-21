@@ -6,14 +6,21 @@ public class QTEHandlerMovingBall : MonoBehaviour, IQTEHandler
     [Header("References")]
     [SerializeField] private UIActionViewMovingBall _itemUIActionView;
     
+    [Header("UI Behaviour")]
+    [SerializeField] private bool _needToConfirm;
+    [SerializeField] private bool _autoClose;
+    
     public IUIQteView UIActionView => _itemUIActionView;
+    public bool NeedToConfirm => _needToConfirm;
+    public bool AutoClose => _autoClose;
+    
     private Action<ActionResult> _handlerDone;
     
     private float _totalTickTime;
     private MovingBallDescriptor _descriptor;
 
     // Fix this with UI, here is some range placeholder
-    private float ErrorRatio => _totalTickTime / _descriptor.FailTime;
+    private float ErrorRatio => _totalTickTime / _descriptor.TotalTime;
     private float MovingRatio => Mathf.Repeat(0.5f + (_totalTickTime / _descriptor.MovingSpeed), 1.0f);
 
     public void Init(GameObject actionObject, Action<ActionResult> handlerDone)
@@ -32,7 +39,7 @@ public class QTEHandlerMovingBall : MonoBehaviour, IQTEHandler
 
     public void Tick(float deltaTime, CoreInputs.QuickTimeEvents inputs)
     {
-        if (_totalTickTime >= _descriptor.FailTime)
+        if (_totalTickTime >= _descriptor.TotalTime)
             _handlerDone?.Invoke(ActionResult.Failed);
         
         if(inputs.SouthBtnUp)
@@ -41,7 +48,7 @@ public class QTEHandlerMovingBall : MonoBehaviour, IQTEHandler
         _totalTickTime += deltaTime;
 
         // just maintain A, always success, no failure on which button done
-        Debug.Log($"Moving Ball is ticking : {_totalTickTime}/{ErrorRatio} , {_totalTickTime}/{MovingRatio}");
+        // Debug.Log($"Moving Ball is ticking : {_totalTickTime}/{ErrorRatio} , {_totalTickTime}/{MovingRatio}");
 
         _itemUIActionView.SetErrorRatio(ErrorRatio);
         _itemUIActionView.SetMovingCursor(MovingRatio);

@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: QuickPush
   m_EditorClassIdentifier: Assembly-CSharp::SimplePushDescriptor
   FailTime: 5
-  ReliveTime: 10
+  ReliveTime: 30

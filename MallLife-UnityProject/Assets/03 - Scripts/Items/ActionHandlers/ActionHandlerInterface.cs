@@ -14,5 +14,7 @@ public interface IQTEHandler
     void Tick(float deltaTime, CoreInputs.QuickTimeEvents inputs);
     
     IUIQteView UIActionView { get; }
-    
+    public bool NeedToConfirm { get; }
+    public bool AutoClose { get; }
+
 }
