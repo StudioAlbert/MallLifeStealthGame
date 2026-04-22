@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine;
 
 // ReSharper disable once InconsistentNaming
-public class QTEManager : MonoBehaviour
+public class QTEManager : Core.Singleton<QTEManager>
 {
 
     [Header("References")]
@@ -31,18 +31,6 @@ public class QTEManager : MonoBehaviour
     private float _lastTimeUnlocked;
     private bool _lockStateMachine;
 
-    public static QTEManager Instance { get; private set; }
-
-    private void Awake()
-    {
-        if (Instance && Instance != this)
-        {
-            Destroy(gameObject);
-            return;
-        }
-        Instance = this;
-    }
-    
     private void OnEnable()
     {
         // Init State machine
@@ -73,6 +61,7 @@ public class QTEManager : MonoBehaviour
         
         // Start with inactive
         _actionStateMachine.ChangeState(_inactiveState);
+        
     }
 
     private void OnDisable()

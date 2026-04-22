@@ -541,6 +541,38 @@ PrefabInstance:
       propertyPath: _needToConfirm
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6578906494292177509, guid: f5d03b4cdf1c0bd49ba408ec9ae1171b, type: 3}
+      propertyPath: _actionCurve.m_PreInfinity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6578906494292177509, guid: f5d03b4cdf1c0bd49ba408ec9ae1171b, type: 3}
+      propertyPath: _actionCurve.m_PostInfinity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6578906494292177509, guid: f5d03b4cdf1c0bd49ba408ec9ae1171b, type: 3}
+      propertyPath: _actionCurve.m_Curve.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6578906494292177509, guid: f5d03b4cdf1c0bd49ba408ec9ae1171b, type: 3}
+      propertyPath: _actionCurve.m_Curve.Array.data[1].time
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6578906494292177509, guid: f5d03b4cdf1c0bd49ba408ec9ae1171b, type: 3}
+      propertyPath: _actionCurve.m_Curve.Array.data[1].value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6578906494292177509, guid: f5d03b4cdf1c0bd49ba408ec9ae1171b, type: 3}
+      propertyPath: _actionCurve.m_Curve.Array.data[0].inSlope
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6578906494292177509, guid: f5d03b4cdf1c0bd49ba408ec9ae1171b, type: 3}
+      propertyPath: _actionCurve.m_Curve.Array.data[0].outSlope
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6578906494292177509, guid: f5d03b4cdf1c0bd49ba408ec9ae1171b, type: 3}
+      propertyPath: _actionCurve.m_Curve.Array.data[0].outWeight
+      value: 0.47712672
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

@@ -1,5 +1,4 @@
-﻿
-public class ActionStateShowPanel : ActionState
+﻿public class ActionStateShowPanel : ActionState
 {
     public ActionStateShowPanel(CoreInputs.QuickTimeEvents inputQuickTimeEvents, string panel) :
         base(inputQuickTimeEvents)

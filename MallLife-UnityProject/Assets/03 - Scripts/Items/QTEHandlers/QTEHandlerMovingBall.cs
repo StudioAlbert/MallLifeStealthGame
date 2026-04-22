@@ -9,6 +9,7 @@ public class QTEHandlerMovingBall : MonoBehaviour, IQTEHandler
     [Header("UI Behaviour")]
     [SerializeField] private bool _needToConfirm;
     [SerializeField] private bool _autoClose;
+    [SerializeField] private AnimationCurve _actionCurve;
     
     public IUIQteView UIActionView => _itemUIActionView;
     public bool NeedToConfirm => _needToConfirm;
@@ -21,7 +22,8 @@ public class QTEHandlerMovingBall : MonoBehaviour, IQTEHandler
 
     // Fix this with UI, here is some range placeholder
     private float ErrorRatio => _totalTickTime / _descriptor.TotalTime;
-    private float MovingRatio => Mathf.Repeat(0.5f + (_totalTickTime / _descriptor.MovingSpeed), 1.0f);
+    // private float MovingRatio => Mathf.Repeat(0.5f + (_totalTickTime / _descriptor.MovingSpeed), 1.0f);
+    private float MovingRatio => _actionCurve.Evaluate(0.5f + (_totalTickTime / _descriptor.MovingSpeed));
 
     public void Init(GameObject actionObject, Action<ActionResult> handlerDone)
     {
