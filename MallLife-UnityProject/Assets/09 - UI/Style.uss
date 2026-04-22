@@ -184,3 +184,7 @@
     margin-bottom: 5px;
     width: 100%;
 }
+
+.unity-button:hover {
+    background-color: rgb(141, 185, 178);
+}

@@ -1,0 +1,29 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/09%20-%20UI/Style.uss?fileID=7433441132597879392&amp;guid=a5ddd88d4ee62284286cba5298daf885&amp;type=3#Style"/>
+    <ui:VisualElement name="Panel" style="flex-grow: 1; position: absolute; left: 5%; top: 5%; flex-direction: row; align-self: center; align-items: center; height: 40px; width: 12%;">
+        <ui:VisualElement name="StateFrame" style="height: 100%; border-left-color: rgb(255, 255, 255); border-right-color: rgb(255, 255, 255); border-top-color: rgb(255, 255, 255); border-bottom-color: rgb(255, 255, 255); border-top-width: 2px; border-right-width: 2px; border-bottom-width: 2px; border-left-width: 2px; border-top-left-radius: 5px; border-top-right-radius: 5px; border-bottom-right-radius: 5px; border-bottom-left-radius: 5px; margin-left: 0; background-color: rgba(255, 255, 255, 0.16); flex-direction: row; flex-grow: 1; justify-content: space-between; align-self: auto; align-content: auto; align-items: auto;">
+            <ui:Label text="#####" name="Value" data-source-type="AlertManager, Assembly-CSharp" class="basic-text-prompt" style="padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; border-left-color: rgba(0, 0, 0, 0); border-right-color: rgba(0, 0, 0, 0); border-top-color: rgba(0, 0, 0, 0); border-bottom-color: rgba(0, 0, 0, 0); border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0; border-top-left-radius: 0; border-top-right-radius: 0; border-bottom-right-radius: 0; border-bottom-left-radius: 0; margin-top: 10px; margin-right: 10px; margin-bottom: 10px; margin-left: 10px; left: auto; font-size: 20px;">
+                <Bindings>
+                    <ui:DataBinding property="text" data-source-path="CurrentLevel" data-source-type="AlertManager, Assembly-CSharp" binding-mode="ToTarget" update-trigger="EveryUpdate" source-to-ui-converters="Alarm"/>
+                </Bindings>
+            </ui:Label>
+            <ui:Label text="/" class="basic-text-prompt" style="font-size: 20px; margin-top: 19px; margin-right: 19px; margin-bottom: 19px; margin-left: 19px;"/>
+            <ui:Label text="#####" name="State" class="basic-text-prompt" style="padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; border-left-color: rgba(0, 0, 0, 0); border-right-color: rgba(0, 0, 0, 0); border-top-color: rgba(0, 0, 0, 0); border-bottom-color: rgba(0, 0, 0, 0); border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0; border-top-left-radius: 0; border-top-right-radius: 0; border-bottom-right-radius: 0; border-bottom-left-radius: 0; margin-top: 10px; margin-right: 10px; margin-bottom: 10px; margin-left: 10px; font-size: 20px;">
+                <Bindings>
+                    <ui:DataBinding property="text" data-source-path="CurrentState" data-source-type="AlertManager, Assembly-CSharp" binding-mode="ToTarget" source-to-ui-converters="Alarm"/>
+                </Bindings>
+            </ui:Label>
+            <ui:VisualElement name="AlertBarFill" style="flex-grow: 1; width: 100%; height: 100%; background-color: rgba(0, 168, 255, 0.4); border-top-width: 2px; border-right-width: 2px; border-bottom-width: 2px; border-left-width: 2px; border-top-left-radius: 5px; border-top-right-radius: 5px; border-bottom-right-radius: 5px; border-bottom-left-radius: 5px; border-left-color: rgba(0, 0, 0, 0); border-right-color: rgb(255, 255, 255); border-top-color: rgba(0, 0, 0, 0); border-bottom-color: rgba(0, 0, 0, 0); flex-shrink: 0; align-self: auto; align-content: auto; align-items: flex-start; padding-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; top: 0%; bottom: 0%; position: absolute; scale: 1 1; transform-origin: left; left: 0%;">
+                <Bindings>
+                    <ui:DataBinding property="style.width" data-source-path="CurrentLevel" binding-mode="ToTarget" source-to-ui-converters="Alarm"/>
+                </Bindings>
+            </ui:VisualElement>
+            <Bindings>
+                <ui:DataBinding property="style.borderTopColor" data-source-path="CurrentLevel" data-source-type="AlertManager, Assembly-CSharp" binding-mode="ToTarget" source-to-ui-converters="Alarm"/>
+                <ui:DataBinding property="style.borderRightColor" data-source-path="CurrentLevel" data-source-type="AlertManager, Assembly-CSharp" binding-mode="ToTarget" source-to-ui-converters="Alarm"/>
+                <ui:DataBinding property="style.borderBottomColor" data-source-path="CurrentLevel" data-source-type="AlertManager, Assembly-CSharp" binding-mode="ToTarget" source-to-ui-converters="Alarm"/>
+                <ui:DataBinding property="style.borderLeftColor" data-source-path="CurrentLevel" data-source-type="AlertManager, Assembly-CSharp" binding-mode="ToTarget" source-to-ui-converters="Alarm"/>
+            </Bindings>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
