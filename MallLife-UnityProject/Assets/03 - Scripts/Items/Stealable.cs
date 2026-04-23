@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class Stealable : MonoBehaviour
 {
-    [SerializeField] private StealableItem _item;
+    [SerializeField] private StealableItemSO _item;
     [SerializeField] private InventorySO _inventory;
     [SerializeField] private ActionDescriptor _descriptor;
 
     [SerializeField] private List<Component> _lockableComponents;
 
-    public StealableItem Item => _item;
+    public StealableItemSO Item => _item;
     public ActionDescriptor Descriptor => _descriptor;
 
     public void Steal()

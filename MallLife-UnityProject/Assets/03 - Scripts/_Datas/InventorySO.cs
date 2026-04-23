@@ -7,8 +7,8 @@ using UnityEngine;
 public class InventorySO : ScriptableObject
 {
     
-    private List<StealableItem> _stolenItems;
-    [CreateProperty] public List<StealableItem> StolenItems => _stolenItems;
+    private List<StealableItemSO> _stolenItems;
+    [CreateProperty] public List<StealableItemSO> StolenItems => _stolenItems;
 
     public event Action OnChanged;
 
@@ -18,10 +18,10 @@ public class InventorySO : ScriptableObject
         OnChanged?.Invoke();
     }
     
-    public void AddItem(StealableItem item)
+    public void AddItem(StealableItemSO itemSO)
     {
-        Debug.Log($"Adding item {item.name}");
-        _stolenItems.Add(item);
+        Debug.Log($"Adding item {itemSO.name}");
+        _stolenItems.Add(itemSO);
         
         OnChanged?.Invoke();
     }

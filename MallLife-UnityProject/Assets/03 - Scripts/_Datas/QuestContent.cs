@@ -6,6 +6,6 @@ using UnityEngine;
 public class QuestContent : ScriptableObject
 {
     public Faction Faction;
-    public List<StealableItem> _itemsToSteal;
+    public List<StealableItemSO> _itemsToSteal;
     
 }

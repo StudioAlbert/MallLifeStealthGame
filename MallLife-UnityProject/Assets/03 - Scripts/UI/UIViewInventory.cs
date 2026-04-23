@@ -62,7 +62,7 @@ public class UIViewInventory : MonoBehaviour
         }
 
     }
-    private TemplateContainer PopulateFilledSlot(StealableItem item)
+    private TemplateContainer PopulateFilledSlot(StealableItemSO itemSO)
     {
 
         // Instantiate one slot per item
@@ -70,13 +70,13 @@ public class UIViewInventory : MonoBehaviour
 
         // Fill it with your SO data
         var icon = slot.Q<VisualElement>("icon");
-        icon.style.backgroundImage = item != null ? new StyleBackground(item.Icon) : StyleKeyword.None;
+        icon.style.backgroundImage = itemSO != null ? new StyleBackground(itemSO.Icon) : StyleKeyword.None;
 
         var labelName = slot.Q<Label>("label-name");
-        labelName.text = item != null ? item.Name : "";
+        labelName.text = itemSO != null ? itemSO.Name : "";
         
         var labelValue = slot.Q<Label>("label-value");
-        labelValue.text = item != null ? item.NumericValue.ToString() : "";
+        labelValue.text = itemSO != null ? itemSO.NumericValue.ToString() : "";
 
         return slot;
     }
