@@ -33,7 +33,7 @@ public class Actionnable : MonoBehaviour
             case ActionResult.Success:
                 _onActionSucceed?.Invoke();
                 break;
-            case ActionResult.MidTierResult:
+            case ActionResult.MediumFailed:
                 _onActionYellowSucceed?.Invoke();
                 break;
             case ActionResult.Failed:
@@ -43,7 +43,7 @@ public class Actionnable : MonoBehaviour
                 throw new ArgumentOutOfRangeException(nameof(result), result, null);
         }
     }
-    private void RegisterToActionManager() => QTEManager.Instance.OnResult += OnResult;
-    private void UnregisterFromActionManager() => QTEManager.Instance.OnResult -= OnResult;
+    private void RegisterToActionManager() => QTEManager.Instance.OnQteEndedResult += OnResult;
+    private void UnregisterFromActionManager() => QTEManager.Instance.OnQteEndedResult -= OnResult;
     
 }

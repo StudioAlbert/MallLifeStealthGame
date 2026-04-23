@@ -1,8 +1,13 @@
+using System;
 using UnityEngine;
 using UnityEngine.UIElements;
 
 public class UITester : MonoBehaviour
 {
+    [SerializeField] private EventChannelFloatSO _raiseAlertEvt;
+    [SerializeField] private EventChannelFloatSO _releaseAlertEvt;
+    [SerializeField] private EventChannelVoidSO _resetAlertEvt;
+    
     private UIDocument _document;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -10,25 +15,25 @@ public class UITester : MonoBehaviour
     {
         _document = GetComponent<UIDocument>();
 
-        var raiseBtn = _document.rootVisualElement.Q<Button>("Raise");
-        raiseBtn.clicked += () =>
-        {
-            AlertManager.Instance.RaiseAlert(5);
-            Debug.Log("Clicked to raise +5");
-        };
+        BindButton("RawRaise", () => AlertManager.Instance.RaiseAlert(5));
+        BindButton("RawRelease", () => AlertManager.Instance.ReleaseAlert(2));
+        BindButton("RawReset", () => AlertManager.Instance.Reset());
         
-        var releaseBtn = _document.rootVisualElement.Q<Button>("Release");
-        releaseBtn.clicked += () =>
+        BindButton("EvtRaise", () => _raiseAlertEvt.RaiseEvent(5));
+        BindButton("EvtRelease", () => _releaseAlertEvt.RaiseEvent(1.5f));
+        BindButton("EvtReset", () => _resetAlertEvt.RaiseEvent());
+
+    }
+    private void BindButton(string btnName, Action function)
+    {
+        var button = _document.rootVisualElement.Q<Button>(btnName);
+        if (button == null)
         {
-            AlertManager.Instance.ReleaseAlert(2);
-            Debug.Log("Clicked to Release -2");
-        };
-        var resetBtn = _document.rootVisualElement.Q<Button>("Reset");
-        resetBtn.clicked += () =>
-        {
-            AlertManager.Instance.Reset();
-            Debug.Log("Clicked to reset Alarms");
-        };
+            Debug.Log("Button name does not fit");
+            return;
+        }
+        
+        button.clicked += function;
     }
 
     // Update is called once per frame

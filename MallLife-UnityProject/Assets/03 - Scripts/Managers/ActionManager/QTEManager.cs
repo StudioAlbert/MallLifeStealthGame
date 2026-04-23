@@ -16,6 +16,11 @@ public class QTEManager : Core.Singleton<QTEManager>
     [SerializeField] private float _timeBeforeClosing = 0.75f;
     [SerializeField] private float _timeBeforeUnlock = 2f;
 
+    [Header("Alarms")]
+    [SerializeField] private EventChannelFloatSO _alarmRaiseEvt;
+    [SerializeField] private float _mediumLevel = 0f;
+    [SerializeField] private float _failedLevel = 0f;
+
     private readonly Core.StateMachine _actionStateMachine = new Core.StateMachine();
     private ActionStateInactive _inactiveState;
     private ActionStateStart _startState;
@@ -24,7 +29,7 @@ public class QTEManager : Core.Singleton<QTEManager>
     private ActionStateShowPanel _yellowSuccessState;
     private ActionStateShowPanel _failureState;
 
-    public event Action<ActionResult> OnResult;
+    public event Action<ActionResult> OnQteEndedResult;
 
     private IQTEHandler _actionHandler;
 
@@ -48,9 +53,9 @@ public class QTEManager : Core.Singleton<QTEManager>
         _yellowSuccessState.Entered += DelayedForceChange;
         _failureState.Entered += DelayedForceChange;
         
-        _successState.Exited += HandleSuccess;
-        _yellowSuccessState.Exited += HandleYellowSuccess;
-        _failureState.Exited += HandleFailure;
+        _successState.Exited += ExitSuccessState;
+        _yellowSuccessState.Exited += ExitMediumSuccess;
+        _failureState.Exited += ExitFailedState;
 
         // Transitions
         _actionStateMachine.AddTransition(_startState, _tickState, () => _inputQuickTimeEvents.ValidateUp);
@@ -72,9 +77,9 @@ public class QTEManager : Core.Singleton<QTEManager>
         _yellowSuccessState.Entered -= DelayedForceChange;
         _failureState.Entered -= DelayedForceChange;
 
-        _successState.Exited -= HandleSuccess;
-        _yellowSuccessState.Exited -= HandleYellowSuccess;
-        _failureState.Exited -= HandleFailure;
+        _successState.Exited -= ExitSuccessState;
+        _yellowSuccessState.Exited -= ExitMediumSuccess;
+        _failureState.Exited -= ExitFailedState;
     }
 
     private void Update()
@@ -112,7 +117,7 @@ public class QTEManager : Core.Singleton<QTEManager>
             case ActionResult.Success :
                 _actionStateMachine.ChangeState(_successState); 
                 break;
-            case ActionResult.MidTierResult:
+            case ActionResult.MediumFailed:
                 _actionStateMachine.ChangeState(_yellowSuccessState);
                 break;
             case ActionResult.Failed:
@@ -149,12 +154,24 @@ public class QTEManager : Core.Singleton<QTEManager>
         _lockStateMachine = true;
     }
 
-    private void HandleSuccess() => HandleQTEResult(ActionResult.Success);
-    private void HandleYellowSuccess() => HandleQTEResult(ActionResult.MidTierResult);
-    private void HandleFailure() => HandleQTEResult(ActionResult.Failed);
+    private void ExitSuccessState() => HandleQTEResult(ActionResult.Success);
+    private void ExitMediumSuccess() => HandleQTEResult(ActionResult.MediumFailed);
+    private void ExitFailedState() => HandleQTEResult(ActionResult.Failed);
     private void HandleQTEResult(ActionResult result)
     {
-        OnResult?.Invoke(result);
+        switch (result)
+        {
+            case ActionResult.Failed :
+                _alarmRaiseEvt.RaiseEvent(_failedLevel);
+                break;
+            case ActionResult.MediumFailed:
+                _alarmRaiseEvt.RaiseEvent(_mediumLevel);
+                break;
+            case ActionResult.Success:
+            default:
+                throw new ArgumentOutOfRangeException(nameof(result), result, null);
+        }
+        OnQteEndedResult?.Invoke(result);
         _lastTimeUnlocked = Time.time;
     }
     

@@ -6,12 +6,12 @@ public class Stealable : MonoBehaviour
 {
     [SerializeField] private StealableItemSO _item;
     [SerializeField] private InventorySO _inventory;
-    [SerializeField] private ActionDescriptor _descriptor;
+    [SerializeField] private ActionsDescriptorSO _descriptor;
 
     [SerializeField] private List<Component> _lockableComponents;
 
     public StealableItemSO Item => _item;
-    public ActionDescriptor Descriptor => _descriptor;
+    public ActionsDescriptorSO Descriptor => _descriptor;
 
     public void Steal()
     {

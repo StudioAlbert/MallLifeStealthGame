@@ -68,7 +68,7 @@ public class QTEHandlerMovingBall : MonoBehaviour, IQTEHandler
         // Yellow zone, Success
         if (MovingRatio >= 0.5f * (1 - _descriptor.YellowZoneSize) && MovingRatio <= 0.5f * (1 + _descriptor.YellowZoneSize))
         {
-            return ActionResult.MidTierResult;
+            return ActionResult.MediumFailed;
         }
         
         // Red Zone, failed

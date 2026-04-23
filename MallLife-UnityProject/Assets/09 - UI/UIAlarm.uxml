@@ -10,7 +10,7 @@
         </ui:VisualElement>
         <ui:Label text="#####" name="Value" data-source-type="AlertManager, Assembly-CSharp" class="basic-text-prompt" style="padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; border-left-color: rgba(0, 0, 0, 0); border-right-color: rgba(0, 0, 0, 0); border-top-color: rgba(0, 0, 0, 0); border-bottom-color: rgba(0, 0, 0, 0); border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0; border-top-left-radius: 0; border-top-right-radius: 0; border-bottom-right-radius: 0; border-bottom-left-radius: 0; margin-top: 10px; margin-right: 10px; margin-bottom: 10px; margin-left: 10px; left: auto; font-size: 20px;">
             <Bindings>
-                <ui:DataBinding property="text" data-source-path="CurrentLevel" data-source-type="AlertManager, Assembly-CSharp" binding-mode="ToTarget" update-trigger="EveryUpdate" source-to-ui-converters="Alarm"/>
+                <ui:DataBinding property="text" data-source-path="CurrentLevel" data-source-type="AlertManager, Assembly-CSharp" binding-mode="ToTarget" update-trigger="OnSourceChanged" source-to-ui-converters="Alarm"/>
             </Bindings>
         </ui:Label>
         <ui:Label text="/" class="basic-text-prompt" style="font-size: 20px; margin-top: 19px; margin-right: 19px; margin-bottom: 19px; margin-left: 19px;"/>

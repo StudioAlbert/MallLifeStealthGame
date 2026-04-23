@@ -5,6 +5,11 @@ using UnityEngine;
 public class AlertManager : Core.Singleton<AlertManager>
 {
     [SerializeField] private AlertProfileSO _profileSO;
+    
+    [Header("Events")]
+    [SerializeField] private EventChannelFloatSO _raiseAlertEvt;
+    [SerializeField] private EventChannelFloatSO _releaseAlertEvt;
+    [SerializeField] private EventChannelVoidSO _resetAlertEvt;
 
     public event Action<AlertState> OnAlertStateChanged;
     // ReSharper disable once MemberCanBePrivate.Global because of UI Binding
@@ -18,6 +23,18 @@ public class AlertManager : Core.Singleton<AlertManager>
 
     private const float MaxLevel = 100f;
 
+    private void OnEnable()
+    {
+        _releaseAlertEvt.OnEventRaised += ReleaseAlert;
+        _raiseAlertEvt.OnEventRaised += RaiseAlert;
+        _resetAlertEvt.OnEventRaised += Reset;
+    }
+    private void OnDisable()
+    {
+        _releaseAlertEvt.OnEventRaised -= ReleaseAlert;
+        _raiseAlertEvt.OnEventRaised -= RaiseAlert;
+        _resetAlertEvt.OnEventRaised -= Reset;
+    }
     private void Update()
     {
         if (_profileSO)

@@ -44,3 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84857961dbd643f1b227fbae9fc86c1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AlertManager
+  _profileSO: {fileID: 11400000, guid: 7f2ea3b08b66ad94db70ace7d0f831ab, type: 2}
+  _raiseAlertEvt: {fileID: 11400000, guid: 5b2704b33c0f8df44826ad892e2ca4b1, type: 2}
+  _releaseAlertEvt: {fileID: 11400000, guid: 7ab3a79a679b58941990dadffaf534fe, type: 2}
+  _resetAlertEvt: {fileID: 11400000, guid: 45ff2fb7fed0f7047bf67f64575a9b62, type: 2}

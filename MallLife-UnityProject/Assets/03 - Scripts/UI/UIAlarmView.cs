@@ -7,9 +7,9 @@ public class UIAlarmView : MonoBehaviour
 
     private UIDocument _uiDocument;
 
-    private Label stateLabel;
-    private VisualElement stateFrame;
-    private VisualElement alertBarFill;
+    private Label _stateLabel;
+    private VisualElement _stateFrame;
+    private VisualElement _alertBarFill;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -28,11 +28,7 @@ public class UIAlarmView : MonoBehaviour
         _uiDocument.rootVisualElement.dataSource = AlertManager.Instance;
         
         // Bind to element
-        stateLabel = _uiDocument.rootVisualElement.Q<Label>("State");
+        _stateLabel = _uiDocument.rootVisualElement.Q<Label>("State");
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-    }
 }

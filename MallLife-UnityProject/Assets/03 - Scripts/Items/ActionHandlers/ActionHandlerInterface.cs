@@ -4,7 +4,7 @@ using UnityEngine;
 public enum ActionResult
 {
     Success,
-    MidTierResult,
+    MediumFailed,
     Failed
 }
 
