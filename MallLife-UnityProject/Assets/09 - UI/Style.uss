@@ -185,6 +185,29 @@
     width: 100%;
 }
 
-.unity-button:hover {
-    background-color: rgb(141, 185, 178);
+.button:hover {
+    background-color: rgba(141, 185, 178, 0.76);
+}
+
+.button {
+    height: 100%;
+    width: 245px;
+    border-left-color: rgb(255, 255, 255);
+    border-right-color: rgb(255, 255, 255);
+    border-top-color: rgb(255, 255, 255);
+    border-bottom-color: rgb(255, 255, 255);
+    border-top-width: 2px;
+    border-right-width: 2px;
+    border-bottom-width: 2px;
+    border-left-width: 2px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    font-size: 32px;
+    color: rgb(255, 255, 255);
+    margin-right: 10px;
+    margin-left: 10px;
+    -unity-font-definition: url("project://database/Library/unity%20default%20resources?fileID=10102&guid=0000000000000000e000000000000000&type=0#LegacyRuntime");
+    background-color: rgba(153, 148, 148, 0.7);
 }

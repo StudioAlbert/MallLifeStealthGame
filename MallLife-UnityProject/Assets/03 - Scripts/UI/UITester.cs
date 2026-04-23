@@ -21,13 +21,13 @@ public class UITester : MonoBehaviour
         releaseBtn.clicked += () =>
         {
             AlertManager.Instance.ReleaseAlert(2);
-            Debug.Log("Clicked to raise +5");
+            Debug.Log("Clicked to Release -2");
         };
         var resetBtn = _document.rootVisualElement.Q<Button>("Reset");
         resetBtn.clicked += () =>
         {
             AlertManager.Instance.Reset();
-            Debug.Log("Clicked to raise +5");
+            Debug.Log("Clicked to reset Alarms");
         };
     }
 

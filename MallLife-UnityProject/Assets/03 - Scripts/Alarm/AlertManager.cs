@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class AlertManager : Core.Singleton<AlertManager>
 {
-    [SerializeField] private AlertProfile profile;
+    [SerializeField] private AlertProfileSO _profileSO;
 
     public event Action<AlertState> OnAlertStateChanged;
+    // ReSharper disable once MemberCanBePrivate.Global because of UI Binding
     [CreateProperty] public float CurrentLevel { get; set; } = 0f;
+    // ReSharper disable once MemberCanBePrivate.Global because of UI Binding
     [CreateProperty] public AlertState CurrentState => _currentState;
 
     private AlertState _currentState = AlertState.Clear;
@@ -16,6 +18,14 @@ public class AlertManager : Core.Singleton<AlertManager>
 
     private const float MaxLevel = 100f;
 
+    private void Update()
+    {
+        if (_profileSO)
+        {
+            ReleaseAlert(_profileSO.DownRatePerSecond * Time.deltaTime);
+        }
+    }
+    
     public void RaiseAlert(float amount)
     {
         CurrentLevel = Mathf.Clamp(CurrentLevel + amount, 0f, MaxLevel);
@@ -26,6 +36,8 @@ public class AlertManager : Core.Singleton<AlertManager>
 
     public void ReleaseAlert(float amount)
     {
+        if (_currentState == AlertState.Caught) return; // no decay once Caught
+
         CurrentLevel = Mathf.Clamp(CurrentLevel - amount, 0f, MaxLevel);
         UpdateState();
     }
@@ -44,19 +56,17 @@ public class AlertManager : Core.Singleton<AlertManager>
 
     private AlertState ComputeState(float level)
     {
-        if (profile == null)
+        if (!_profileSO)
         {
             Debug.LogWarning($"No Alert profile. {CurrentState} remains.");
             return CurrentState;
         }
-        else
-        {
-            if (level < profile.ClearUpper) return AlertState.Clear;
-            if (level < profile.WatchedUpper) return AlertState.Watched;
-            if (level < profile.SuspiciousUpper) return AlertState.Suspicious;
-            if (level < profile.HotUpper) return AlertState.Hot;
-            return AlertState.Caught;
-        }
+
+        if (level <= _profileSO.ClearUpper) return AlertState.Clear;
+        if (level <= _profileSO.WatchedUpper) return AlertState.Watched;
+        if (level <= _profileSO.SuspiciousUpper) return AlertState.Suspicious;
+        if (level <= _profileSO.HotUpper) return AlertState.Hot;
+        return AlertState.Caught;
 
     }
 
@@ -67,13 +77,5 @@ public class AlertManager : Core.Singleton<AlertManager>
         // Tracker = new AlertTracker();
     }
 
-    private void Update()
-    {
-        if (profile == null) return;
-
-        if (_currentState == AlertState.Caught) return; // no decay once Caught
-        CurrentLevel = Mathf.Max(0f, CurrentLevel - profile.DownRatePerSecond * Time.deltaTime);
-
-        UpdateState();
-    }
+    
 }

@@ -583,6 +583,14 @@ PrefabInstance:
       propertyPath: profile
       value: 
       objectReference: {fileID: 11400000, guid: 7f2ea3b08b66ad94db70ace7d0f831ab, type: 2}
+    - target: {fileID: 3101447079501692037, guid: 4bb389b1b0f9c2843809900e3d3797d9, type: 3}
+      propertyPath: _profile
+      value: 
+      objectReference: {fileID: 11400000, guid: 7f2ea3b08b66ad94db70ace7d0f831ab, type: 2}
+    - target: {fileID: 3101447079501692037, guid: 4bb389b1b0f9c2843809900e3d3797d9, type: 3}
+      propertyPath: _profileSO
+      value: 
+      objectReference: {fileID: 11400000, guid: 7f2ea3b08b66ad94db70ace7d0f831ab, type: 2}
     - target: {fileID: 3427141668658717248, guid: 4bb389b1b0f9c2843809900e3d3797d9, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0

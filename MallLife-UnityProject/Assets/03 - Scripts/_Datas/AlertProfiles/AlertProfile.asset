@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8164c4c5b9075cd42866d86a52e73668, type: 3}
   m_Name: AlertProfile
   m_EditorClassIdentifier: Assembly-CSharp::AlertProfile
-  ClearUpper: 1
-  WatchedUpper: 31
-  SuspiciousUpper: 61
-  HotUpper: 86
+  ClearUpper: 10
+  WatchedUpper: 50
+  SuspiciousUpper: 75
+  HotUpper: 99
   DownRatePerSecond: 0.75
