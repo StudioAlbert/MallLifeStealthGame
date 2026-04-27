@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e85b45b766b84882b66436b5a366b908, type: 3}
+  m_Script: {fileID: 11500000, guid: 3fcba0b44e5743e3b4f5a592499671bd, type: 3}
   m_Name: QuickPush
-  m_EditorClassIdentifier: Assembly-CSharp::SimplePushDescriptor
-  FailTime: 5
-  ReliveTime: 30
+  m_EditorClassIdentifier: Assembly-CSharp::SimplePushDescriptorSO
+  TotalTime: 5
+  ReliveTime: 45

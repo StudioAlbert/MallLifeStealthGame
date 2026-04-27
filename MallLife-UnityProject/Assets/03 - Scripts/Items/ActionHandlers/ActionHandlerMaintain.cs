@@ -16,7 +16,7 @@ public class ActionHandlerMaintain : MonoBehaviour, IQTEHandler
 
     private float _totalTickTime;
     private float _maintainedTime;
-    private MaintainDescriptor _descriptor;
+    private MaintainDescriptorSO _descriptor;
     private Action<ActionResult> _handlerDone;
 
 
@@ -34,7 +34,7 @@ public class ActionHandlerMaintain : MonoBehaviour, IQTEHandler
         if (actionObject.TryGetComponent(out Stealable stealable))
         {
             _itemUIActionView.SetTitle($"{stealable.Item.Name} / ${stealable.Item.NumericValue}");
-            _descriptor = stealable.Descriptor as MaintainDescriptor;
+            _descriptor = stealable.Descriptor as MaintainDescriptorSO;
         }
     }
     

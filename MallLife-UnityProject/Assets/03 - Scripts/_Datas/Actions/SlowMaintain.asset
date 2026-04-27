@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3dca25867b8b4ba6bd7ad36ef3867339, type: 3}
+  m_Script: {fileID: 11500000, guid: 1f345db0263c4297a28865429f111c55, type: 3}
   m_Name: SlowMaintain
-  m_EditorClassIdentifier: Assembly-CSharp::MaintainDescriptor
-  FailTime: 25
-  ReliveTime: 30
-  SuccessTime: 5
+  m_EditorClassIdentifier: Assembly-CSharp::MaintainDescriptorSO
+  TotalTime: 20
+  ReliveTime: 45
+  ActionTime: 10

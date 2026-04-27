@@ -18,7 +18,7 @@ public class QTEHandlerMovingBall : MonoBehaviour, IQTEHandler
     private Action<ActionResult> _handlerDone;
     
     private float _totalTickTime;
-    private MovingBallDescriptor _descriptor;
+    private MovingBallDescriptorSO _descriptor;
 
     // Fix this with UI, here is some range placeholder
     private float ErrorRatio => _totalTickTime / _descriptor.TotalTime;
@@ -34,7 +34,7 @@ public class QTEHandlerMovingBall : MonoBehaviour, IQTEHandler
         if (actionObject.TryGetComponent(out Stealable stealable))
         {
             _itemUIActionView.SetTitle($"{stealable.Item.Name} / ${stealable.Item.NumericValue}");
-            _descriptor = stealable.Descriptor as MovingBallDescriptor;
+            _descriptor = stealable.Descriptor as MovingBallDescriptorSO;
         }
     }
 
@@ -44,7 +44,7 @@ public class QTEHandlerMovingBall : MonoBehaviour, IQTEHandler
         if (_totalTickTime >= _descriptor.TotalTime)
             _handlerDone?.Invoke(ActionResult.Failed);
         
-        if(inputs.SouthBtnUp)
+        if(inputs.SouthBtnDown)
             _handlerDone?.Invoke(Resolve());
 
         _totalTickTime += deltaTime;

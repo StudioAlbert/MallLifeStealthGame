@@ -15,7 +15,7 @@ public class ActionHandlerPush : MonoBehaviour, IQTEHandler
     public bool AutoClose => _autoClose;
 
     private float _totalTickTime;
-    private SimplePushDescriptor _descriptor;
+    private SimplePushDescriptorSO _descriptor;
     private Action<ActionResult> _handlerDone;
 
 
@@ -31,7 +31,7 @@ public class ActionHandlerPush : MonoBehaviour, IQTEHandler
         if (actionObject.TryGetComponent(out Stealable stealable))
         {
             _itemUIActionView.SetTitle($"{stealable.Item.Name} / ${stealable.Item.NumericValue}");
-            _descriptor = stealable.Descriptor as SimplePushDescriptor;
+            _descriptor = stealable.Descriptor as SimplePushDescriptorSO;
         }
     }
     

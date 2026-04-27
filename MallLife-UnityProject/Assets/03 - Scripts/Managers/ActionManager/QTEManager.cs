@@ -140,9 +140,9 @@ public class QTEManager : Core.Singleton<QTEManager>
         // - Activation
         return stealable.Descriptor switch
         {
-            MovingBallDescriptor => _qteHandlerMovingBall.gameObject.activeSelf ? _qteHandlerMovingBall : null,
-            MaintainDescriptor => _actionHandlerMaintain.gameObject.activeSelf ? _actionHandlerMaintain : null,
-            SimplePushDescriptor => _actionHandlerPush.gameObject.activeSelf ? _actionHandlerPush : null,
+            MovingBallDescriptorSO => _qteHandlerMovingBall.gameObject.activeSelf ? _qteHandlerMovingBall : null,
+            MaintainDescriptorSO => _actionHandlerMaintain.gameObject.activeSelf ? _actionHandlerMaintain : null,
+            SimplePushDescriptorSO => _actionHandlerPush.gameObject.activeSelf ? _actionHandlerPush : null,
             _ => null
         };
 
@@ -168,6 +168,7 @@ public class QTEManager : Core.Singleton<QTEManager>
                 _alarmRaiseEvt.RaiseEvent(_mediumLevel);
                 break;
             case ActionResult.Success:
+                break;
             default:
                 throw new ArgumentOutOfRangeException(nameof(result), result, null);
         }

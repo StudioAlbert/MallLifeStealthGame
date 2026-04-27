@@ -2495,8 +2495,9 @@ MonoBehaviour:
   _actionHandlerPush: {fileID: 1072203944}
   _timeBeforeClosing: 0.75
   _timeBeforeUnlock: 2
-  _mediumFailedAlarm: 7
-  _failedAlarm: 25
+  _alarmRaiseEvt: {fileID: 11400000, guid: 5b2704b33c0f8df44826ad892e2ca4b1, type: 2}
+  _mediumLevel: 5
+  _failedLevel: 10
 --- !u!1001 &1706969557
 PrefabInstance:
   m_ObjectHideFlags: 0
