@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MovingBallDescriptorSO
   TotalTime: 30
   ReliveTime: 45
-  MovingSpeed: 2
+  MovingSpeed: 3
   GreenZoneSize: 0.15
   YellowZoneSize: 0.35

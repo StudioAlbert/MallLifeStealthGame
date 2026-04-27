@@ -3,7 +3,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     [Header("References")]
-    [SerializeField] private CoreInputs.Player _inputPlayer;
+    [SerializeField] private Inputs.Player _inputPlayer;
     [SerializeField] private Rigidbody _rigidbody;
 
     [Header("Movement")]

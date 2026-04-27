@@ -1,49 +1,50 @@
-
 using UnityEngine;
 
-public class InputMenus : MonoBehaviour
+namespace Inputs
 {
-
-    private GameControls _controls;
-    
-    // Menus -----------------------------------
-    public CoreInputs.CoreButton Inventory = new CoreInputs.CoreButton();
-    public CoreInputs.CoreButton Cancel = new CoreInputs.CoreButton();
-    public bool Objectives;
-    public bool StealthView;
-
-    
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Awake()
+    public class InputMenus : MonoBehaviour
     {
-        _controls = new GameControls();
 
-        _controls.QuickMenus.Inventory.started += _ => Inventory.Started();
-        _controls.QuickMenus.Inventory.canceled += _ => Inventory.Canceled();
+        private GameControls _controls;
 
-        _controls.UI.Cancel.started += _ => Cancel.Started();
-        _controls.UI.Cancel.canceled += _ => Cancel.Canceled();
-        
-        _controls.QuickMenus.Quests.started += _ => Objectives = true;
-        _controls.QuickMenus.Quests.canceled += _ => Objectives = false;
+        // Menus -----------------------------------
+        public CoreInputs.CoreButton Inventory = new CoreInputs.CoreButton();
+        public CoreInputs.CoreButton Cancel = new CoreInputs.CoreButton();
+        public bool Objectives;
+        public bool StealthView;
 
-        _controls.QuickMenus.StealthView.started += _ => StealthView = true;
-        _controls.QuickMenus.StealthView.canceled += _ => StealthView = false;
-        
-        
+
+        // Start is called once before the first execution of Update after the MonoBehaviour is created
+        void Awake()
+        {
+            _controls = new GameControls();
+
+            _controls.QuickMenus.Inventory.started += _ => Inventory.Started();
+            _controls.QuickMenus.Inventory.canceled += _ => Inventory.Canceled();
+
+            _controls.UI.Cancel.started += _ => Cancel.Started();
+            _controls.UI.Cancel.canceled += _ => Cancel.Canceled();
+
+            _controls.QuickMenus.Quests.started += _ => Objectives = true;
+            _controls.QuickMenus.Quests.canceled += _ => Objectives = false;
+
+            _controls.QuickMenus.StealthView.started += _ => StealthView = true;
+            _controls.QuickMenus.StealthView.canceled += _ => StealthView = false;
+
+
+        }
+
+        private void OnEnable()
+        {
+            _controls.QuickMenus.Enable();
+            _controls.UI.Enable();
+        }
+        private void OnDisable()
+        {
+            _controls.QuickMenus.Disable();
+            _controls.UI.Disable();
+        }
+        private void OnDestroy() => _controls.Dispose();
 
     }
-
-    private void OnEnable()
-    {
-        _controls.QuickMenus.Enable();
-        _controls.UI.Enable();
-    }
-    private void OnDisable()
-    {
-        _controls.QuickMenus.Disable();
-        _controls.UI.Disable();
-    }
-    private void OnDestroy() => _controls.Dispose();
-    
 }

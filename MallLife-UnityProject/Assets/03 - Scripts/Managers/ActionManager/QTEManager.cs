@@ -7,7 +7,7 @@ public class QTEManager : Core.Singleton<QTEManager>
 {
 
     [Header("References")]
-    [SerializeField] private CoreInputs.QuickTimeEvents _inputQuickTimeEvents;
+    [SerializeField] private Inputs.QuickTimeEvents _inputQuickTimeEvents;
     [SerializeField] private QTEHandlerMovingBall _qteHandlerMovingBall;
     [SerializeField] private ActionHandlerMaintain _actionHandlerMaintain;
     [SerializeField] private ActionHandlerPush _actionHandlerPush;
@@ -58,11 +58,11 @@ public class QTEManager : Core.Singleton<QTEManager>
         _failureState.Exited += ExitFailedState;
 
         // Transitions
-        _actionStateMachine.AddTransition(_startState, _tickState, () => _inputQuickTimeEvents.ValidateUp);
-        _actionStateMachine.AddTransition(_startState, _inactiveState, () => _inputQuickTimeEvents.CancelUp);
-        _actionStateMachine.AddTransition(_failureState, _inactiveState, () => _inputQuickTimeEvents.CancelUp || _inputQuickTimeEvents.ValidateUp);
-        _actionStateMachine.AddTransition(_yellowSuccessState, _inactiveState, () => _inputQuickTimeEvents.CancelUp || _inputQuickTimeEvents.ValidateUp);
-        _actionStateMachine.AddTransition(_successState, _inactiveState, () => _inputQuickTimeEvents.CancelUp || _inputQuickTimeEvents.ValidateUp);
+        _actionStateMachine.AddTransition(_startState, _tickState, () => _inputQuickTimeEvents.Validate.Up);
+        _actionStateMachine.AddTransition(_startState, _inactiveState, () => _inputQuickTimeEvents.Cancel.Up);
+        _actionStateMachine.AddTransition(_failureState, _inactiveState, () => _inputQuickTimeEvents.Cancel.Up || _inputQuickTimeEvents.Validate.Up);
+        _actionStateMachine.AddTransition(_yellowSuccessState, _inactiveState, () => _inputQuickTimeEvents.Cancel.Up || _inputQuickTimeEvents.Validate.Up);
+        _actionStateMachine.AddTransition(_successState, _inactiveState, () => _inputQuickTimeEvents.Cancel.Up || _inputQuickTimeEvents.Validate.Up);
         
         // Start with inactive
         _actionStateMachine.ChangeState(_inactiveState);

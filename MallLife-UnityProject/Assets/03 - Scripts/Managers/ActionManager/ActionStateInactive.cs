@@ -1,7 +1,7 @@
 ﻿public class ActionStateInactive : ActionState
 {
 
-    public ActionStateInactive(CoreInputs.QuickTimeEvents inputQuickTimeEvents) : base(inputQuickTimeEvents) {}
+    public ActionStateInactive(Inputs.QuickTimeEvents inputQuickTimeEvents) : base(inputQuickTimeEvents) {}
     
     public override void OnEnter()
     {

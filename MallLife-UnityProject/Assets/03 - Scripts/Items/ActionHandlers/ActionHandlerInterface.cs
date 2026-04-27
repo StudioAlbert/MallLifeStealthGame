@@ -11,7 +11,7 @@ public enum ActionResult
 public interface IQTEHandler
 {
     void Init(GameObject actionObject, Action<ActionResult> handlerDone);
-    void Tick(float deltaTime, CoreInputs.QuickTimeEvents inputs);
+    void Tick(float deltaTime, Inputs.QuickTimeEvents inputs);
     
     IUIQteView UIActionView { get; }
     public bool NeedToConfirm { get; }

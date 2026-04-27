@@ -2,7 +2,7 @@ using Unity.VisualScripting;
 public class ActionStateTick : ActionState
 {
 
-    public ActionStateTick(CoreInputs.QuickTimeEvents inputQuickTimeEvents) : base(inputQuickTimeEvents) { }
+    public ActionStateTick(Inputs.QuickTimeEvents inputQuickTimeEvents) : base(inputQuickTimeEvents) { }
 
     public override void OnEnter()
     {

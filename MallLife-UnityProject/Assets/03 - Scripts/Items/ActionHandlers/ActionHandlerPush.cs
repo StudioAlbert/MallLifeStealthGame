@@ -35,9 +35,9 @@ public class ActionHandlerPush : MonoBehaviour, IQTEHandler
         }
     }
     
-    public void Tick(float deltaTime, CoreInputs.QuickTimeEvents inputs)
+    public void Tick(float deltaTime, Inputs.QuickTimeEvents inputs)
     {
-        if(inputs.SouthBtnDown)
+        if(inputs.SouthBtn.Down)
             _handlerDone?.Invoke(ActionResult.Success);
         
         if(_totalTickTime >= _descriptor.TotalTime)

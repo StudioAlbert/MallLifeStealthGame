@@ -39,5 +39,11 @@ namespace CoreInputs
         }
 
 
+        public void Reset()
+        {
+            _up = false;
+            _maintained = false;
+            _down = false;
+        }
     }
 }

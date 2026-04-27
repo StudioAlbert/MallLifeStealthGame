@@ -38,7 +38,7 @@ public class ActionHandlerMaintain : MonoBehaviour, IQTEHandler
         }
     }
     
-    public void Tick(float deltaTime, CoreInputs.QuickTimeEvents inputs)
+    public void Tick(float deltaTime, Inputs.QuickTimeEvents inputs)
     {
         if(_maintainedTime >= _descriptor.ActionTime)
             _handlerDone?.Invoke(ActionResult.Success);
@@ -47,8 +47,8 @@ public class ActionHandlerMaintain : MonoBehaviour, IQTEHandler
             _handlerDone?.Invoke(ActionResult.Failed);
         
         _totalTickTime += deltaTime;
-        if(inputs.SouthBtn) _maintainedTime += deltaTime;
-        if(inputs.SouthBtnUp) _maintainedTime = 0;
+        if(inputs.SouthBtn.Maintained) _maintainedTime += deltaTime;
+        if(inputs.SouthBtn.Up) _maintainedTime = 0;
         
         // just maintain A, always success, no failure on which button done
         // Debug.Log($"Maintain is ticking : {_totalTickTime}/{ErrorRatio} , {_maintainedTime}/{MaintainRatio}");

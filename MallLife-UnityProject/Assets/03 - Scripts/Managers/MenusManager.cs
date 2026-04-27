@@ -6,7 +6,7 @@ public class MenusManager : MonoBehaviour
 {
 
     [Header("References")]
-    [SerializeField] private InputMenus _inputMenus;
+    [SerializeField] private Inputs.InputMenus _inputMenus;
     [SerializeField] private GameObject _inventoryView;
 
     private void OnEnable()

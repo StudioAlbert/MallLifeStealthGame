@@ -39,12 +39,12 @@ public class QTEHandlerMovingBall : MonoBehaviour, IQTEHandler
     }
 
 
-    public void Tick(float deltaTime, CoreInputs.QuickTimeEvents inputs)
+    public void Tick(float deltaTime, Inputs.QuickTimeEvents inputs)
     {
         if (_totalTickTime >= _descriptor.TotalTime)
             _handlerDone?.Invoke(ActionResult.Failed);
         
-        if(inputs.SouthBtnDown)
+        if(inputs.SouthBtn.Down)
             _handlerDone?.Invoke(Resolve());
 
         _totalTickTime += deltaTime;

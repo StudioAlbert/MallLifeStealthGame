@@ -1,6 +1,6 @@
 ﻿public class ActionStateShowPanel : ActionState
 {
-    public ActionStateShowPanel(CoreInputs.QuickTimeEvents inputQuickTimeEvents, string panel) :
+    public ActionStateShowPanel(Inputs.QuickTimeEvents inputQuickTimeEvents, string panel) :
         base(inputQuickTimeEvents)
     {
         _panel = panel;

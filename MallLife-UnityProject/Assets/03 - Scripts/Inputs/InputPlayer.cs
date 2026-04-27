@@ -1,10 +1,9 @@
-﻿using NUnit.Framework.Constraints;
-using Unity.Properties;
+﻿using CoreInputs;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
-namespace CoreInputs
+namespace Inputs
 {
+    
     /// <summary>
     /// Reads GameControls inputs via callbacks internally and exposes the current values as public properties.
     /// Add this component to a persistent GameObject (e.g. GameManager).
@@ -20,16 +19,11 @@ namespace CoreInputs
         public Vector2 CameraZoom;
 
         // --- Buttons ---
-        private bool _useObjectUp;
-        private bool _useObjectDown;
-        public bool UseObject;
+
+        public CoreButton UseObject = new CoreButton();
         public bool Interact;
         public bool ChangeVehicle;
         public bool ChangeObject;
-
-        public bool UseObjectUp => Utils.OneUseValue(ref _useObjectUp);
-        public bool UseObjectDown => Utils.OneUseValue(ref _useObjectDown);
-
 
         private void Awake()
         {
@@ -52,18 +46,8 @@ namespace CoreInputs
             _controls.Player.CameraZoom.performed += ctx => CameraZoom = ctx.ReadValue<Vector2>();
             _controls.Player.CameraZoom.canceled += _ => CameraZoom = Vector2.zero;
 
-            _controls.Player.UseObject.started += _ =>
-            {
-                _useObjectUp = true;
-                UseObject = true;
-                _useObjectDown = false;
-            };
-            _controls.Player.UseObject.canceled += _ =>
-            {
-                _useObjectUp = false;
-                UseObject = false;
-                _useObjectDown = true;
-            };
+            _controls.Player.UseObject.started += _ => UseObject.Started();
+            _controls.Player.UseObject.canceled += _ => UseObject.Canceled();
 
             _controls.Player.Interact.started += _ => Interact = true;
             _controls.Player.Interact.canceled += _ => Interact = false;

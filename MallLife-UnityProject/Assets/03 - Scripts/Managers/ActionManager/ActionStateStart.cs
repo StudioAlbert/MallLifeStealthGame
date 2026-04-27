@@ -1,7 +1,7 @@
 public class ActionStateStart : ActionState
 {
 
-    public ActionStateStart(CoreInputs.QuickTimeEvents inputQuickTimeEvents) : base(inputQuickTimeEvents) {}
+    public ActionStateStart(Inputs.QuickTimeEvents inputQuickTimeEvents) : base(inputQuickTimeEvents) {}
     
     // ReSharper disable Unity.PerformanceAnalysis
     public override void OnEnter()
