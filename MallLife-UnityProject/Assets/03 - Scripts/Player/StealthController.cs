@@ -7,11 +7,11 @@ public class StealthController : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] private Sensor _stealthSensor;
-    [SerializeField] private CoreInputs.Player _inputPlayer;
-
     
     private Actionnable _actionnable;
-
+    // Catching new object only happened if trying to catch REAL new object
+    // Player has to move to catch a new object, if he remains still, nothing happens
+    private bool _allowNewObject = true;
     
     // Update is called once per frame
     void Update()
@@ -23,7 +23,11 @@ public class StealthController : MonoBehaviour
             // Attrapé, est il un objet à activer ?
             _stealthSensor.Object.TryGetComponent(out Actionnable newActivable);
             // oui, je l'active
-            if (newActivable && newActivable != _actionnable) Activate(newActivable);
+            if (_allowNewObject && newActivable && newActivable != _actionnable)
+            {
+                _allowNewObject = false;
+                Activate(newActivable);
+            }
             // Non, alors je desactive le précedent objet
             if (!newActivable)
             {
@@ -33,6 +37,7 @@ public class StealthController : MonoBehaviour
         else
         {
            Deactivate();
+           _allowNewObject = true;
         }
 
     }

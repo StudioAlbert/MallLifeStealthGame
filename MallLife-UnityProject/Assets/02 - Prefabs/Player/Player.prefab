@@ -105,13 +105,11 @@ MonoBehaviour:
   Move: {x: 0, y: 0}
   MoveNormalized: {x: 0, y: 0}
   CameraOrbit: {x: 0, y: 0}
+  CameraZoom: {x: 0, y: 0}
   UseObject: 0
   Interact: 0
   ChangeVehicle: 0
   ChangeObject: 0
-  MenuEquipment: 0
-  MenuObjectives: 0
-  MenuStealthView: 0
 --- !u!114 &6975143228764990566
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -124,7 +122,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b07ac69466cac546b40ba1de6229714, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
-  _gameInput: {fileID: -7394810101135062809}
+  _inputPlayer: {fileID: 0}
   _rigidbody: {fileID: 4725938549485833562}
   _moveCurve:
     serializedVersion: 2
@@ -173,8 +171,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 449a1a7462476614e8a376c497f9e84d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StealthController
-  _stealthSensor: {fileID: 4256018235112374024}
-  _gameInput: {fileID: -7394810101135062809}
+  _stealthSensor: {fileID: 0}
+  _inputPlayer: {fileID: 0}
 --- !u!1 &7056355638613147910
 GameObject:
   m_ObjectHideFlags: 0
@@ -443,22 +441,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4275783899414228437, guid: f7ce595ee783af04aa930953c4a491f4, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f7ce595ee783af04aa930953c4a491f4, type: 3}
---- !u!114 &4256018235112374024 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4275783899414228437, guid: f7ce595ee783af04aa930953c4a491f4, type: 3}
-  m_PrefabInstance: {fileID: 19923994549310173}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 53139a3dd33e2bd48855eae5c95a633a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ObjectSensor
 --- !u!4 &8943150703601800911 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8960682125664060434, guid: f7ce595ee783af04aa930953c4a491f4, type: 3}
