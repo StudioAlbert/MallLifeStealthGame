@@ -33,9 +33,6 @@ public class QTEManager : Core.Singleton<QTEManager>
 
     private IQTEHandler _actionHandler;
 
-    private float _lastTimeUnlocked;
-    private bool _lockStateMachine;
-
     private void OnEnable()
     {
         // Init State machine
@@ -49,6 +46,7 @@ public class QTEManager : Core.Singleton<QTEManager>
 
         // Wiring events
         _inactiveState.Entered += StopAllCoroutines;
+        
         _successState.Entered += DelayedForceChange;
         _yellowSuccessState.Entered += DelayedForceChange;
         _failureState.Entered += DelayedForceChange;
@@ -84,15 +82,11 @@ public class QTEManager : Core.Singleton<QTEManager>
 
     private void Update()
     {
-        _lockStateMachine = (Time.time - _lastTimeUnlocked <= _timeBeforeUnlock);
         _actionStateMachine.Tick(Time.deltaTime);
     }
 
     public void StartQTE(GameObject objectToFollow)
     {
-        // TODO : Lock sytem ?
-        //if(_lockStateMachine) return;
-        
         // Try to get an actual QTE
         _actionHandler = GetQTE(objectToFollow);
         if (_actionHandler == null) return;
@@ -151,7 +145,6 @@ public class QTEManager : Core.Singleton<QTEManager>
     public void Interrupt()
     {
         _actionStateMachine.ChangeState(_inactiveState);
-        _lockStateMachine = true;
     }
 
     private void ExitSuccessState() => HandleQTEResult(ActionResult.Success);
@@ -173,7 +166,6 @@ public class QTEManager : Core.Singleton<QTEManager>
                 throw new ArgumentOutOfRangeException(nameof(result), result, null);
         }
         OnQteEndedResult?.Invoke(result);
-        _lastTimeUnlocked = Time.time;
     }
     
     private void DelayedForceChange()
