@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace CoreInputs
 {
@@ -22,13 +23,16 @@ namespace CoreInputs
 
         public bool Up => Utils.OneUseValue(ref _up);
         public bool Down => Utils.OneUseValue(ref _down);
-        public bool Maintained => _maintained; 
+        public bool Maintained => _maintained;
+        public event Action OnUp;
+        public event Action OnDown;
         
         public void Started()
         {
             _up = false;
             _maintained = true;
             _down = true;
+            OnUp?.Invoke();
         }
         
         public void Canceled()
@@ -36,6 +40,7 @@ namespace CoreInputs
             _up = true;
             _maintained = false;
             _down = false;
+            OnDown?.Invoke();
         }
 
 

@@ -10,6 +10,7 @@ namespace Inputs
         // Menus -----------------------------------
         public CoreInputs.CoreButton Inventory = new CoreInputs.CoreButton();
         public CoreInputs.CoreButton Cancel = new CoreInputs.CoreButton();
+        public CoreInputs.CoreButton Confirm = new CoreInputs.CoreButton();
         public bool Objectives;
         public bool StealthView;
 
@@ -24,6 +25,9 @@ namespace Inputs
 
             _controls.UI.Cancel.started += _ => Cancel.Started();
             _controls.UI.Cancel.canceled += _ => Cancel.Canceled();
+            
+            _controls.UI.Confirm.started += _ => Confirm.Started();
+            _controls.UI.Confirm.canceled += _ => Confirm.Canceled();
 
             _controls.QuickMenus.Quests.started += _ => Objectives = true;
             _controls.QuickMenus.Quests.canceled += _ => Objectives = false;
