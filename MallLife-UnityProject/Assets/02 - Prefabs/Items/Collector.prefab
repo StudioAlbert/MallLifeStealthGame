@@ -158,21 +158,15 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  _onActivate:
+  _onActionSucceed:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 8259575168789275065}
-        m_TargetAssemblyTypeName: FactionQuestCollector, Assembly-CSharp
-        m_MethodName: Collect
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
+  _onActionYellowSucceed:
+    m_PersistentCalls:
+      m_Calls: []
+  _onActionFailed:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &1336550023389112290
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -199,3 +193,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FactionQuestCollector
   _inventory: {fileID: 11400000, guid: 87365f924763c784b83835b48ef74495, type: 2}
   _questContent: {fileID: 0}
+  _quest:
+    Faction: 0
+    ItemsToSteal: []
+  _onCollected:
+    m_PersistentCalls:
+      m_Calls: []
+  _onCollectFailed:
+    m_PersistentCalls:
+      m_Calls: []
+  _onQuestComplete:
+    m_PersistentCalls:
+      m_Calls: []

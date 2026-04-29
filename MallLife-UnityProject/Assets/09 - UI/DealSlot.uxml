@@ -1,0 +1,18 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:Template name="InventorySlot" src="project://database/Assets/09%20-%20UI/InventorySlot.uxml?fileID=9197481963319205126&amp;guid=dee95de0ab8dddd4cabc2777467bc10a&amp;type=3#InventorySlot"/>
+    <Style src="project://database/Assets/09%20-%20UI/Style.uss?fileID=7433441132597879392&amp;guid=a5ddd88d4ee62284286cba5298daf885&amp;type=3#Style"/>
+    <ui:VisualElement name="deal-slot" style="flex-grow: 1; border-left-color: rgb(255, 255, 255); border-right-color: rgb(255, 255, 255); border-top-color: rgb(255, 255, 255); border-bottom-color: rgb(255, 255, 255); border-top-width: 2px; border-right-width: 2px; border-bottom-width: 2px; border-left-width: 2px; border-top-left-radius: 5px; border-top-right-radius: 5px; border-bottom-right-radius: 5px; border-bottom-left-radius: 5px; margin-top: 10px; margin-right: 10px; margin-bottom: 10px; margin-left: 10px;">
+        <ui:VisualElement name="items" style="flex-grow: 1; flex-direction: row;">
+            <ui:Instance template="InventorySlot" name="item-slot" style="aspect-ratio: 1;"/>
+            <ui:Instance template="InventorySlot" name="item-slot" style="aspect-ratio: 1;"/>
+            <ui:Instance template="InventorySlot" name="item-slot" style="aspect-ratio: 1;"/>
+            <ui:Instance template="InventorySlot" name="item-slot" style="aspect-ratio: 1;"/>
+        </ui:VisualElement>
+        <ui:VisualElement name="status" style="flex-grow: 1; flex-direction: row; align-self: auto; align-content: auto; align-items: center; justify-content: flex-end;">
+            <ui:Image style="background-image: url(&quot;project://database/Assets/00%20-%20Imports_Packs/UI%20Toolkit/UnityThemes/UnityDefaultRuntimeTheme.tss?fileID=7433338533053954386&amp;guid=5474e56ef395f404d8f08509af1edf59&amp;type=3#check@2x&quot;); background-color: rgb(0, 0, 0); width: 24px; height: auto; margin-top: 5px; margin-right: 5px; margin-bottom: 5px; margin-left: 5px; aspect-ratio: 1;"/>
+            <ui:Label text="Completed" class="basic-text-prompt text-h2" style="margin-top: 10px; margin-right: 10px; margin-bottom: 10px; margin-left: 10px;"/>
+            <ui:Image style="background-image: url(&quot;project://database/Assets/00%20-%20Imports_Packs/UI%20Toolkit/UnityThemes/UnityDefaultRuntimeTheme.tss?fileID=7433338533053954386&amp;guid=5474e56ef395f404d8f08509af1edf59&amp;type=3#check@2x&quot;); background-color: rgb(0, 0, 0); width: 24px; height: auto; margin-top: 5px; margin-right: 5px; margin-bottom: 5px; margin-left: 5px; aspect-ratio: 1;"/>
+            <ui:Label text="Selected" class="basic-text-prompt h2 text-h2"/>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
